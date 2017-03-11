@@ -23,7 +23,7 @@ end
 t.OnCommand = setVisibility
 t.CurrentSongChangedMessageCommand = setVisibility
 
-local charName = (GAMESTATE:Env())['SNCharacter'..
+local charName = (GAMESTATE:Env())['X3Character'..
     ToEnumShortString(GAMESTATE:GetMasterPlayerNumber())] or ""
 
 local loadWorked = false
@@ -32,9 +32,9 @@ local potentialVideo = Characters.GetDancerVideo(charName)
 if potentialVideo then
     loadWorked = true
 	t[#t+1] = LoadActor( potentialVideo )..{
-		InitCommand=cmd(draworder,1;Center;zoomto,SCREEN_WIDTH+38,SCREEN_HEIGHT+38;);	
+		InitCommand=cmd(draworder,1;Center;zoomto,SCREEN_WIDTH+38,SCREEN_HEIGHT+38;);
 	};
 
 end
-	
+
 return {bg=t, worked=loadWorked};

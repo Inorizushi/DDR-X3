@@ -144,5 +144,4 @@ local t = Def.ActorFrame {
 		-- Milestone Logic
 	end;
 };
-
 return t;

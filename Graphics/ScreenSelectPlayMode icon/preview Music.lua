@@ -6,7 +6,7 @@ end;
 
 
 return Def.ActorFrame {
--- Load of Music play frame -- 
+-- Load of Music play frame --
     LoadActor( "MusicPlay" )..{
 	    InitCommand=cmd(;x,-35;y,215;zoom,1.5);
 		OnCommand=cmd(zoomy,0;sleep,0.5;linear,0.2;zoomy,1.5);
@@ -17,16 +17,18 @@ return Def.ActorFrame {
 		OnCommand=cmd(zoomy,0;sleep,0.5;linear,0.2;zoomy,-1.5);
 		OffCommand=cmd(linear,0.2;zoomy,0;diffusealpha,0);
 	};
-	LoadActor( "BgFrame" )..{
-		OnCommand=cmd(x,-45;y,-25;zoom,1.5);
+	LoadActor( "BgFrameMask.png" )..{
+		InitCommand=cmd(blend,Blend.NoEffect;zwrite,1;clearzbuffer,true;);
+		OnCommand=cmd(x,-45;y,-25;zoom,1.5;);
 		OffCommand=cmd(sleep,0.2;linear,0.07;addx,2000;diffusealpha,0);
 	};
-	LoadActor( "BgFrame" )..{
-	    InitCommand=cmd(blend,'BlendMode_Add';diffusealpha,0;x,-45;y,-25;zoom,1.5);
-		OnCommand=cmd(diffusealpha,1;sleep,1.2;playcommand,"Animate");
-		AnimateCommand=cmd(diffuseshift;effectperiod,2);
-		GainFocusCommand=cmd(stoptweening;diffusealpha,1;playcommand,"Animate");
-		LoseFocusCommand=cmd(stoptweening;diffusealpha,0);
+	LoadActor( "BgFrame.png" )..{
+		OnCommand=cmd(x,-45;y,-25;zoom,1.5;ztest,1);
+		OffCommand=cmd(sleep,0.2;linear,0.07;addx,2000;diffusealpha,0);
+	};
+	LoadActor( "Glow" )..{
+		OnCommand=cmd(blend,Blend.Add;zoomy,1;rotationz,-8;diffusealpha,0.75;x,-45;y,-40;zoomx,1.6;ztest,1;queuecommand,"Anim");
+		AnimCommand=cmd(y,-220;linear,0.2;diffusealpha,1;linear,3;y,220;diffusealpha,0;sleep,2;queuecommand,"Anim";);
 		OffCommand=cmd(sleep,0.2;linear,0.07;addx,2000;diffusealpha,0);
 	};
 	LoadActor( "CharactFrame" )..{

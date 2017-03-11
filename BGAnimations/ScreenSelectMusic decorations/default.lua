@@ -172,6 +172,62 @@ t[#t+1] = Def.ActorFrame{
 };
 end
 
+t[#t+1] = LoadActor( "_ShockArrow_mark 1P 8x1" ) .. {
+	InitCommand=cmd(draworder,100;x,SCREEN_CENTER_X-112;y,SCREEN_CENTER_Y-14;zoom,1;diffuseshift;effectcolor1,1,1,1,1;effectcolor2,0.85,0.85,0.85,1;effectperiod,0.25;playcommand,"Set");
+	SetCommand=function(self)
+		local song = GAMESTATE:GetCurrentSong();
+		local yZoom = 0
+		if song then
+			local steps = GAMESTATE:GetCurrentSteps(PLAYER_1)
+			if steps then
+				if steps:GetRadarValues(PLAYER_1):GetValue('RadarCategory_Mines') == 0 then
+					yZoom = 0
+				else
+					yZoom = 1
+				end
+			else
+				yZoom = 0
+			end
+		else
+			yZoom = 0
+		end
+		self:finishtweening()
+		self:decelerate(0.15)
+		self:zoomy(yZoom)
+	end;
+	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
+	CurrentStepsP1ChangedMessageCommand=cmd(playcommand,"Set");
+	OffCommand=cmd(decelerate,0.25;zoomy,0);
+};
+
+-- ShockArrow mark 2P
+t[#t+1] = LoadActor( "_ShockArrow_mark 2P 8x1" ) .. {
+	InitCommand=cmd(draworder,100;x,SCREEN_CENTER_X+112;y,SCREEN_CENTER_Y-14;zoom,1;diffuseshift;effectcolor1,1,1,1,1;effectcolor2,0.85,0.85,0.85,1;effectperiod,0.25;playcommand,"Set");
+	SetCommand=function(self)
+		local yZoom = 0
+		if GAMESTATE:GetCurrentSong() then
+			local steps = GAMESTATE:GetCurrentSteps(PLAYER_2)
+			if steps then
+				if steps:GetRadarValues(PLAYER_2):GetValue('RadarCategory_Mines') == 0 then
+					yZoom = 0
+				else
+					yZoom = 1
+				end
+			else
+				yZoom = 0
+			end
+		else
+			yZoom = 0
+		end
+		self:finishtweening()
+		self:decelerate(0.1)
+		self:zoomy(yZoom)
+	end;
+	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
+	CurrentStepsP2ChangedMessageCommand=cmd(playcommand,"Set");
+	OffCommand=cmd(decelerate,0.25;zoomy,0);
+};
+
 t[#t+1] = LoadActor( "ST.png" )..{
 		OnCommand=function(self)
 			if(GAMESTATE:IsCourseMode()) then

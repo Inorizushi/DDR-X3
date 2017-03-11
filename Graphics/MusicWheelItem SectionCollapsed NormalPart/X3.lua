@@ -5,7 +5,7 @@ local t = Def.ActorFrame{
 	OffCommand=cmd(sleep,0.2;accelerate,0.1;zoom,1.4;decelerate,0.1;zoom,0);
 Def.Banner {
 		Name="SongBanner";
-		InitCommand=cmd(scaletoclipped,220,220);
+		InitCommand=cmd(scaletoclipped,256,256);
 		SetMessageCommand=function(self,params)
 					group = params.Text;
 		local so = GAMESTATE:GetSortOrder();
@@ -367,7 +367,7 @@ Def.Banner {
 
 Def.Banner {
 		Name="SongReflection";
-		InitCommand=cmd(scaletoclipped,220,220;y,220;rotationx,180;croptop,0.5;diffusealpha,0.6;diffusetopedge,1,1,1,0;);
+		InitCommand=cmd(scaletoclipped,256,256;y,256;rotationx,180;croptop,0.5;diffusealpha,0.6;diffusetopedge,1,1,1,0;);
 		SetMessageCommand=function(self,params)
 					group = params.Text;
 		local so = GAMESTATE:GetSortOrder();
@@ -898,7 +898,7 @@ Def.Banner {
 
 	Def.Banner {
 		Name="SongBanner";
-		InitCommand=cmd(scaletoclipped,225,252);
+		InitCommand=cmd(scaletoclipped,260,290);
 		SetMessageCommand=function(self,params)
 				self:Load( THEME:GetPathG("Common fallback","outer frame banner") );
 		end;
@@ -906,7 +906,7 @@ Def.Banner {
 
 	Def.Banner {
 		Name="SongBanner";
-		InitCommand=cmd(scaletoclipped,225,252;y,220;rotationx,180;croptop,0.5;diffusealpha,0.5;diffusetopedge,1,1,1,0);
+		InitCommand=cmd(scaletoclipped,260,290;y,256;rotationx,180;croptop,0.5;diffusealpha,0.5;diffusetopedge,1,1,1,0);
 		SetMessageCommand=function(self,params)
 			self:Load( THEME:GetPathG("Common fallback","outer frame banner") );
 		end;

@@ -1,9 +1,9 @@
 Characters = {}
 local c = Characters
 
-local requiredFiles = {"combo.png", "combo100.png"}
+local requiredFiles = {"comboA.png", "comboB.png", "combo100.png"}
 
-local rootPath = "/SNCharacters/"
+local rootPath = "/X3Characters/"
 
 --Returns the base path for a character or none if that character doesn't exist.
 function Characters.GetPath(name)
@@ -193,7 +193,7 @@ function OptionRowCharacters()
         LoadSelections = function(self, list, pn)
             local pn = ToEnumShortString(pn)
             local env = GAMESTATE:Env()
-            local currentChar = env['SNCharacter'..pn]
+            local currentChar = env['X3Character'..pn]
             if choiceListReverse[currentChar] then
                 list[choiceListReverse[currentChar]+1] = true
             else
@@ -203,7 +203,7 @@ function OptionRowCharacters()
         SaveSelections = function(self, list, pn)
             local pn = ToEnumShortString(pn)
             local env = GAMESTATE:Env()
-            local varName = 'SNCharacter'..pn
+            local varName = 'X3Character'..pn
             for idx, selected in ipairs(list) do
                 if selected then
                     if idx == 1 then

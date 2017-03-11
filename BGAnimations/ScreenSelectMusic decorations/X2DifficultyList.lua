@@ -140,24 +140,6 @@ local function IndicatorUpdate(self, pn)
     self:visible(false)
 end
 
-local function ColorUpdate(self, pn)
-    if not GAMESTATE:IsPlayerEnabled(pn) then return end
-    self:finishtweening()
-    local currentlyVisible = self:GetVisible()
-    local steps = GetCurrentSteps(pn)
-    if steps and GAMESTATE:GetCurrentSong() then
-        if currentlyVisible then
-            self:linear(0.2)
-        end
-        local yPos = DiffToYPos(steps:GetDifficulty())
-        if yPos then
-            self:visible(true)
-            self:y(yPos)
-            return
-        end
-    end
-    self:visible(false)
-end
 
 local function AddContentsToOutput(tbl)
     for _, e in pairs(tbl) do
@@ -272,6 +254,7 @@ for idx, diff in pairs(difficultiesToDraw) do
 				else
 					self:diffuse{0.5,0.5,0.5,0.5}
 					self:targetnumber(0)
+					self:Load("RollingNumbersMeterNoDiff")
 				end
 			end
 		},

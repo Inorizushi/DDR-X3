@@ -16,8 +16,8 @@ elseif index == 4 then
 end
 --------------------------------------
 t[#t+1] = Def.ActorFrame {
-	GainFocusCommand=function(s) s:linear(0.2):zoom(1):diffuse(color("1,1,1,1")); end;
-	LoseFocusCommand=function(s) s:finishtweening():linear(0.2):zoom(0.75):diffuse(color("0.6,0.6,0.6,1")); end;
+	GainFocusCommand=function(s) s:addy(-20):linear(0.2):zoom(1):diffuse(color("1,1,1,1")); end;
+	LoseFocusCommand=function(s) s:finishtweening():addy(20):linear(0.4):zoom(0.75):diffuse(color("0.6,0.6,0.6,1")); end;
   LoadActor("preview " .. gc:GetName() ) .. {
 		OnCommand=cmd();
 		OffCommand=cmd();

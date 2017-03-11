@@ -1,5 +1,7 @@
 local t = LoadFallbackB()
 
+MIXMode = 0;
+
 t[#t+1] = StandardDecorationFromFile("Version","Version")
 
 --if Endless mode didn't get a chance to clean up after itself properly,

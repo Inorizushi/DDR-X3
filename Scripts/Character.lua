@@ -45,7 +45,7 @@ local function ValidateAndProcessConfig(loadedCfg)
     if (loadedCfg.version < 1) then
         return false, "invalid version field"
     end
-    if (loadedCfg.version ~= math.floor(version)) then
+    if (loadedCfg.version ~= math.floor(loadedCfg.version)) then
     	return false, "version is not an integer"
     end
     if (loadedCfg.version > 2) then

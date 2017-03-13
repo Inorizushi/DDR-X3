@@ -7,7 +7,7 @@ local gradeToGraphic = {
 	Grade_Tier06 = "Grade_D",
 	Grade_Failed = "Grade_E",
 }
-setmetatable(gradeToGraphic, __index = function(t, k) error("unknown grade "..k, 2))
+setmetatable(gradeToGraphic, __index = function(t, k) error("unknown grade "..k, 2) end)
 local t = Def.ActorFrame {
 --P1--
 --FCRingP1--

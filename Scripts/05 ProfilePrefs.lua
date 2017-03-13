@@ -6,6 +6,7 @@ character: the name of the character that should be used.
 filter: the screen filter darkness that should be used.
 lanes: whether lane boundaries should be shown or not.
 bias: whether the early/late indicator should be shown.
+stars: extra stage stars (it's not a pref. should that be here?)
 ]]
 local defaultPrefs = 
 {
@@ -13,7 +14,8 @@ local defaultPrefs =
 	character = "",
 	filter = 0,
 	lanes = false,
-	bias = false
+	bias = false,
+	stars = 0
 }
 local gameSeed = nil
 local machinePrefs = DeepCopy(defaultPrefs)

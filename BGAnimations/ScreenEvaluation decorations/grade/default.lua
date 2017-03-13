@@ -1,3 +1,13 @@
+local gradeToGraphic = {
+	Grade_Tier01 = "Grade_3A",
+	Grade_Tier02 = "Grade_2A",
+	Grade_Tier03 = "Grade_A",
+	Grade_Tier04 = "Grade_B",
+	Grade_Tier05 = "Grade_C",
+	Grade_Tier06 = "Grade_D",
+	Grade_Failed = "Grade_E",
+}
+setmetatable(gradeToGraphic, __index = function(t, k) error("unknown grade "..k, 2))
 local t = Def.ActorFrame {
 --P1--
 --FCRingP1--

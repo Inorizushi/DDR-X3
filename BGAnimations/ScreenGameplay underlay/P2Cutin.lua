@@ -1,11 +1,13 @@
 local env = GAMESTATE:Env()
 local charP2Name = env.X3CharacterP2 or ""
-local charP2Path = Characters.GetPath(charP2Name)
 local style = GAMESTATE:GetCurrentStyle():GetStyleType();
 
 local t = Def.ActorFrame{};
 if (charP2Name ~= "") then
   local charP2Color = (Characters.GetConfig(charP2Name)).color
+  local charP2ComboA = Characters.GetAssetPath(charP2Name, "comboA.png")
+  local charP2ComboB = Characters.GetAssetPath(charP2Name, "comboB.png")
+  local charP2Combo100 = Characters.GetAssetPath(charP2Name, "combo100.png")
 
 t[#t+1] = Def.ActorFrame{
   ComboChangedMessageCommand=function(self, params)
@@ -74,7 +76,7 @@ Def.Sprite {
     if style == "StyleType_TwoPlayersTwoSides" or GAMESTATE:GetPlayMode() == 'PlayMode_Rave' then
       self:y(-50)
     end
-    self:Load(charP2Path.."/comboA.png")
+    self:Load(charP2ComboA)
   end;
   PopupACommand=function(self)
 		self:finishtweening();
@@ -105,7 +107,7 @@ Def.Sprite {
     if style == "StyleType_TwoPlayersTwoSides" or GAMESTATE:GetPlayMode() == 'PlayMode_Rave' then
       self:y(-50)
     end
-    self:Load(charP2Path.."/comboB.png")
+    self:Load(charP2ComboB)
   end;
   ----------- use for every 50hit  ex 50 150 250 350 comb etc..
 	PopupBCommand=function(self)
@@ -137,7 +139,7 @@ Def.Sprite {
     if style == "StyleType_TwoPlayersTwoSides" or GAMESTATE:GetPlayMode() == 'PlayMode_Rave' then
       self:y(-50)
     end
-    self:Load(charP2Path.."/combo100.png")
+    self:Load(charP2Combo100)
   end;
   PopupCCommand=function(self)
 		self:finishtweening();

@@ -68,7 +68,7 @@ local function GetScoreDataFromThing(thing, tnsFuncName, hnsFuncName)
     for tns, _ in pairs(maxQuasiMultipliers) do
         output[tns] = tnsFunc(thing, tns)
     end
-    for _, hns in pairs({HoldNoteScore_Held, HoldNoteScore_LetGo})
+    for _, hns in pairs({HoldNoteScore_Held, HoldNoteScore_LetGo}) do
         output[hns] = hnsFunc(thing, hns)
     end
 end
@@ -313,8 +313,8 @@ local grade_table = {
 --i'm too lazy to fill this out in full, so this does it for me
 do
     local rev_diff = Enum.Reverse(Difficulty)
-    local max_diff = rev_diff.Difficulty_Challenge
-    local min_diff = rev_diff.Difficulty_Beginner
+    local max_diff = rev_diff.Difficulty_Challenge+1
+    local min_diff = rev_diff.Difficulty_Beginner+1
     --DeepCopy is so that these are all independent
     local cur_grade_table = grade_table.Difficulty_Edit
     for idx=max_diff, min_diff, -1 do

@@ -1,5 +1,14 @@
 local t= Def.ActorFrame{};
 
+local AcceptableDifficulties = 
+{
+	'Difficulty_Easy', 'Difficulty_Medium', 'Difficulty_Hard'
+}
+local DiffToIndex = {}
+for k, v in pairs(AcceptableDifficulties) do
+	DiffToIndex[v] = k
+end
+
 t[#t+1] = Def.Actor{
 	OnCommand=function(self)
 		if GAMESTATE:GetNumPlayersEnabled() == 1 then
@@ -7,6 +16,25 @@ t[#t+1] = Def.Actor{
 		elseif GAMESTATE:GetNumPlayersEnabled() == 2 then
 			GAMESTATE:SetCurrentStyle("versus");
 		end;
+	end;
+	CodeMessageCommand=function(self, params)
+		local CurDiffIdx = DiffToIndex[
+			GAMESTATE:GetPreferredDifficulty(GAMESTATE:GetMasterPlayerNumber())]
+		local NewDiffIdx
+		local codeName = params.Name
+		if codeName == "Easier" then
+			NewDiffIdx = CurDiffIdx - 1
+		elseif codeName == "Harder" then
+			NewDiffIdx = CurDiffIdx + 1
+		else
+			return
+		end
+		NewDiffIdx = clamp(NewDiffIdx, 1, #AcceptableDifficulties)
+		if NewDiffIdx ~= CurDiffIdx then
+			local NewDiff = AcceptableDifficulties[NewDiffIdx]
+			GAMESTATE:ApplyGameCommand("difficulty,"..ToEnumShortString(NewDiff))
+			MESSAGEMAN:Broadcast("ModeDiffChange", {Difficulty=NewDiff})
+		end
 	end;
 };
 
@@ -28,9 +56,19 @@ t[#t+1] = Def.ActorFrame{
 };
 
 t[#t+1] = Def.ActorFrame{
-	LoadActor("basic")..{
-		InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+220);
+	LoadActor("basic placeholder");
+	LoadActor("basic window")..{
+		Name = "Window";
+		InitCommand = function(s) s:y(16):x(96):halign(1) end;
 	};
+	LoadActor("knob base")..{
+		InitCommand = function(s) s:x(84):y(-20) end;
+	};
+	LoadActor("knob needle")..{
+		Name = "Needle";
+		InitCommand = function(s) s:valign(1):x(96):y(-12) end;
+	};
+	InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+220)
 };
 
 return t

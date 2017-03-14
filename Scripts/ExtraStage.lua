@@ -4,7 +4,7 @@ local gradeAwards = {
 	Grade_Tier01 = 3,
 	Grade_Tier02 = 2
 }
-setmetatable(gradeAwards, __index=function() return 1 end)
+setmetatable(gradeAwards, {__index=function() return 1 end})
 
 function ExtraStage.GetStarsFromPSS(pss)
 	local grade = pss:GetGrade()

@@ -6,6 +6,6 @@ return Def.ActorFrame{
     InitCommand=cmd(CenterX;valign,0;y,SCREEN_TOP);
   };
   LoadActor("base")..{
-    InitCommand=cmd(Center);
+    InitCommand=cmd(Center;diffusealpha,0);
   };
 };

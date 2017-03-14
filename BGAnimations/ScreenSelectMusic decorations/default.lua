@@ -231,9 +231,9 @@ t[#t+1] = LoadActor( "_ShockArrow_mark 2P 8x1" ) .. {
 t[#t+1] = LoadActor( "ST.png" )..{
 		OnCommand=function(self)
 			if(GAMESTATE:IsCourseMode()) then
-				(cmd(x,SCREEN_CENTER_X-150;y,SCREEN_CENTER_Y+30;diffusealpha,0;sleep,0.2;decelerate,0.15;diffusealpha,0.75;))(self);
+				(cmd(x,SCREEN_CENTER_X-150;y,SCREEN_CENTER_Y+30;diffusealpha,0;sleep,0.2;decelerate,0.15;diffusealpha,1;))(self);
 			else
-				(cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+30;diffusealpha,0;sleep,0.2;decelerate,0.15;diffusealpha,0.75;))(self);
+				(cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+30;diffusealpha,0;sleep,0.2;decelerate,0.15;diffusealpha,1;))(self);
 			end
 
 		end;

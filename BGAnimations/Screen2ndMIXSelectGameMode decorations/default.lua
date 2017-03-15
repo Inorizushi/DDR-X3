@@ -1,6 +1,6 @@
 local t= Def.ActorFrame{};
 
-local AcceptableDifficulties = 
+local AcceptableDifficulties =
 {
 	'Difficulty_Easy', 'Difficulty_Medium', 'Difficulty_Hard'
 }
@@ -40,7 +40,6 @@ t[#t+1] = Def.Actor{
 
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+30);
-	LoadActor("base");
 	Def.Sprite{
 		EASYMessageCommand=function(s) s:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/easytext")) end,
 		NORMMessageCommand=function(s) s:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/normtext")) end,
@@ -58,7 +57,6 @@ t[#t+1] = Def.ActorFrame{
 t[#t+1] = Def.ActorFrame{
 	LoadActor("basic placeholder");
 	LoadActor("basic window")..{
-		Name = "Window";
 		InitCommand = function(s) s:y(16):x(96):halign(1) end;
 	};
 	LoadActor("knob base")..{
@@ -69,6 +67,32 @@ t[#t+1] = Def.ActorFrame{
 		InitCommand = function(s) s:valign(1):x(96):y(-12) end;
 	};
 	InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+220)
+};
+
+
+
+
+--Sound Handling
+t[#t+1] = LoadActor("back")..{
+	MenuLeftP1MessageCommand=cmd(play);
+	MenuLeftP2MessageCommand=cmd(play);
+	CodeMessageCommand=function(self, params)
+		local codeName = params.Name
+		if codeName == "Easier" then
+			self:play()
+		end
+	end;
+};
+
+t[#t+1] = LoadActor("forward")..{
+	MenuRightP1MessageCommand=cmd(play);
+	MenuRightP2MessageCommand=cmd(play);
+	CodeMessageCommand=function(self, params)
+		local codeName = params.Name
+		if codeName == "Harder" then
+			self:play()
+		end
+	end;
 };
 
 return t

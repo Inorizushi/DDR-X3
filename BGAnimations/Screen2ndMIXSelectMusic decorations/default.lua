@@ -110,8 +110,14 @@ t[#t+1] = Def.Sprite{
         self:setstate(4)
       elseif meter == 6 then
         self:setstate(5)
-      elseif meter >= 10 then
+      elseif meter == 7 then
+        self:setstate(6)
+      elseif meter == 8 then
+        self:setstate(7)
+      elseif meter == 9 then
         self:setstate(8)
+      elseif meter >= 10 then
+        self:setstate(9)
       end;
     else
       self:visible(false)

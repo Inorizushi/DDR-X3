@@ -1,6 +1,6 @@
 local t = LoadFallbackB()
 
-MIXMode = 0;
+setenv("MIXMODE",false);
 
 t[#t+1] = StandardDecorationFromFile("Version","Version")
 

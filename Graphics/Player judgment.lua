@@ -6,11 +6,10 @@ local player = Var "Player";
 local playerPrefs = ProfilePrefs.Read(GetProfileIDForPlayer(player))
 
 local env = GAMESTATE:Env();
-local starterMode = env.StarterMode == true;
 local OLDMIX = env.OLDMIX == true;
 
 --disable bias in starter mode
-local showBias = playerPrefs.bias and (not starterMode)
+local showBias = playerPrefs.bias and (not OLDMIX)
 
 local JudgeCmds = {
 	TapNoteScore_W1 = THEME:GetMetric( "Judgment", "JudgmentW1Command" );
@@ -21,12 +20,12 @@ local JudgeCmds = {
 	TapNoteScore_Miss = THEME:GetMetric( "Judgment", "JudgmentMissCommand" );
 };
 
-local StJudgeCmds = {
-	TapNoteScore_W1 = THEME:GetMetric( "Judgment", "JudgmentW1Command" );
-	TapNoteScore_W2 = THEME:GetMetric( "Judgment", "JudgmentW1Command" );
-	TapNoteScore_W3 = THEME:GetMetric( "Judgment", "JudgmentW1Command" );
+local OLDJudgeCmds = {
+	TapNoteScore_W1 = THEME:GetMetric( "Judgment", "JudgmentW2Command" );
+	TapNoteScore_W2 = THEME:GetMetric( "Judgment", "JudgmentW2Command" );
+	TapNoteScore_W3 = THEME:GetMetric( "Judgment", "JudgmentW3Command" );
 	TapNoteScore_W4 = THEME:GetMetric( "Judgment", "JudgmentW4Command" );
-	TapNoteScore_W5 = THEME:GetMetric( "Judgment", "JudgmentW4Command" );
+	TapNoteScore_W5 = THEME:GetMetric( "Judgment", "JudgmentW5Command" );
 	TapNoteScore_Miss = THEME:GetMetric( "Judgment", "JudgmentMissCommand" );
 };
 
@@ -43,18 +42,18 @@ local TNSFrames = {
 
 --frame 1 is the Early frame, 2 is the Late frame and doesn't appear in the table
 --it is added by code downstream
-local StTNSFrames = {
+local OLDTNSFrames = {
 	TapNoteScore_W1 = 0;
 	TapNoteScore_W2 = 0;
-	TapNoteScore_W3 = 0;
-	TapNoteScore_W4 = 1;
-	TapNoteScore_W5 = 1;
-	TapNoteScore_Miss = 3;
+	TapNoteScore_W3 = 1;
+	TapNoteScore_W4 = 2;
+	TapNoteScore_W5 = 3;
+	TapNoteScore_Miss = 4;
 };
 
 
-local activeFrames = starterMode and StTNSFrames or TNSFrames;
-local activeCmds = starterMode and StJudgeCmds or JudgeCmds;
+local activeFrames = OLDMIX and OLDTNSFrames or TNSFrames;
+local activeCmds = OLDMIX and OLDJudgeCmds or JudgeCmds;
 
 local t = Def.ActorFrame {
 
@@ -74,7 +73,7 @@ local t = Def.ActorFrame {
 		local iTapNoteOffset = param.TapNoteOffset;
 		local late = iTapNoteOffset and (iTapNoteOffset > 0);
 
-		if starterMode and (iFrame == 1 and late) then
+		if OLDMIX and (iFrame == 1 and late) then
 			iFrame = 2;
 		end;
 
@@ -97,7 +96,7 @@ local t = Def.ActorFrame {
 	end;
 };
 
-t[#t+1] = LoadActor(THEME:GetPathG("Judgment",starterMode and "Starter" or "Normal")) .. {
+t[#t+1] = LoadActor(THEME:GetPathG("Judgment",OLDMIX and "2ndMIX" or "Normal")) .. {
 	Name="Judgment";
 	InitCommand=cmd(pause;visible,false);
 	OnCommand=THEME:GetMetric("Judgment","JudgmentOnCommand");

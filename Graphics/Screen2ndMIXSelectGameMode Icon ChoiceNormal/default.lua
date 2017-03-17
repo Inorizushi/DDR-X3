@@ -1,23 +1,52 @@
 local t = Def.ActorFrame{
-	GainFocusCommand=function(s) MESSAGEMAN:Broadcast("NORM") s:draworder(3):linear(0.2):zoom(1):diffuse(color("1,1,1,1")); end;
-	LoseFocusCommand=function(s) s:stoptweening():draworder(1):linear(0.2):zoom(0.75):diffuse(color("0.6,0.6,0.6,1")); end;
+	GainFocusCommand=function(s) MESSAGEMAN:Broadcast("NORM") end;
 	OffCommand=cmd(sleep,0.116;linear,0.066;zoomy,0;diffusealpha,0);
 	-- Information panel
-	--[[LoadActor("base");
-	LoadActor("cone")..{
-		InitCommand=cmd(visible,false);
+	LoadActor(THEME:GetPathG("","_shared2ndMIX/GameMode/speaker"))..{
+		GainFocusCommand=cmd(linear,0.2;zoom,1;diffuse,color("1,1,1,1"));
+		LoseFocusCommand=cmd(stoptweening;linear,0.2;zoom,0.75;diffuse,color("0.75,0.75,0.75,1"));
+	};
+	LoadActor(THEME:GetPathG("","_shared2ndMIX/GameMode/cone"))..{
+		InitCommand=cmd(visible,false;zoom,0.9);
 		GainFocusCommand=cmd(visible,true;heartbeat;effectperiod,0.2);
-		LoseFocusCommand=cmd(stopeffect;visible,false);
+		LoseFocusCommand=cmd(stoptweening;stopeffect;visible,false);
 	};
-	LoadActor("label")..{
-		InitCommand=cmd(y,-5;zoom,0.8;);
+	Def.Sprite{
+		InitCommand=cmd(y,-14;pause;);
+		Texture="label";
+		GainFocusCommand=function(self)
+			self:setstate(0)
+			self:linear(0.2)
+			self:zoom(1)
+		end;
+		LoseFocusCommand=function(self)
+			self:setstate(1)
+			self:stoptweening():linear(0.2):zoom(0.65);
+		end;
 	};
-	LoadActor("label")..{
-		InitCommand=cmd(y,-5;zoom,0.8;diffusealpha,0.25);
-		GainFocusCommand=cmd(rainbow);
-		LoseFocusCommand=cmd(stopeffect);
-	};]]--
-	LoadActor("HD");
+	Def.Sprite{
+		Texture = "../_shared2ndMIX/GameMode/stages";
+		InitCommand=cmd(y,84;pause);
+		GainFocusCommand=cmd(linear,0.2;zoom,1);
+		LoseFocusCommand=cmd(stoptweening;linear,0.2;zoom,0.55);
+		SetCommand=function(self)
+			local stages = PREFSMAN:GetPreference("SongsPerPlay")
+			local event = PREFSMAN:GetPreference("EventMode")
+			if stages == 1 then
+				self:setstate(0)
+			elseif stages == 2 then
+				self:setstate(1)
+			elseif stages == 3 then
+				self:setstate(2)
+			elseif stages == 4 then
+				self:setstate(3)
+			elseif stages >= 5 then
+				self:setstate(4)
+			elseif event == 1 then
+				self:visible(false)
+			end;
+		end;
+	};
 };
 
 return t;

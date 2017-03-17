@@ -49,38 +49,6 @@ for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
 	};
 end;
 
---Player 1 Risky Splitter
-if GAMESTATE:IsPlayerEnabled('PlayerNumber_P1') then
-t[#t+1] = LoadActor("splitter")..{
-	InitCommand=function(self)
-		self:x(-(SCREEN_WIDTH/5.7)):skewx(WideScale(-1.5,-0.9)):zoomto((SCREEN_WIDTH/2.54),14):halign(0.75);
-	end;
-	BeginCommand=function(self,param)
-		if GAMESTATE:PlayerIsUsingModifier('PlayerNumber_P1','battery') or GAMESTATE:GetPlayMode() == 'PlayMode_Oni' then
-			self:visible(true);
-		else
-			self:visible(false);
-		end;
-	end;
-};
-end;
-
---Player 2 Risky Splitter
-if GAMESTATE:IsPlayerEnabled('PlayerNumber_P2') then
-t[#t+1] = LoadActor("splitter")..{
-	InitCommand=function(self)
-		self:x((SCREEN_WIDTH/5.7)):skewx(WideScale(1.5,0.9)):zoomto((SCREEN_WIDTH/2.54),14):halign(0.25);
-	end;
-	BeginCommand=function(self,param)
-		if GAMESTATE:PlayerIsUsingModifier('PlayerNumber_P2','battery') or GAMESTATE:GetPlayMode() == 'PlayMode_Oni' then
-			self:visible(true);
-		else
-			self:visible(false);
-		end;
-	end;
-};
-end;
-
 --Player 1 Danger
 t[#t+1] = LoadActor("danger 2x1")..{
 		InitCommand=cmd(x,WideScale(-160,-213.5);visible,false);

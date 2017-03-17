@@ -9,11 +9,13 @@ t[#t+1] = Def.ActorFrame{
 t[#t+1] = Def.ActorFrame{
   InitCommand=cmd(draworder,99;CenterX;y,SCREEN_CENTER_Y+130);
   OffCommand=cmd(sleep,0.15;linear,0.15;diffusealpha,0);
-	LoadActor("arrow") .. {
-		InitCommand=cmd(x,224;rotationy,180);
+	Def.Sprite{
+    Texture="arrow";
+		InitCommand=cmd(x,224;rotationy,180;pause;setstate,0);
 	};
-	LoadActor("arrow") .. {
-		InitCommand=cmd(x,-224);
+  Def.Sprite{
+    Texture="arrow";
+		InitCommand=cmd(x,-224;pause;setstate,0);
 	};
 };
 

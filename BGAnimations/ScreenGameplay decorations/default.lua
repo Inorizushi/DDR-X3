@@ -8,7 +8,6 @@ t[#t+1] = StandardDecorationFromFile("ScoreFrame","ScoreFrame")
 t[#t+1] = StandardDecorationFromFile("StageDisplay","StageDisplay")
 
 local ScoringPlayers = {}
-
 t[#t+1] = Def.Actor{
     Name="ScoringController",
     JudgmentMessageCommand = function(_,params)
@@ -51,6 +50,7 @@ t[#t+1] = Def.ActorFrame{
     InitCommand = function(s) s:SetUpdateFunction(ScoreUpdate) end
 }
 --options--
+if not getenv("OLDMIX") then
 t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P1") ) .. {
 		InitCommand=cmd(player,PLAYER_1;zoomx,2;zoomy,1.5;x,WideScale(SCREEN_CENTER_X-221,SCREEN_CENTER_X-296);draworder,1);
 		OnCommand=function(self)
@@ -94,6 +94,6 @@ t[#t+1] = LoadActor("Frame")..{
     end;
   end;
 };
-
+end;
 
 return t

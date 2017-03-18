@@ -1,5 +1,4 @@
 return Def.ActorFrame{
-
 	-- SPONSOR GAMECENTER ETC ---------
 	LoadActor( "sponsor.png" )..{
 	    InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;),

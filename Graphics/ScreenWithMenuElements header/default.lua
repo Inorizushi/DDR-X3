@@ -35,7 +35,7 @@ end
 local out = Def.ActorFrame{
 	LoadActor("base")..{
 		InitCommand=function(self)
-			self:x(SCREEN_CENTER_X):diffusealpha(0.9)
+			self:x(SCREEN_CENTER_X)
 		end;
 	};
 }
@@ -44,7 +44,7 @@ local out = Def.ActorFrame{
 if headerTextImage then
 	table.insert(out,LoadActor(headerTextImage)..{
 		InitCommand=function(self)
-			self:x(SCREEN_CENTER_X)
+			self:x(SCREEN_CENTER_X):y(-20)
 		end;
 	})
 end

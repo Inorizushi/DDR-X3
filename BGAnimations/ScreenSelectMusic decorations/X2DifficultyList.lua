@@ -278,8 +278,10 @@ for idx, diff in pairs(difficultiesToDraw) do
 					scorelist = profile:GetHighScoreList(song,steps);
 					assert(scorelist)
 					local scores = scorelist:GetHighScores();
+					local transData;
+					local topscore;
 					if scores[1] then
-						topscore = scores[1]:GetScore()
+						topscore = SN2Scoring.GetSN2ScoreFromHighScore(steps, scores[1])
 					else
 						topscore = 0;
 					end;

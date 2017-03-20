@@ -71,6 +71,7 @@ local function GetScoreDataFromThing(thing, tnsFuncName, hnsFuncName)
     for _, hns in pairs({HoldNoteScore_Held, HoldNoteScore_LetGo}) do
         output[hns] = hnsFunc(thing, hns)
     end
+    return output
 end
 
 function SN2Scoring.PrepareScoringInfo(starterRules)
@@ -101,6 +102,9 @@ end
 --all earned TapNoteScores in the class W1-W5 and Miss under their native names
 --all earned HoldNoteScores
 function SN2Scoring.ComputeNormalScoreFromData(data, max, scoringRuleSet)
+    for k, v in pairs(data) do
+        print(k, v)
+    end
     scoringRuleSet = scoringRuleSet or normalScoringRules.normal
     local objectCount = data.Total
     local maxScore = 1000000

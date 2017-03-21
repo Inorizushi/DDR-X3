@@ -21,9 +21,9 @@ t[#t+1] = Def.ActorFrame{
 
 --Stage
 t[#t+1] = Def.Sprite{
-  Texture = "Stages 1x9";
   InitCommand=cmd(pause;y,SCREEN_CENTER_Y-244;x,SCREEN_CENTER_X+296;halign,1;queuecommand,"Set");
   SetCommand=function(self)
+  self:Load(THEME:GetPathG("","_shared2ndMIX/Stages 1x9"));
     local GetStage = GAMESTATE:GetCurrentStage();
     if GetStage == 'Stage_1st' then
       self:setstate(0);
@@ -56,13 +56,13 @@ t[#t+1] = Def.Sprite{
   SetCommand=function(s)
     local style = GAMESTATE:GetCurrentStyle():GetStyleType()
     if style == 'StyleType_OnePlayerOneSide' then
-      s:Load(THEME:GetPathB("","Screen2ndMIXSelectMusic decorations/single"));
+      s:Load(THEME:GetPathG("","_shared2ndMIX/Styles/single"));
     elseif style == 'StyleType_TwoPlayersTwoSides' then
-      s:Load(THEME:GetPathB("","Screen2ndMIXSelectMusic decorations/versus"));
+      s:Load(THEME:GetPathG("","_shared2ndMIX/Styles/versus"));
     elseif style == 'StyleType_OnePlayerTwoSides' then
-      s:Load(THEME:GetPathB("","Screen2ndMIXSelectMusic decorations/double"));
+      s:Load(THEME:GetPathG("","_shared2ndMIX/Styles/double"));
     elseif style == 'StyleType_TwoPlayersSharedSides' then
-      s:Load(THEME:GetPathB("","Screen2ndMIXSelectMusic decorations/couple"));
+      s:Load(THEME:GetPathB("","_shared2ndMIX/Styles/couple"));
     end;
   end;
 };
@@ -133,11 +133,9 @@ t[#t+1] = LoadActor("bottom")..{
 
 -- Dancer 1P
 	t[#t+1]=Def.Sprite{
-		InitCommand = cmd(player,PLAYER_1;vertalign,bottom;zoom,2.5;diffuse,PlayerColor(PLAYER_1);diffusealpha,0.75;x,SCREEN_CENTER_X-380;y,SCREEN_CENTER_Y+190;blend,Blend.Add);
+		InitCommand = cmd(player,PLAYER_1;vertalign,bottom;diffusealpha,0.75;x,SCREEN_CENTER_X-380;y,SCREEN_CENTER_Y+190;blend,Blend.Add);
 		OnCommand =function(self)
-			local Ramdoms = {"A","B","C","D"}
-			local RamdomDancer = Ramdoms[math.random(#Ramdoms)];
-			self:Load(THEME:GetPathG("","_Dancer/1Pdancer"..RamdomDancer));
+			self:Load(THEME:GetPathG("","_Dancer/1Pdancer 24x1.png"));
 			self:playcommand("Set");
 		end;
 		-- SetCommand base from DDR 5th MIX by AJ 187
@@ -146,7 +144,7 @@ t[#t+1] = LoadActor("bottom")..{
 			if song then
 				local dispBpms = song:GetDisplayBpms()
 				local bpmLimited = clamp(math.abs(dispBpms[2]),1,9999)
-				local bps = (1/bpmLimited)*5;
+				local bps = (1/bpmLimited)*10;
 				self:SetAllStateDelays(bps);
 			else
 				self:SetAllStateDelays(0.042);
@@ -156,7 +154,7 @@ t[#t+1] = LoadActor("bottom")..{
 		PlayerJoinedMessageCommand=function(self, params)
 			if params.Player == PLAYER_1 then
 				self:visible(true);
-				(cmd(zoom,0;bounceend,0.3;zoom,1.5))(self);
+				(cmd(zoom,0;bounceend,0.3;zoom,1))(self);
 			end;
 		end;
 		PlayerUnjoinedMessageCommand=function(self, params)

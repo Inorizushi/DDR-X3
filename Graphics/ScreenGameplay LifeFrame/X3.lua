@@ -26,8 +26,8 @@ else
 end
 
 local xPosPlayer = {
-    P1 = (WideScale(-175,-239)),
-    P2 = (WideScale(175,239))
+    P1 = (SCREEN_CENTER_X-367),
+    P2 = (SCREEN_CENTER_X+367)
 }
 
 local xPosPlayerRave = {
@@ -43,7 +43,6 @@ for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
 		InitCommand=function(self)
 			local short = ToEnumShortString(pn)
 			self:x(xPosPlayer[short])
-			self:halign(0.5)
 		end,
 		OnCommand=function(s) s:zoomx(pn=='PlayerNumber_P2' and -1 or 1) end,
 	};

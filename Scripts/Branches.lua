@@ -14,7 +14,7 @@ function CorrectSSM()
 	else
 		local stage = GAMESTATE:GetCurrentStage()
 		Trace(stage)
-		if getenv("MIXMODE")  then
+		if Is2ndMIX()  then
 			return "Screen2ndMIXSelectMusic"
 		else
 			return "ScreenSelectMusic"

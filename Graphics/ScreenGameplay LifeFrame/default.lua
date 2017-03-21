@@ -1,13 +1,13 @@
 local t = Def.ActorFrame{};
 local screenName = Var "LoadingScreen"
 
-if MIXMode ~= 1 then
+if Is2ndMIX() then
   t[#t+1] = Def.ActorFrame{
-    LoadActor("X3");
+    LoadActor("2nd");
   };
 else
   t[#t+1] = Def.ActorFrame{
-    LoadActor("2nd");
+    LoadActor("X3");
   };
 end;
 

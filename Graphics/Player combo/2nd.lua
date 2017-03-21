@@ -1,8 +1,8 @@
 local c;
 local player = Var "Player";
 local ShowComboAt = THEME:GetMetric("Combo", "ShowComboAt");
-local Pulse = THEME:GetMetric("Combo", "PulseCommand");
-local PulseLabel = THEME:GetMetric("Combo", "PulseLabelCommand");
+local Pulse = THEME:GetMetric("Combo", "2ndPulseCommand");
+local PulseLabel = THEME:GetMetric("Combo", "2ndPulseLabelCommand");
 
 local NumberMinZoom = THEME:GetMetric("Combo", "NumberMinZoom");
 local NumberMaxZoom = THEME:GetMetric("Combo", "NumberMaxZoom");

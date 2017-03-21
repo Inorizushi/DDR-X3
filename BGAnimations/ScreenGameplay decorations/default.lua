@@ -8,6 +8,48 @@ t[#t+1] = StandardDecorationFromFile("ScoreFrame","ScoreFrame")
 t[#t+1] = StandardDecorationFromFile("StageDisplay","StageDisplay")
 
 local ScoringPlayers = {}
+--[[t[#t+1] = Def.Actor{
+    Name="ScoringController",
+    JudgmentMessageCommand = function(_,params)
+        if not (( ScoringInfo[params.Player]) and
+            (ScoringInfo.seed == GAMESTATE:GetStageSeed())) then
+            SN2Scoring.PrepareScoringInfo(IsStarterMode())
+            ScoringInfo.seed = GAMESTATE:GetStageSeed()
+        end
+        if not ScoringPlayers[params.Player] then
+            ScoringPlayers[params.Player] = true
+        end
+        local es = (GAMESTATE:Env()).EndlessState
+        if es then
+            local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(params.Player)
+            es.scoring.handleNoteScore(params.HoldNoteScore or params.TapNoteScore,
+                GAMESTATE:GetCurrentStageIndex()+1,
+                pss:GetCurrentCombo())
+            --SCREENMAN:SystemMessage(es.scoring.getScoreString())
+        end
+    end,
+}
+
+local function ScoreUpdate()
+    for pn, _ in pairs(ScoringPlayers) do
+        local info = ScoringInfo[pn]
+        local stage = GAMESTATE:IsCourseMode() and GAMESTATE:GetCourseSongIndex() + 1 or nil
+        local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn)
+        local score = info.GetCurrentScore(pss, stage)
+        pss:SetScore(score)
+        local scoreDisplay = SCREENMAN:GetTopScreen():GetChild("Score"..ToEnumShortString(pn))
+        if scoreDisplay then
+            scoreDisplay:GetChild("Text"):targetnumber(score)
+        end
+        pss:SetCurMaxScore(info.GetCurrentMaxScore(pss, stage))
+    end
+end
+
+t[#t+1] = Def.ActorFrame{
+    Name = "ScoringController2",
+    InitCommand = function(s) s:SetUpdateFunction(ScoreUpdate) end
+}]]--
+
 t[#t+1] = Def.Actor{
     Name="ScoringController",
     JudgmentMessageCommand = function(_,params)
@@ -49,6 +91,33 @@ t[#t+1] = Def.ActorFrame{
     Name = "ScoringController2",
     InitCommand = function(s) s:SetUpdateFunction(ScoreUpdate) end
 }
+
+local xPosPlayer = {
+    P1 = (THEME:GetMetric(Var "LoadingScreen","PlayerP1OnePlayerOneSideX")),
+    P2 = (THEME:GetMetric(Var "LoadingScreen","PlayerP2OnePlayerOneSideX"))
+}
+
+if Is2ndMIX() then
+  for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
+    t[#t+1] = Def.RollingNumbers {
+      Font="2ndMIXScore";
+      InitCommand=function(self)
+        local short = ToEnumShortString(pn)
+        self:y(SCREEN_BOTTOM-40);
+        self:x(xPosPlayer[short]):Load("RollingNumbers2ndGameplay")
+        self:draworder(200)
+      end;
+      JudgmentMessageCommand=function(s)
+        local info = ScoringInfo[pn]
+        local stage = GAMESTATE:IsCourseMode() and GAMESTATE:GetCourseSongIndex() + 1 or nil
+        local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn)
+        local score = info.GetCurrentScore(pss, stage)
+        s:targetnumber(score);
+      end,
+    };
+  end;
+end;
+
 --options--
 if not getenv("OLDMIX") then
 t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P1") ) .. {

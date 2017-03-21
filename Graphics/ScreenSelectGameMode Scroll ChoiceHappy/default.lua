@@ -12,11 +12,17 @@ local t = Def.ActorFrame{
 	--[[LoadActor("char")..{
 		InitCommand=cmd(addy,-36;addx,14);
 	};
-	LoadActor("base")..{
-		InitCommand=cmd(addy,190;addx,14;zoomx,1.12;zoomy,1.12);
+	LoadActor(THEME:GetPathG("","_sharedX3/GameMode/base"))..{
+		InitCommand=cmd(addy,188;addx,16;);
 	};
 	LoadActor("icon")..{
 		InitCommand=cmd(addx,-200;addy,130);
+	};
+	LoadActor("icon")..{
+		InitCommand=cmd(blend,Blend.Add;;diffusealpha,0;addx,-200;addy,130);
+		GainFocusCommand=cmd(queuecommand,"Anim");
+		AnimCommand=cmd(rotationz,0;zoom,1;sleep,0.5;diffusealpha,0.5;linear,0.2;rotationz,360;linear,0.2;zoom,1.1;linear,0.2;diffusealpha,0;sleep,1;queuecommand,"Anim");
+		LoseFocusCommand=cmd(stopeffect;stoptweening);
 	};]]--
 };
 return t;

@@ -1,6 +1,6 @@
 local t = Def.ActorFrame{};
 
-if getenv("MIXMODE") then
+if Is2ndMIX() then
   t[#t+1] = Def.ActorFrame{
     LoadActor("2nd");
   };

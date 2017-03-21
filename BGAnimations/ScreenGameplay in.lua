@@ -18,9 +18,15 @@ else
 	sStage = sStage;
 end;
 local t = Def.ActorFrame {};
-t[#t+1] =Def.ActorFrame{
-	LoadActor(THEME:GetPathB("","doors open"));
-};
+if Is2ndMIX() then
+	t[#t+1] =Def.ActorFrame{
+		LoadActor(THEME:GetPathB("","_2ndDoorsopen"));
+	};
+else
+	t[#t+1] =Def.ActorFrame{
+		LoadActor(THEME:GetPathB("","doors open"));
+	};
+end;
 
 --song jacket--
 t[#t+1] = Def.ActorFrame {

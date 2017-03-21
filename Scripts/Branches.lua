@@ -91,6 +91,14 @@ Branch.AfterInstructions = function()
 	return GAMESTATE:IsCourseMode() and "ScreenSelectCourse" or CorrectSSM()
 end
 
+Branch.AfterGameMode = function()
+	if Is2ndMIX() then
+		return "Screen2ndMIXLogo"
+	else
+		return "ScreenSelectStyle"
+	end;
+end;
+
 Branch.GameplayScreen = function()
 	if IsRoutine() then
 		return "ScreenGameplayShared"

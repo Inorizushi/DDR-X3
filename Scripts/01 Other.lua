@@ -17,7 +17,13 @@ function ComboTransformCommand( self, params )
 	self:y( y )
 end
 
-
+function GMDelayMusic()
+	if Is2ndMIX() then
+		return false
+	else
+		return true
+	end;
+end;
 --This comes in handy in a number of places
 function GetOrCreateChild(tab, field, kind)
     kind = kind or 'table'

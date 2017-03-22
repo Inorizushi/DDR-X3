@@ -147,6 +147,7 @@ t[#t+1] = LoadActor("StartJoinSSS")..{
   end;
   OnCommand=cmd(sleep,0.3;zoom,0;rotationz,-720;linear,0.35;rotationz,720;diffusealpha,1;zoom,1;playcommand,"Animate");
   AnimateCommand=cmd(linear,0.25;zoomx,0.95;linear,0.25;zoomx,1;queuecommand,"Animate");
+  OffCommand=cmd(stoptweening;linear,0.25;zoomy,0;diffusealpha,0);
   SetCommand=function(self)
     if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
       self:visible(false);
@@ -170,6 +171,7 @@ t[#t+1] = LoadActor("StartJoinSSS")..{
   end;
   OnCommand=cmd(sleep,0.3;zoom,0;rotationz,-720;linear,0.35;rotationz,720;diffusealpha,1;zoom,1;playcommand,"Animate");
   AnimateCommand=cmd(linear,0.25;zoomx,0.95;linear,0.25;zoomx,1;queuecommand,"Animate");
+  OffCommand=cmd(stoptweening;linear,0.25;zoomy,0;diffusealpha,0);
   SetCommand=function(self)
     if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
       self:visible(false);

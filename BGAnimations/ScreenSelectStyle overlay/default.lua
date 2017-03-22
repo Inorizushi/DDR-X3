@@ -1,76 +1,146 @@
 local t = Def.ActorFrame {};
 t[#t+1] = Def.ActorFrame {
----------------------------------- Explanation Frame -------------------------
----------- SOUND ----------
+  Name="Frames";
+  LoadActor("Frame")..{
+    Name="P1 Frame";
+    InitCommand=cmd(x,SCREEN_LEFT;y,SCREEN_BOTTOM-80;halign,1;zoomx,-1);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 2 then
+        self:visible(false)
+      else
+        self:visible(true)
+      end;
+    end;
+    OffCommand=cmd(smooth,0.2;diffusealpha,0;);
+    PlayerJoinedMessageCommand=function(self,param)
+      if param.Player == PLAYER_1 then
+        self:queuecommand("Off")
+      end;
+      if param.Player == PLAYER_2 then
+        self:queuecommand("Off")
+      end;
+    end;
+  };
+  LoadActor("Frame")..{
+    Name="P2 Frame";
+    InitCommand=cmd(x,SCREEN_RIGHT;y,SCREEN_BOTTOM-80;halign,1);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 2 then
+        self:visible(false)
+      else
+        self:visible(true)
+      end;
+    end;
+    OffCommand=cmd(smooth,0.2;diffusealpha,0;);
+    PlayerJoinedMessageCommand=function(self,param)
+      if param.Player == PLAYER_1 then
+        self:queuecommand("Off")
+      end;
+      if param.Player == PLAYER_2 then
+        self:queuecommand("Off")
+      end;
+    end;
+  };
+};
 
----------- BACK ----------
-    LoadActor("ExplFrame") .. {
-        InitCommand=cmd(draworder,200;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM;vertalign,bottom);
-		OnCommand=cmd();
-		OffCommand=cmd(smooth,0.2;diffusealpha,0;);
-    };
-------------------------- FOR PLAYER 1 -------------
----- P1 TEXT HERE -------
-    LoadActor("P1here") .. {
-	    Condition=GAMESTATE:IsHumanPlayer(PLAYER_1);
-        InitCommand=cmd(draworder,200;x,SCREEN_LEFT;y,SCREEN_BOTTOM;horizalign,left;vertalign,bottom;);
-		OnCommand=cmd();
-		OffCommand=cmd(smooth,0.2;diffusealpha,0;);
-    };
-	LoadActor("P1here") .. {
-	    Condition=not GAMESTATE:IsHumanPlayer(PLAYER_1);
-        InitCommand=cmd(draworder,200;x,SCREEN_LEFT;y,SCREEN_BOTTOM;horizalign,left;vertalign,bottom;diffusealpha,0);
-		OnCommand=cmd();
-		OffCommand=cmd(smooth,0.2;diffusealpha,0);
-		PlayerJoinedMessageCommand=function(self,param)
-				if param.Player == PLAYER_1 then
-					(cmd(linear,0.15;diffusealpha,1;))(self);
-				end;
-			end;
-    };
----- P1 TEXT NOHERE ------
-	LoadActor("P1Nohere") .. {
-	    Condition=not GAMESTATE:IsHumanPlayer(PLAYER_1);
-        InitCommand=cmd(draworder,200;x,SCREEN_LEFT;y,SCREEN_BOTTOM;horizalign,left;vertalign,bottom;);
-		OnCommand=cmd();
-		OffCommand=cmd(smooth,0.2;diffusealpha,0);
-		PlayerJoinedMessageCommand=function(self,param)
-				if param.Player == PLAYER_1 then
-					(cmd(linear,0.15;diffusealpha,0;))(self);
-				end;
-			end;
-    };
-------------------------- FOR PLAYER 2 -------------
----- P1 TEXT HERE -------
-    LoadActor("P2here") .. {
-	    Condition=GAMESTATE:IsHumanPlayer(PLAYER_2);
-        InitCommand=cmd(draworder,200;x,SCREEN_RIGHT;y,SCREEN_BOTTOM;horizalign,right;vertalign,bottom;);
-		OnCommand=cmd();
-		OffCommand=cmd(smooth,0.2;diffusealpha,0;);
-    };
-	LoadActor("P2here") .. {
-	    Condition=not GAMESTATE:IsHumanPlayer(PLAYER_2);
-        InitCommand=cmd(draworder,200;x,SCREEN_RIGHT;y,SCREEN_BOTTOM;horizalign,right;vertalign,bottom;diffusealpha,0);
-		OnCommand=cmd();
-		OffCommand=cmd(smooth,0.2;diffusealpha,0);
-		PlayerJoinedMessageCommand=function(self,param)
-				if param.Player == PLAYER_2 then
-					(cmd(linear,0.15;diffusealpha,1;))(self);
-				end;
-			end;
-    };
----- P1 TEXT NOHERE ------
-	LoadActor("P2Nohere") .. {
-	    Condition=not GAMESTATE:IsHumanPlayer(PLAYER_2);
-        InitCommand=cmd(draworder,200;x,SCREEN_RIGHT;y,SCREEN_BOTTOM;horizalign,right;vertalign,bottom;);
-		OnCommand=cmd();
-		OffCommand=cmd(smooth,0.2;diffusealpha,0);
-		PlayerJoinedMessageCommand=function(self,param)
-				if param.Player == PLAYER_2 then
-					(cmd(linear,0.15;diffusealpha,0;))(self);
-				end;
-			end;
-    };
+t[#t+1] = Def.ActorFrame {
+  Name="Badges";
+  LoadActor(THEME:GetPathG("","_sharedX3/P1 BADGE"))..{
+    Name="P1 Badge";
+    InitCommand=cmd(x,SCREEN_LEFT+106;y,SCREEN_BOTTOM-116);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 2 then
+        self:visible(false)
+      else
+        self:visible(true)
+      end;
+    end;
+    OffCommand=cmd(smooth,0.2;diffusealpha,0;);
+    PlayerJoinedMessageCommand=function(self,param)
+      if param.Player == PLAYER_1 then
+        self:queuecommand("Off")
+      end;
+      if param.Player == PLAYER_2 then
+        self:queuecommand("Off")
+      end;
+    end;
+  };
+  LoadActor(THEME:GetPathG("","_sharedX3/P2 BADGE"))..{
+    Name="P2 Badge";
+    InitCommand=cmd(x,SCREEN_RIGHT-106;y,SCREEN_BOTTOM-116);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 2 then
+        self:visible(false)
+      else
+        self:visible(true)
+      end;
+    end;
+    OffCommand=cmd(smooth,0.2;diffusealpha,0;);
+    PlayerJoinedMessageCommand=function(self,param)
+      if param.Player == PLAYER_1 then
+        self:queuecommand("Off")
+      end;
+      if param.Player == PLAYER_2 then
+        self:queuecommand("Off")
+      end;
+    end;
+  };
+};
+
+t[#t+1] = Def.ActorFrame{
+  Def.Sprite{
+    Name="P1 Messages";
+    InitCommand=cmd(x,SCREEN_LEFT+280;y,SCREEN_BOTTOM-80;queuecommand,"Set");
+    SetCommand=function(self)
+      local GetP1 = GAMESTATE:IsPlayerEnabled(PLAYER_1);
+      if GetP1 == true and GAMESTATE:GetMasterPlayerNumber() == PLAYER_1 then
+        self:visible(true)
+        self:Load(THEME:GetPathB("","ScreenSelectStyle overlay/P1here"));
+      elseif GetP1 == false and GAMESTATE:PlayersCanJoin() and GAMESTATE:GetMasterPlayerNumber() == PLAYER_2 then
+        self:visible(true)
+        self:Load(THEME:GetPathB("","ScreenSelectStyle overlay/P1CanJoin"));
+      elseif GAMESTATE:GetNumPlayersEnabled() == 2 then
+        self:visible(false)
+      end;
+    end;
+    OffCommand=cmd(smooth,0.2;diffusealpha,0);
+    PlayerJoinedMessageCommand=function(self,param)
+      if param.Player == PLAYER_1 then
+        self:queuecommand("Off")
+      end;
+      if param.Player == PLAYER_2 then
+        self:queuecommand("Off")
+      end;
+    end;
+  };
+  Def.Sprite{
+    Name="P2 Messages";
+    InitCommand=cmd(x,SCREEN_RIGHT-280;y,SCREEN_BOTTOM-80;queuecommand,"Set");
+    SetCommand=function(self)
+      local GetP2 = GAMESTATE:IsPlayerEnabled(PLAYER_2);
+      if GetP2 == true and GAMESTATE:GetMasterPlayerNumber() == PLAYER_2 then
+        self:visible(true)
+        self:Load(THEME:GetPathB("","ScreenSelectStyle overlay/P2here"));
+      elseif GetP2 == false and GAMESTATE:PlayersCanJoin() and GAMESTATE:GetMasterPlayerNumber() == PLAYER_1 then
+        self:Load(THEME:GetPathB("","ScreenSelectStyle overlay/P2CanJoin"));
+        self:visible(true)
+      elseif GAMESTATE:GetNumPlayersEnabled() == 2 then
+        self:visible(false)
+      end;
+    end;
+    OffCommand=cmd(smooth,0.2;diffusealpha,0);
+    PlayerJoinedMessageCommand=function(self,param)
+      if param.Player == PLAYER_1 then
+        self:queuecommand("Off")
+      end;
+      if param.Player == PLAYER_2 then
+        self:queuecommand("Off")
+      end;
+    end;
+  };
+};
+
+t[#t+1] = Def.ActorFrame{
 	--------------------- ARROW SELECTION -----------------------------
     LoadActor("_selectarrow") .. {
         InitCommand=cmd(draworder,200;horizalign,center;x,SCREEN_CENTER_X-255;y,SCREEN_CENTER_Y+190;zoomx,0.5;zoomy,0.5;diffusealpha,0);
@@ -87,39 +157,71 @@ t[#t+1] = Def.ActorFrame {
 		MenuRightP2MessageCommand=cmd(smooth,0.1;addx,20;smooth,0.1;addx,-20;);
     };
 };
---[[function LoadPlayerStuff(Player)
-local t = {};
-local pn = (Player == PLAYER_1) and 1 or 2;]]--
 
----------------------- PRESS START BUTTON ----------------------------------------
--- check if the player is actually even here! ---- for player 2 --
-t[#t+1] = Def.ActorFrame {
-	LoadActor("StartJoinSSS") .. {
-	    Condition=not GAMESTATE:IsHumanPlayer(PLAYER_2);
-		InitCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X+392;y,SCREEN_CENTER_Y+160);
-		OnCommand=cmd(sleep,0.3;zoom,0;rotationz,-720;linear,0.35;rotationz,720;diffusealpha,1;zoom,1;playcommand,"Animate");
-		AnimateCommand=cmd(linear,0.25;zoomx,0.95;linear,0.25;zoomx,1;queuecommand,"Animate");
-		OffCommand=cmd(stoptweening;linear,0.25;zoomy,0;diffusealpha,0);
-		PlayerJoinedMessageCommand=function(self,param)
-				if param.Player == PLAYER_2 then
-					(cmd(linear,0.15;zoomy,0;))(self);
-				end;
-			end;
-	};
+t[#t+1] = LoadActor("StartJoinSSS")..{
+  Name = "PressStartP1";
+  InitCommand=function(self)
+    self:x(SCREEN_LEFT+254):y(SCREEN_CENTER_Y+160)
+    self:queuecommand("Set")
+    self:diffusealpha(0)
+  end;
+  OnCommand=cmd(sleep,0.3;zoom,0;rotationz,-720;linear,0.35;rotationz,720;diffusealpha,1;zoom,1;playcommand,"Animate");
+  AnimateCommand=cmd(linear,0.25;zoomx,0.95;linear,0.25;zoomx,1;queuecommand,"Animate");
+  SetCommand=function(self)
+    if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
+      self:visible(false);
+    else
+      self:visible(true)
+    end;
+  end;
+  PlayerJoinedMessageCommand=function(self,param)
+    if param.Player == PLAYER_1 then
+      (cmd(linear,0.15;zoomy,0;))(self);
+    end;
+  end;
 };
--- check if the player is actually even here! ---- for player 1 --
-t[#t+1] = Def.ActorFrame {
-	LoadActor("StartJoinSSS") .. {
-	    Condition=not GAMESTATE:IsHumanPlayer(PLAYER_1);
-		InitCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X-392;y,SCREEN_CENTER_Y+160);
-		OnCommand=cmd(sleep,0.3;zoom,0;rotationz,-720;linear,0.35;rotationz,720;diffusealpha,1;zoom,1;playcommand,"Animate");
-		AnimateCommand=cmd(linear,0.25;zoomx,0.95;linear,0.25;zoomx,1;queuecommand,"Animate");
-		OffCommand=cmd(stoptweening;linear,0.25;zoomy,0;diffusealpha,0);
-		PlayerJoinedMessageCommand=function(self,param)
-				if param.Player == PLAYER_1 then
-					(cmd(linear,0.15;zoomy,0;))(self);
-				end;
-			end;
-	};
+
+t[#t+1] = LoadActor("StartJoinSSS")..{
+  Name = "PressStartP2";
+  InitCommand=function(self)
+    self:x(SCREEN_RIGHT-254):y(SCREEN_CENTER_Y+160)
+    self:queuecommand("Set")
+    self:diffusealpha(0)
+  end;
+  OnCommand=cmd(sleep,0.3;zoom,0;rotationz,-720;linear,0.35;rotationz,720;diffusealpha,1;zoom,1;playcommand,"Animate");
+  AnimateCommand=cmd(linear,0.25;zoomx,0.95;linear,0.25;zoomx,1;queuecommand,"Animate");
+  SetCommand=function(self)
+    if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
+      self:visible(false);
+    else
+      self:visible(true)
+    end;
+  end;
+  PlayerJoinedMessageCommand=function(self,param)
+    if param.Player == PLAYER_2 then
+      (cmd(linear,0.15;zoomy,0;))(self);
+    end;
+  end;
 };
+
+t[#t+1] = Def.Actor{
+  PlayerJoinedMessageCommand=function(self,param)
+    if param.Player == PLAYER_1 then
+      self:queuecommand("Delay1")
+    end;
+    if param.Player == PLAYER_2 then
+      self:queuecommand("Delay1")
+    end;
+  end;
+  Delay1Command=function(self)
+    self:sleep(2)
+    self:queuecommand("SetScreen")
+  end;
+  SetScreenCommand=function(self)
+    SCREENMAN:SetNewScreen("ScreenSelectPlayMode")
+  end;
+};
+
+
+
 return t

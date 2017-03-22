@@ -56,13 +56,8 @@ t[#t+1] = Def.ActorFrame {
       end;
     end;
     OffCommand=cmd(smooth,0.2;diffusealpha,0;);
-    PlayerJoinedMessageCommand=function(self,param)
-      if param.Player == PLAYER_1 then
-        self:queuecommand("Off")
-      end;
-      if param.Player == PLAYER_2 then
-        self:queuecommand("Off")
-      end;
+    PlayerJoinedMessageCommand=function(self)
+      self:queuecommand("Off")
     end;
   };
   LoadActor(THEME:GetPathG("","_sharedX3/P2 BADGE"))..{
@@ -76,13 +71,8 @@ t[#t+1] = Def.ActorFrame {
       end;
     end;
     OffCommand=cmd(smooth,0.2;diffusealpha,0;);
-    PlayerJoinedMessageCommand=function(self,param)
-      if param.Player == PLAYER_1 then
-        self:queuecommand("Off")
-      end;
-      if param.Player == PLAYER_2 then
-        self:queuecommand("Off")
-      end;
+    PlayerJoinedMessageCommand=function(self)
+      self:queuecommand("Off")
     end;
   };
 };
@@ -104,13 +94,8 @@ t[#t+1] = Def.ActorFrame{
       end;
     end;
     OffCommand=cmd(smooth,0.2;diffusealpha,0);
-    PlayerJoinedMessageCommand=function(self,param)
-      if param.Player == PLAYER_1 then
-        self:queuecommand("Off")
-      end;
-      if param.Player == PLAYER_2 then
-        self:queuecommand("Off")
-      end;
+    PlayerJoinedMessageCommand=function(self)
+      self:queuecommand("Off")
     end;
   };
   Def.Sprite{
@@ -129,13 +114,8 @@ t[#t+1] = Def.ActorFrame{
       end;
     end;
     OffCommand=cmd(smooth,0.2;diffusealpha,0);
-    PlayerJoinedMessageCommand=function(self,param)
-      if param.Player == PLAYER_1 then
-        self:queuecommand("Off")
-      end;
-      if param.Player == PLAYER_2 then
-        self:queuecommand("Off")
-      end;
+    PlayerJoinedMessageCommand=function(self)
+      self:queuecommand("Off")
     end;
   };
 };
@@ -205,13 +185,8 @@ t[#t+1] = LoadActor("StartJoinSSS")..{
 };
 
 t[#t+1] = Def.Actor{
-  PlayerJoinedMessageCommand=function(self,param)
-    if param.Player == PLAYER_1 then
-      self:queuecommand("Delay1")
-    end;
-    if param.Player == PLAYER_2 then
-      self:queuecommand("Delay1")
-    end;
+  PlayerJoinedMessageCommand=function(self)
+    self:queuecommand("Delay1")
   end;
   Delay1Command=function(self)
     self:sleep(2)

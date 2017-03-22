@@ -193,7 +193,7 @@ t[#t+1] = Def.Actor{
     self:queuecommand("SetScreen")
   end;
   SetScreenCommand=function(self)
-    SCREENMAN:SetNewScreen("ScreenSelectPlayMode")
+    SCREENMAN:GetTopScreen():SetNextScreenName("ScreenSelectPlayMode"):StartTransitioningScreen("SM_GoToNextScreen")
   end;
 };
 

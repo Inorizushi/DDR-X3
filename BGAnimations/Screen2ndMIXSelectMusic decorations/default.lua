@@ -100,27 +100,7 @@ t[#t+1] = Def.Sprite{
       end;
       local steps = song:GetOneSteps(GAMESTATE:GetCurrentStyle():GetStepsType(), diff)
       local meter = steps:GetMeter();
-      if meter == 1 then
-        self:setstate(0)
-      elseif meter == 2 then
-        self:setstate(1)
-      elseif meter == 3 then
-        self:setstate(2)
-      elseif meter == 4 then
-        self:setstate(3)
-      elseif meter == 5 then
-        self:setstate(4)
-      elseif meter == 6 then
-        self:setstate(5)
-      elseif meter == 7 then
-        self:setstate(6)
-      elseif meter == 8 then
-        self:setstate(7)
-      elseif meter == 9 then
-        self:setstate(8)
-      elseif meter >= 10 then
-        self:setstate(9)
-      end;
+      self:setstate(math.min(meter-1, 9));
     else
       self:visible(false)
     end;

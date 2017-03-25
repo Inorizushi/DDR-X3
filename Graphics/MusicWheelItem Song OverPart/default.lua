@@ -15,6 +15,7 @@ local t = Def.ActorFrame {
 				self:visible(false);
 			end
 		end;
+		OffCommand=function(s) s:visible(false) end;
 	};
 };
 

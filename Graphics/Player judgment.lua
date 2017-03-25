@@ -21,12 +21,12 @@ local JudgeCmds = {
 };
 
 local OLDJudgeCmds = {
-	TapNoteScore_W1 = THEME:GetMetric( "Judgment", "1st_JudgmentW2Command" );
-	TapNoteScore_W2 = THEME:GetMetric( "Judgment", "1st_JudgmentW2Command" );
-	TapNoteScore_W3 = THEME:GetMetric( "Judgment", "1st_JudgmentW3Command" );
-	TapNoteScore_W4 = THEME:GetMetric( "Judgment", "1st_JudgmentW4Command" );
-	TapNoteScore_W5 = THEME:GetMetric( "Judgment", "1st_JudgmentW5Command" );
-	TapNoteScore_Miss = THEME:GetMetric( "Judgment", "1st_JudgmentMissCommand" );
+	TapNoteScore_W1 = THEME:GetMetric( "Judgment", "JudgmentW2Command" );
+	TapNoteScore_W2 = THEME:GetMetric( "Judgment", "JudgmentW2Command" );
+	TapNoteScore_W3 = THEME:GetMetric( "Judgment", "JudgmentW3Command" );
+	TapNoteScore_W4 = THEME:GetMetric( "Judgment", "JudgmentW4Command" );
+	TapNoteScore_W5 = THEME:GetMetric( "Judgment", "JudgmentW5Command" );
+	TapNoteScore_Miss = THEME:GetMetric( "Judgment", "JudgmentMissCommand" );
 };
 
 local BiasCmd = THEME:GetMetric("Judgment", "JudgmentBiasCommand");
@@ -72,10 +72,6 @@ local t = Def.ActorFrame {
 
 		local iTapNoteOffset = param.TapNoteOffset;
 		local late = iTapNoteOffset and (iTapNoteOffset > 0);
-
-		if OLDMIX and (iFrame == 1 and late) then
-			iFrame = 2;
-		end;
 
 		self:playcommand("Reset");
 

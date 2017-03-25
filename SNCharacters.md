@@ -5,7 +5,7 @@ The _SNCharacters_ system (implemented in _Character.lua_) is a system designed 
 
 The Characters Themselves
 -------------------------
-Character.lua as included in this version of the theme can work with version 1 SNCharacters, and only version 1 SNCharacters. (No further versions have been devised yet.) The following elements are directly supported, which means that Character.lua will take care of at least part of the work for you.
+Character.lua as included in this version of the theme can work with version 1 and 2 SNCharacters, which are mostly identical. The following elements are directly supported, which means that Character.lua will take care of at least part of the work for you.
 
 ### Configuration (config.lua) ###
 config.lua is a file that returns a table containing at least two fields, version and color. Both must exist for the character to be considered valid.

@@ -13,11 +13,13 @@ config.lua is a file that returns a table containing at least two fields, versio
 config.lua is run in an empty environment. Any attempt to use Lua functions defined outside that file will fail, including StepMania built-in functions.
 
 version must be 1 or 2, or else the character will be considered invalid.
+
 color is a StepMania color. It can be either a table of 4 elements or a string. If it is a string, it will be processed by color() during the loading process.
 
 ### Graphical elements ###
 Character.lua verifies that two graphics files exist in the character folder during validation.
 They are "combo.png" and "combo100.png". "combo.png" is the character's normal cut-in portrait, "combo100.png" is the character's 100-milestone cut-in.
+
 Version 2 does not require "combo.png" and instead requires "comboA.png" and "comboB.png".
 
 ### Dancer videos ###

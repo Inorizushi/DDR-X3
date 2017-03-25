@@ -1,7 +1,14 @@
---This is an implementation of DDR SuperNOVA 2 and beyond scoring as described
---by Aaron Chmielowiec at http://aaronin.jp/ddrssystem.html#ss9.
+--[[Scoring.lua
+This includes a few modules that all have to do with scoring and grading.
+SN2Scoring and OldScoring are independent modules.
+SN2Grading partially depends on SN2Scoring.
+All information used is from http://aaronin.jp/ddrssystem.html. The
+information used for SN2 was written by Aaron C., but the information
+for 2nd has no attributed author.
+]]
 
---To use it, you can call PrepareScoringInfo at the start of each stage or course.
+--SN2Scoring
+--Implements the scoring system used by DDR SN2-2014.
 
 --Shared functions/data
 
@@ -69,7 +76,6 @@ local function GetScoreDataFromThing(thing, tnsFuncName, hnsFuncName)
         output[tns] = tnsFunc(thing, tns)
     end
     for _, hns in pairs({'HoldNoteScore_Held', 'HoldNoteScore_LetGo'}) do
-        print("finding hns")
         assert(hnsFunc(thing, hns))
         output[hns] = hnsFunc(thing, hns)
     end
@@ -104,10 +110,6 @@ end
 --all earned TapNoteScores in the class W1-W5 and Miss under their native names
 --all earned HoldNoteScores
 function SN2Scoring.ComputeNormalScoreFromData(data, max, scoringRuleSet)
-    for k, v in pairs(data) do
-        print(k)
-        print(v)
-    end
     scoringRuleSet = scoringRuleSet or normalScoringRules.normal
     local objectCount = data.Total
     local maxScore = 1000000
@@ -295,6 +297,9 @@ function SN2Scoring.MakeCourseScoringFunctions(trailObject,pn)
     return package
 end
 
+--SN2Grading
+--Implements the grading system used by DDR SN2-2014.
+
 SN2Grading = {}
 --Edit is technically the "highest difficulty"
 local grade_table = {
@@ -353,6 +358,64 @@ function SN2Grading.GetSN2GradeFromHighScore(steps, highScore)
     return SN2Grading.ScoreToGrade(score, steps:GetDifficulty()), score
 end
 
+--OldScoring
+--Implements the scoring system used by DDR 1st-2ndMIX and derivatives thereof.
+
+--Do not ever EVER use this for "real" scores I swear to Jesus it's the worst system
+OldScoring = {}
+do
+    local MAX_SCORE = 999999999
+    local baseValues = {
+        TapNoteScore_W1 = 3,
+        TapNoteScore_W2 = 3,
+        TapNoteScore_W3 = 1,
+        TapNoteScore_W4 = 0,
+        TapNoteScore_W5 = 0,
+        TapNoteScore_Miss = 0
+    }
+    function OldScoring.MakeScoringFunctions()
+        local combo = 0
+        local score = 0
+        local output = {}
+        local valRecords = {}
+        for k, v in pairs(baseValues) do
+            valRecords[k] = 0
+        end
+
+        output.Update = function(pss)
+            if score >= MAX_SCORE then
+                score = MAX_SCORE
+                return
+            end
+            for tns, count in pairs(valRecords) do
+                local newCount = pss:GetTapNoteScores(tns)
+                if newCount > valRecords[tns] then
+                    if baseValues[tns] == 0 then
+                        combo = 0
+                    else
+                        for note=1, newCount - valRecords[tns] do
+                            combo = combo + 1
+                            score = score + (math.floor(combo/4)^2 + 1) * 100 
+                                * baseValues[tns]
+                            if score >= MAX_SCORE then
+                                score = MAX_SCORE
+                                return
+                            end
+                        end
+                    end
+                    valRecords[tns] = newCount
+                end
+            end
+        end
+
+        output.GetCurrentScore = function(exact)
+            if exact then return score end
+            return math.floor(score)
+        end
+
+        return output
+    end
+end
 
 -- (c) 2015-2017 John Walstrom, "Inorizushi"
 -- All rights reserved.

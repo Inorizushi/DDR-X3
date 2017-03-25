@@ -8,47 +8,8 @@ t[#t+1] = StandardDecorationFromFile("ScoreFrame","ScoreFrame")
 t[#t+1] = StandardDecorationFromFile("StageDisplay","StageDisplay")
 
 local ScoringPlayers = {}
---[[t[#t+1] = Def.Actor{
-    Name="ScoringController",
-    JudgmentMessageCommand = function(_,params)
-        if not (( ScoringInfo[params.Player]) and
-            (ScoringInfo.seed == GAMESTATE:GetStageSeed())) then
-            SN2Scoring.PrepareScoringInfo(IsStarterMode())
-            ScoringInfo.seed = GAMESTATE:GetStageSeed()
-        end
-        if not ScoringPlayers[params.Player] then
-            ScoringPlayers[params.Player] = true
-        end
-        local es = (GAMESTATE:Env()).EndlessState
-        if es then
-            local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(params.Player)
-            es.scoring.handleNoteScore(params.HoldNoteScore or params.TapNoteScore,
-                GAMESTATE:GetCurrentStageIndex()+1,
-                pss:GetCurrentCombo())
-            --SCREENMAN:SystemMessage(es.scoring.getScoreString())
-        end
-    end,
-}
 
-local function ScoreUpdate()
-    for pn, _ in pairs(ScoringPlayers) do
-        local info = ScoringInfo[pn]
-        local stage = GAMESTATE:IsCourseMode() and GAMESTATE:GetCourseSongIndex() + 1 or nil
-        local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn)
-        local score = info.GetCurrentScore(pss, stage)
-        pss:SetScore(score)
-        local scoreDisplay = SCREENMAN:GetTopScreen():GetChild("Score"..ToEnumShortString(pn))
-        if scoreDisplay then
-            scoreDisplay:GetChild("Text"):targetnumber(score)
-        end
-        pss:SetCurMaxScore(info.GetCurrentMaxScore(pss, stage))
-    end
-end
-
-t[#t+1] = Def.ActorFrame{
-    Name = "ScoringController2",
-    InitCommand = function(s) s:SetUpdateFunction(ScoreUpdate) end
-}]]--
+local SecondInfo = {}
 
 t[#t+1] = Def.Actor{
     Name="ScoringController",
@@ -108,10 +69,14 @@ if Is2ndMIX() then
         self:draworder(200)
       end;
       JudgmentMessageCommand=function(s)
-        local info = ScoringInfo[pn]
-        local stage = GAMESTATE:IsCourseMode() and GAMESTATE:GetCourseSongIndex() + 1 or nil
+        local info = SecondInfo[pn]
+        if not info then
+        	info = OldScoring.MakeScoringFunctions()
+        	SecondInfo[pn] = info
+        end
         local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn)
-        local score = info.GetCurrentScore(pss, stage)
+        info.Update(pss)
+        local score = info.GetCurrentScore()
         s:targetnumber(score);
       end,
     };

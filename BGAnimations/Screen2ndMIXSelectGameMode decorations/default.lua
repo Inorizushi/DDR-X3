@@ -33,7 +33,7 @@ t[#t+1] = Def.Actor{
 		if NewDiffIdx ~= CurDiffIdx then
 			local NewDiff = AcceptableDifficulties[NewDiffIdx]
 			GAMESTATE:ApplyGameCommand("difficulty,"..ToEnumShortString(NewDiff))
-			MESSAGEMAN:Broadcast("ModeDiffChange", {Difficulty=NewDiff})
+			MESSAGEMAN:Broadcast("ModeDiffChange", {Difficulty=NewDiff, Harder=(codeName == "Harder")})
 		end
 	end;
 };
@@ -76,9 +76,8 @@ t[#t+1] = Def.ActorFrame{
 t[#t+1] = LoadActor("back")..{
 	MenuLeftP1MessageCommand=cmd(play);
 	MenuLeftP2MessageCommand=cmd(play);
-	CodeMessageCommand=function(self, params)
-		local codeName = params.Name
-		if codeName == "Easier" then
+	ModeDiffChangeMessageCommand=function(self, params)
+		if not params.Harder then
 			self:play()
 		end
 	end;
@@ -87,9 +86,8 @@ t[#t+1] = LoadActor("back")..{
 t[#t+1] = LoadActor("forward")..{
 	MenuRightP1MessageCommand=cmd(play);
 	MenuRightP2MessageCommand=cmd(play);
-	CodeMessageCommand=function(self, params)
-		local codeName = params.Name
-		if codeName == "Harder" then
+	ModeDiffChangeMessageCommand=function(self, params)
+		if params.Harder then
 			self:play()
 		end
 	end;

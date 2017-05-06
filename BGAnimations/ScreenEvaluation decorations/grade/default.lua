@@ -6,8 +6,14 @@ local gradeToGraphic = {
 	Grade_Tier05 = "Grade_C",
 	Grade_Tier06 = "Grade_D",
 	Grade_Failed = "Grade_E",
+<<<<<<< Updated upstream
 }
 setmetatable(gradeToGraphic, {__index = function(t, k) error("unknown grade "..k, 2) end})
+=======
+};
+
+setmetatable(gradeToGraphic, __index = function(t, k) error("unknown grade "..k, 2) end)
+>>>>>>> Stashed changes
 local t = Def.ActorFrame {
 --P1--
 --FCRingP1--
@@ -71,7 +77,7 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	
+
 	LoadActor("PerfectFullcombo_lines")..{
 		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+45+20-5;y,SCREEN_CENTER_Y-120-10;zoom,0);
 		OnCommand=function(self)
@@ -104,7 +110,7 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	
+
 	LoadActor("Grade_2A.png")..{
 		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
 		OnCommand=function(self)
@@ -132,7 +138,7 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	
+
 	LoadActor("Grade_C.png")..{
 		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
 		OnCommand=function(self)
@@ -161,7 +167,7 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	
+
 	LoadActor("Grade_E.png")..{
 		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
 		OnCommand=function(self)
@@ -235,7 +241,7 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	
+
 	LoadActor("PerfectFullcombo_lines")..{
 		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10+45;y,SCREEN_CENTER_Y-120-10;zoom,0);
 		OnCommand=function(self)
@@ -269,7 +275,7 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	
+
 	LoadActor("Grade_2A.png")..{
 		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
 		OnCommand=function(self)
@@ -297,7 +303,7 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	
+
 	LoadActor("Grade_C.png")..{
 		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
 		OnCommand=function(self)
@@ -326,7 +332,7 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	
+
 	LoadActor("Grade_E.png")..{
 		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
 		OnCommand=function(self)

@@ -1,4 +1,5 @@
 local t = Def.ActorFrame {};
+
 t[#t+1] = Def.ActorFrame {
   GainFocusCommand=cmd(stoptweening;smooth,0.3;y,0;zoom,1);
   LoseFocusCommand=cmd(stoptweening;smooth,0.3;y,100;zoom,1);

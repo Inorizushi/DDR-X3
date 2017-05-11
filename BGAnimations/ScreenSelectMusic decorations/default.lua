@@ -61,11 +61,10 @@ t[#t+1] = Def.ActorFrame{
 	OffCommand=cmd(stoptweening;sleep,0.233;linear,0.05;diffusealpha,0);
 	LoadActor("radar base");
 	LoadActor( "radar_scan" )..{
-		InitCommand=cmd(diffusealpha,0.25);
+		InitCommand=cmd(halign,0;valign,0;xy,-1,-1);
 		OnCommand=cmd(spin;effectmagnitude,0,0,120);
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-	LoadActor("over");
 };
 
 t[#t+1] = Def.ActorFrame{
@@ -150,24 +149,25 @@ t[#t+1] = Def.ActorFrame {
 
 if GAMESTATE:IsCourseMode() == false then
 t[#t+1] = Def.ActorFrame{
-	LoadActor("_selectarrowRightG") .. {
+	Def.ActorFrame{
+		NextSongMessageCommand=cmd(stoptweening;linear,0;x,SCREEN_CENTER_X+154+20;decelerate,0.5;x,SCREEN_CENTER_X+154);
 		InitCommand=cmd(draworder,99;x,SCREEN_CENTER_X+154;y,SCREEN_CENTER_Y-20;zoom,1);
 		OffCommand=cmd(sleep,0.15;linear,0.15;diffusealpha,0);
-		NextSongMessageCommand=cmd(stoptweening;linear,0;x,SCREEN_CENTER_X+154+20;decelerate,0.5;x,SCREEN_CENTER_X+154);
+		LoadActor("_selectarrowRightG");
+		LoadActor("_selectarrowRightR") .. {
+			InitCommand=cmd(diffusealpha,0;draworder,100);
+			NextSongMessageCommand=cmd(diffusealpha,1;sleep,0.4;diffusealpha,0);
+		};
 	};
-	LoadActor("_selectarrowRightG") .. {
+	Def.ActorFrame{
 		InitCommand=cmd(draworder,99;x,SCREEN_CENTER_X-154;y,SCREEN_CENTER_Y-20;rotationy,180;zoom,1);
 		OffCommand=cmd(sleep,0.15;linear,0.15;diffusealpha,0);
 		PreviousSongMessageCommand=cmd(stoptweening;linear,0;x,SCREEN_CENTER_X-154-20;decelerate,0.5;x,SCREEN_CENTER_X-154);
-
-	};
-    LoadActor("_selectarrowRightR") .. {
-		InitCommand=cmd(diffusealpha,0;draworder,100;x,SCREEN_CENTER_X+154;y,SCREEN_CENTER_Y-20;zoom,1);
-		NextSongMessageCommand=cmd(stoptweening;linear,0;diffusealpha,1;x,SCREEN_CENTER_X+154+20;decelerate,0.5;diffusealpha,0;x,SCREEN_CENTER_X+154);
-	};
-	LoadActor("_selectarrowRightR") .. {
-		InitCommand=cmd(diffusealpha,0;draworder,100;x,SCREEN_CENTER_X-154;y,SCREEN_CENTER_Y-20;rotationy,180;zoom,1);
-		PreviousSongMessageCommand=cmd(stoptweening;linear,0;diffusealpha,1;x,SCREEN_CENTER_X-154-20;decelerate,0.5;diffusealpha,0;x,SCREEN_CENTER_X-154);
+		LoadActor("_selectarrowRightG");
+		LoadActor("_selectarrowRightR") .. {
+			InitCommand=cmd(diffusealpha,0;draworder,100);
+			PreviousSongMessageCommand=cmd(diffusealpha,1;sleep,0.4;diffusealpha,0);
+		};
 	};
 };
 end

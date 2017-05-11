@@ -6,14 +6,8 @@ local gradeToGraphic = {
 	Grade_Tier05 = "Grade_C",
 	Grade_Tier06 = "Grade_D",
 	Grade_Failed = "Grade_E",
-<<<<<<< Updated upstream
 }
 setmetatable(gradeToGraphic, {__index = function(t, k) error("unknown grade "..k, 2) end})
-=======
-};
-
-setmetatable(gradeToGraphic, __index = function(t, k) error("unknown grade "..k, 2) end)
->>>>>>> Stashed changes
 local t = Def.ActorFrame {
 --P1--
 --FCRingP1--

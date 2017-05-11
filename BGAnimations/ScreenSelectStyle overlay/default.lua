@@ -122,20 +122,34 @@ t[#t+1] = Def.ActorFrame{
 
 t[#t+1] = Def.ActorFrame{
 	--------------------- ARROW SELECTION -----------------------------
-    LoadActor("_selectarrow") .. {
-        InitCommand=cmd(draworder,200;horizalign,center;x,SCREEN_CENTER_X-255;y,SCREEN_CENTER_Y+190;zoomx,0.5;zoomy,0.5;diffusealpha,0);
-		OnCommand=cmd(smooth,0.3;zoom,1;diffusealpha,1;);
-		OffCommand=cmd(smooth,0.2;addx,-50;diffusealpha,0;);
-		MenuLeftP1MessageCommand=cmd(smooth,0.1;addx,-20;smooth,0.1;addx,20;);
-		MenuLeftP2MessageCommand=cmd(smooth,0.1;addx,-20;smooth,0.1;addx,20;);
-    };
-	LoadActor("_selectarrow") .. {
-        InitCommand=cmd(draworder,200;horizalign,center;x,SCREEN_CENTER_X+255;y,SCREEN_CENTER_Y+190;zoomx,-0.5;zoomy,0.5;diffusealpha,0);
-		OnCommand=cmd(smooth,0.3;zoomx,-1;zoomy,1;diffusealpha,1;);
-		OffCommand=cmd(smooth,0.2;addx,50;diffusealpha,0;);
-		MenuRightP1MessageCommand=cmd(smooth,0.1;addx,20;smooth,0.1;addx,-20;);
-		MenuRightP2MessageCommand=cmd(smooth,0.1;addx,20;smooth,0.1;addx,-20;);
-    };
+  LoadActor("_selectarrowg") .. {
+    InitCommand=cmd(draworder,200;horizalign,center;x,SCREEN_CENTER_X-255;y,SCREEN_CENTER_Y+190;zoomx,0.5;zoomy,0.5;diffusealpha,0);
+    OnCommand=cmd(smooth,0.3;zoom,1;diffusealpha,1;);
+    OffCommand=cmd(smooth,0.2;addx,-50;diffusealpha,0;);
+    MenuLeftP1MessageCommand=cmd(smooth,0.1;addx,-20;smooth,0.1;addx,20;);
+    MenuLeftP2MessageCommand=cmd(smooth,0.1;addx,-20;smooth,0.1;addx,20;);
+  };
+  LoadActor("_selectarrowg") .. {
+    InitCommand=cmd(draworder,200;horizalign,center;x,SCREEN_CENTER_X+255;y,SCREEN_CENTER_Y+190;zoomx,-0.5;zoomy,0.5;diffusealpha,0);
+    OnCommand=cmd(smooth,0.3;zoomx,-1;zoomy,1;diffusealpha,1;);
+    OffCommand=cmd(smooth,0.2;addx,50;diffusealpha,0;);
+    MenuRightP1MessageCommand=cmd(smooth,0.1;addx,20;smooth,0.1;addx,-20;);
+    MenuRightP2MessageCommand=cmd(smooth,0.1;addx,20;smooth,0.1;addx,-20;);
+  };
+  LoadActor("_selectarrowr") .. {
+    InitCommand=cmd(draworder,200;horizalign,center;x,SCREEN_CENTER_X-255;y,SCREEN_CENTER_Y+190;zoomx,0.5;zoomy,0.5;diffusealpha,0);
+    OnCommand=cmd(smooth,0.3;zoom,1;diffusealpha,0;);
+    OffCommand=cmd(smooth,0.2;addx,-50;diffusealpha,0;);
+    MenuLeftP1MessageCommand=cmd(diffusealpha,1;smooth,0.1;addx,-20;smooth,0.1;addx,20;diffusealpha,0);
+    MenuLeftP2MessageCommand=cmd(diffusealpha,1;smooth,0.1;addx,-20;smooth,0.1;addx,20;diffusealpha,0);
+  };
+  LoadActor("_selectarrowr") .. {
+    InitCommand=cmd(draworder,200;horizalign,center;x,SCREEN_CENTER_X+255;y,SCREEN_CENTER_Y+190;zoomx,-0.5;zoomy,0.5;diffusealpha,0);
+    OnCommand=cmd(smooth,0.3;zoomx,-1;zoomy,1;diffusealpha,0;);
+    OffCommand=cmd(smooth,0.2;addx,50;diffusealpha,0;);
+    MenuRightP1MessageCommand=cmd(diffusealpha,1;smooth,0.1;addx,20;smooth,0.1;addx,-20;diffusealpha,0);
+    MenuRightP2MessageCommand=cmd(diffusealpha,1;smooth,0.1;addx,20;smooth,0.1;addx,-20;diffusealpha,0);
+  };
 };
 
 t[#t+1] = LoadActor("StartJoinSSS")..{

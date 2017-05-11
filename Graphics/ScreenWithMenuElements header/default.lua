@@ -44,7 +44,7 @@ local out = Def.ActorFrame{
 if headerTextImage then
 	table.insert(out,LoadActor(headerTextImage)..{
 		InitCommand=function(self)
-			self:x(SCREEN_CENTER_X):y(-20)
+			self:x(SCREEN_CENTER_X+2):y(-20)
 		end;
 	})
 end
@@ -56,7 +56,7 @@ table.insert(out,LoadActor("pro.png")..{
 		else
 			self:visible(false)
 		end;
-		self:CenterX()
+		self:CenterX():y(-44)
 	end;
 })
 

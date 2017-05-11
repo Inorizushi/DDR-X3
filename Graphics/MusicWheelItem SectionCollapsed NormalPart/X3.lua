@@ -726,10 +726,63 @@ Def.Banner {
 	};
 
 
+	LoadActor(THEME:GetPathG("","_group jackets/group fallback.png"))..{
+		InitCommand=cmd(visible,false;scaletoclipped,256,256);
+		SetMessageCommand=function(self, params)
+			local song = params.Song;
+			group = params.Text;
+		local so = GAMESTATE:GetSortOrder();
+		if group=='DanceDanceRevolution 1stMIX' or
+		group=='DanceDanceRevolution 2ndMIX' or
+		group=='DanceDanceRevolution 3rdMIX' or
+		group=='DanceDanceRevolution 4thMIX' or
+		group=='DanceDanceRevolution 5thMIX' or
+		group=='DanceDanceRevolution 6thMIX MAX' or
+		group=='DanceDanceRevolution 7thMIX MAX2' or
+		group=='DanceDanceRevolution 8thMIX EXTREME' or
+		group=='DanceDanceRevolution SuperNOVA' or
+		group=='DanceDanceRevolution SuperNOVA2' or
+		group=='DanceDanceRevolution X' or
+		group=='DanceDanceRevolution X2' or
+		group=='DanceDanceRevolution X3' or
+		group=='DDR 2013' or
+		group=='DDR 2014'  or
+		group=='DanceDanceRevolution A' or
+		group=='DanceDanceRevolution SuperNOVA3' or
 
+		group=='00 - ORIGINAL SONG FILE' or
+		group=='00A - DDR console Exclusive' or
+		group=='01 - DDR 1st' or
+		group=='02 - DDR 2ndMIX' or
+		group=='03 - DDR 3rdMIX' or
+		group=='04 - DDR 4thMIX' or
+		group=='05 - DDR 5thMIX' or
+		group=='06 - DDR MAX' or
+		group=='07 - DDR MAX2' or
+		group=='08 - DDR EXTREME' or
+		group=='09 - DDR SuperNOVA' or
+		group=='10 - DDR SuperNOVA2' or
+		group=='11 - DDR X' or
+		group=='12 - DDR X2' or
+		group=='13 - DDR X3 vs 2ndMIX' or
+		group=='14 - DDR 2013' or
+		group=='15 - DDR 2014' or
+		group=='16 - DDR A' or
+		group=='18 - DDR SuperNOVA3' then
+
+			self:visible(false)
+		else
+			if so == "SortOrder_Group" then
+			self:visible(true)
+			else
+			self:visible(false)
+			end;
+		end;
+		end;
+	};
 
 	LoadFont("_futura std medium 20px")..{
-		InitCommand=cmd(y,96;maxwidth,160);
+		InitCommand=cmd(y,92;maxwidth,200);
 		SetMessageCommand=function(self, params)
 			local song = params.Song;
 			group = params.Text;
@@ -896,20 +949,13 @@ Def.Banner {
 	-- };
 
 
-	Def.Banner {
-		Name="SongBanner";
-		InitCommand=cmd(scaletoclipped,260,290);
-		SetMessageCommand=function(self,params)
-				self:Load( THEME:GetPathG("Common fallback","outer frame banner") );
-		end;
-	};
-
-	Def.Banner {
-		Name="SongBanner";
-		InitCommand=cmd(scaletoclipped,260,290;y,256;rotationx,180;croptop,0.5;diffusealpha,0.5;diffusetopedge,1,1,1,0);
-		SetMessageCommand=function(self,params)
-			self:Load( THEME:GetPathG("Common fallback","outer frame banner") );
-		end;
+	Def.ActorFrame{
+		LoadActor("folder top")..{
+			InitCommand=cmd(y,-128);
+		};
+		LoadActor("folder bottom")..{
+			InitCommand=cmd(y,112);
+		};
 	};
 
 };

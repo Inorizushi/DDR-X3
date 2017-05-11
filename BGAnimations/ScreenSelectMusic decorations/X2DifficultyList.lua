@@ -64,7 +64,7 @@ end
 
 local function PlayerLabelName(pn)
 	local name = GAMESTATE:IsHumanPlayer(pn) and string.lower(ToEnumShortString(pn)) or "cpu"
-	return '../../Graphics/Badges/DIFF '..name
+	return '../../Graphics/Badges/_'..name
 end
 
 
@@ -161,11 +161,11 @@ do
 							return IndicatorUpdate(self, pn)
 						end
         })
-        table.insert(indicatorLabels, Def.Sprite{
+        table.insert(indicatorLabels, LoadActor(PlayerLabelName(pn))..{
             Name='PlayerLabel',
-            Texture=PlayerLabelName(pn),
             InitCommand=function(self) SetXFromPlayerNumber(self:visible(false), pn) self:zoom(0) end,
-						OnCommand=function(self) self:zoom(0):sleep(0.4):linear(0.2):zoom(1):bounce():effectmagnitude(pn=='PlayerNumber_P2' and -4 or 4,0,0):effectclock('beatnooffset') end,
+						OnCommand=function(self) self:zoom(0):sleep(0.4):linear(0.2):zoom(1):queuecommand("Animate") end,
+						AnimateCommand=function(self) self:bounce():effectmagnitude(pn=='PlayerNumber_P2' and -4 or 4,0,0):effectclock('beatnooffset') end,
             SNDLUpdateMessageCommand=function(self) return IndicatorUpdate(self, pn) end,
             PlayerJoinedMessageCommand=function(self,p)
                 if p.Player==pn then self:Load(ResolveRelativePath(PlayerLabelName(pn),1)) end

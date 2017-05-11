@@ -48,23 +48,85 @@ t[#t+1] = Def.ActorFrame{
 };
 
 t[#t+1] = Def.ActorFrame{
-	LoadActor("1P")..{
-		InitCommand=cmd(xy,SCREEN_CENTER_X-420,SCREEN_CENTER_Y+114;visible,false);
-		OnCommand=function(s) if GAMESTATE:IsPlayerEnabled(PLAYER_1) then s:visible(true) else s:visible(false) end; end;
-	};
-};
-
-t[#t+1] = Def.ActorFrame{
-	LoadActor("basic placeholder");
-	LoadActor("basic window")..{
+	--LoadActor("another.png");
+	Def.Sprite{
+		Texture="basic window";
 		InitCommand = function(s) s:y(16):x(96):halign(1) end;
+		ModeDiffChangeMessageCommand=function(self, param)
+			local Diff = param.Difficulty;
+			if Diff == 'Difficulty_Easy' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/basic window"))
+			elseif Diff == 'Difficulty_Medium' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/another window"))
+			elseif Diff == 'Difficulty_Hard' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/another window"))
+			end;
+		end;
+	};
+	Def.Sprite{
+		Texture="top focused backer";
+		InitCommand = function(s) s:x(246):y(-58) end;
+		ModeDiffChangeMessageCommand=function(self, param)
+			local Diff = param.Difficulty;
+			if Diff == 'Difficulty_Easy' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/top focused backer"))
+			elseif Diff == 'Difficulty_Medium' or Diff == 'Difficulty_Hard' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/top unfocused backer"))
+			end;
+		end;
+	};
+	Def.Sprite{
+		Texture="bottom unfocused backer";
+		InitCommand = function(s) s:x(246):y(20) end;
+		ModeDiffChangeMessageCommand=function(self, param)
+			local Diff = param.Difficulty;
+			if Diff == 'Difficulty_Easy' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/bottom unfocused backer"))
+			elseif Diff == 'Difficulty_Medium' or Diff == 'Difficulty_Hard' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/bottom focused backer"))
+			end;
+		end;
+	};
+	Def.Sprite{
+		Texture="basic text";
+		InitCommand = function(s) s:x(256):y(-58) end;
+		ModeDiffChangeMessageCommand=function(self, param)
+			local Diff = param.Difficulty;
+			if Diff == 'Difficulty_Easy' then
+				self:diffuse(color("1,1,1,1"));
+			elseif Diff == 'Difficulty_Medium' or Diff == 'Difficulty_Hard' then
+				self:diffuse(color("0.42,0.42,0.42,1"));
+			end;
+		end;
+	};
+	Def.Sprite{
+		Texture="another text";
+		InitCommand = function(s) s:x(256):y(20):diffuse(color("0.42,0.42,0.42,1")) end;
+		ModeDiffChangeMessageCommand=function(self, param)
+			local Diff = param.Difficulty;
+			if Diff == 'Difficulty_Easy' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/another text")):diffuse(color("0.42,0.42,0.42,1"));
+			elseif Diff == 'Difficulty_Medium' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/another text")):diffuse(color("1,1,1,1"));
+			elseif Diff == 'Difficulty_Hard' then
+				self:Load(THEME:GetPathB("","Screen2ndMIXSelectGameMode decorations/maniac text")):diffuse(color("1,1,1,1"));
+			end;
+		end;
 	};
 	LoadActor("knob base")..{
 		InitCommand = function(s) s:x(84):y(-20) end;
 	};
 	LoadActor("knob needle")..{
 		Name = "Needle";
-		InitCommand = function(s) s:valign(1):x(96):y(-12) end;
+		InitCommand = function(s) s:valign(1):x(108):y(-8) end;
+		ModeDiffChangeMessageCommand=function(self, param)
+			local Diff = param.Difficulty;
+			if Diff == 'Difficulty_Easy' then
+				self:linear(0.2):x(108):y(-6):rotationz(0);
+			elseif Diff == 'Difficulty_Medium' or Diff == 'Difficulty_Hard' then
+				self:linear(0.2):x(86):y(6):rotationz(60);
+			end;
+		end;
 	};
 	InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+220)
 };

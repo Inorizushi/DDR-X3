@@ -1,5 +1,5 @@
 local t = LoadFallbackB();
-
+if not Is2ndMIX() then
 t[#t+1] = StandardDecorationFromFileOptional("StyleIcon","StyleIcon");
 t[#t+1] = StandardDecorationFromFile("StageDisplay","StageDisplay");
 t[#t+1] = StandardDecorationFromFileOptional("SongInformation","SongInformation") .. {
@@ -189,5 +189,5 @@ t[#t+1] = LoadActor("statsP2")..{
 				OffCommand=cmd(sleep,0.067;zoom,0);
 			};
 
-
+end;
 return t

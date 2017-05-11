@@ -89,3 +89,104 @@ function JudgmentTransformCommand( self, params )
 		[ThemePrefs.Get("JudgmentHeight")]
 		[params.bReverse and "reverse" or "normal"] )
 end
+
+-- Target Score
+function FirstReMIX_TargetScore()
+	local t = {
+		Name = "FirstReMIX_TargetScore",
+		LayoutType = "ShowAllInRow",
+		SelectType = "SelectOne",
+		OneChoiceForAllPlayers = false,
+		ExportOnChange = false,
+		Choices = { THEME:GetString('OptionNames','Off'),THEME:GetString('OptionNames','Machine'),THEME:GetString('OptionNames','Personal') },
+		LoadSelections = function(self, list, pn)
+			local pname = ToEnumShortString(pn);
+			local profileGUID = PROFILEMAN:GetProfile(pn):GetGUID();
+			if PROFILEMAN:IsPersistentProfile(pn) then
+				if ReadPrefFromFile("FirstReMIX_TargetScore_"..profileGUID) ~= nil then
+					if GetUserPref("FirstReMIX_TargetScore_" .. profileGUID)=='off' then
+						list[1] = true
+					elseif GetUserPref("FirstReMIX_TargetScore_" .. profileGUID)=='machine' then
+						list[2] = true
+					elseif GetUserPref("FirstReMIX_TargetScore_" .. profileGUID)=='personal' then
+						list[3] = true
+					end
+				else
+					WritePrefToFile("FirstReMIX_TargetScore_"..profileGUID, 'off');
+					list[1] = true
+				end;
+			else
+				if ReadPrefFromFile("FirstReMIX_TargetScore_" .. pname) ~= nil then
+					if GetUserPref("FirstReMIX_TargetScore_" .. pname)=='off' then
+						list[1] = true
+					elseif GetUserPref("FirstReMIX_TargetScore_" .. pname)=='machine' then
+						list[2] = true
+					elseif GetUserPref("FirstReMIX_TargetScore_" .. pname)=='personal' then
+						list[3] = true
+					end
+				else
+					WritePrefToFile("FirstReMIX_TargetScore_" .. pname, 'off')
+					list[1] = true
+				end
+			end;
+		end,
+		SaveSelections = function(self, list, pn)
+			local val;
+			local pname = ToEnumShortString(pn);
+			local profileGUID = PROFILEMAN:GetProfile(pn):GetGUID();
+			if list[1] then
+				val='off';
+			elseif list[2] then
+				val='machine';
+			elseif list[3] then
+				val='personal';
+			end;
+			if PROFILEMAN:IsPersistentProfile(pn) then
+				WritePrefToFile("FirstReMIX_TargetScore_"..profileGUID, val);
+			else
+				WritePrefToFile("FirstReMIX_TargetScore_"..pname, val);
+			end;
+		end
+	}
+	setmetatable(t, t)
+	return t
+end
+
+-- Target Score (no profile)
+function FirstReMIX_TargetScore_NoProfile()
+	local t = {
+		Name = "FirstReMIX_TargetScore_NoProfile",
+		LayoutType = "ShowAllInRow",
+		SelectType = "SelectOne",
+		OneChoiceForAllPlayers = false,
+		ExportOnChange = false,
+		Choices = { THEME:GetString('OptionNames','Off'),THEME:GetString('OptionNames','On')},
+		LoadSelections = function(self, list, pn)
+			local pname = ToEnumShortString(pn);
+			if ReadPrefFromFile("FirstReMIX_TargetScore_" .. pname) ~= nil then
+				if GetUserPref("FirstReMIX_TargetScore_" .. pname)=='off' then
+					list[1] = true
+				elseif GetUserPref("FirstReMIX_TargetScore_" .. pname)=='machine' then
+					list[2] = true
+				elseif GetUserPref("FirstReMIX_TargetScore_" .. pname)=='personal' then
+					list[2] = true
+				end
+			else
+				WritePrefToFile("FirstReMIX_TargetScore_" .. pname, 'off')
+				list[1] = true
+			end
+		end,
+		SaveSelections = function(self, list, pn)
+			local val;
+			local pname = ToEnumShortString(pn);
+			if list[1] then
+				val='off';
+			elseif list[2] then
+				val='machine';
+			end;
+			WritePrefToFile("FirstReMIX_TargetScore_"..pname, val);
+		end
+	}
+	setmetatable(t, t)
+	return t
+end

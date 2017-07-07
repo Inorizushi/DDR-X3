@@ -203,7 +203,7 @@ do
 		local charPath = c.GetPathIfValid(name)
 		if charPath then
 			local targetName = charPath..asset
-			if FILEMAN:DoesFileExist(directName) then
+			if FILEMAN:DoesFileExist(targetName) then
 				return targetName
 			end
 			--try a fallback

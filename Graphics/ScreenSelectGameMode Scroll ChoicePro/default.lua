@@ -2,7 +2,7 @@ local t = Def.ActorFrame{};
 
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(x,-20);
-	OnCommand=cmd(addx,SCREEN_WIDTH*2.5;sleep,0.5;linear,0.1;addx,SCREEN_WIDTH*-2.5);
+	OnCommand=cmd(addx,-SCREEN_WIDTH*2.5;sleep,0.5;smooth,0.3;addx,SCREEN_WIDTH*2.5);
 	OffCommand=cmd(sleep,0.116;linear,0.066;zoomy,0;zoomx,5;diffusealpha,0);
 	-- Information panel
 	LoadActor("char")..{

@@ -157,7 +157,6 @@ t[#t+1] = LoadActor("StartJoinSSS")..{
   InitCommand=function(self)
     self:x(SCREEN_LEFT+254):y(SCREEN_CENTER_Y+160)
     self:queuecommand("Set")
-    self:visible(false)
     self:diffusealpha(0)
   end;
   OnCommand=cmd(sleep,0.3;zoom,0;rotationz,-720;linear,0.35;rotationz,720;diffusealpha,1;zoom,1;playcommand,"Animate");
@@ -182,7 +181,6 @@ t[#t+1] = LoadActor("StartJoinSSS")..{
   InitCommand=function(self)
     self:x(SCREEN_RIGHT-254):y(SCREEN_CENTER_Y+160)
     self:queuecommand("Set")
-    self:visible(false)
     self:diffusealpha(0)
   end;
   OnCommand=cmd(sleep,0.3;zoom,0;rotationz,-720;linear,0.35;rotationz,720;diffusealpha,1;zoom,1;playcommand,"Animate");

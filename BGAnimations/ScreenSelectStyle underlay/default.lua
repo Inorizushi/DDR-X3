@@ -1,5 +1,5 @@
 return Def.ActorFrame{
-  LoadActor("double")..{
+  LoadActor("versus")..{
     InitCommand=cmd(Center;visible,false);
   }
 };

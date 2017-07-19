@@ -4,28 +4,56 @@ local t = Def.ActorFrame {};
 t[#t+1] = Def.ActorFrame{
   InitCommand=cmd(x,244;y,-134;);
   LoadActor(THEME:GetPathG("","_sharedX3/SelectStyle/infomiddle"))..{
-    OnCommand=cmd(diffusealpha,0;zoomy,0;sleep,0.5;smooth,0.2;zoomy,1;diffusealpha,0.5);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 1 then
+        self:queuecommand("On1");
+      else
+        self:diffusealpha(0);
+      end;
+    end;
+    On1Command=cmd(diffusealpha,0;zoomy,0;sleep,0.5;smooth,0.2;zoomy,1;diffusealpha,0.5);
     OffCommand=cmd(smooth,0.1;zoomy,0;diffusealpha,0);
     GainFocusCommand=cmd(diffusealpha,0;zoomy,0;smooth,0.2;zoomy,1;diffusealpha,0.5);
     LoseFocusCommand=cmd(queuecommand,"Off");
   };
   LoadActor("text")..{
     InitCommand=cmd(y,-24);
-    OnCommand=cmd(diffusealpha,0;sleep,0.55;smooth,0.2;diffusealpha,1);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 1 then
+        self:queuecommand("On1");
+      else
+        self:diffusealpha(0);
+      end;
+    end;
+    On1Command=cmd(diffusealpha,0;sleep,0.55;smooth,0.2;diffusealpha,1);
     OffCommand=cmd(smooth,0.1;diffusealpha,0);
     GainFocusCommand=cmd(diffusealpha,0;sleep,0.1;smooth,0.2;diffusealpha,1);
     LoseFocusCommand=cmd(queuecommand,"Off");
   };
   LoadActor("infoPad")..{
     InitCommand=cmd(xy,189,34);
-    OnCommand=cmd(diffusealpha,0;sleep,0.55;smooth,0.2;diffusealpha,1);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 1 then
+        self:queuecommand("On1");
+      else
+        self:diffusealpha(0);
+      end;
+    end;
+    On1Command=cmd(diffusealpha,0;sleep,0.55;smooth,0.2;diffusealpha,1);
     OffCommand=cmd(smooth,0.1;diffusealpha,0);
     GainFocusCommand=cmd(diffusealpha,0;sleep,0.1;smooth,0.2;diffusealpha,1);
     LoseFocusCommand=cmd(queuecommand,"Off");
   };
   Def.ActorFrame{
     InitCommand=cmd(y,-94);
-    OnCommand=cmd(diffusealpha,0;y,0;sleep,0.5;smooth,0.2;y,-94;diffusealpha,1);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 1 then
+        self:queuecommand("On1");
+      else
+        self:diffusealpha(0);
+      end;
+    end;
+    On1Command=cmd(diffusealpha,0;y,0;sleep,0.5;smooth,0.2;y,-94;diffusealpha,1);
     OffCommand=cmd(smooth,0.1;y,0;diffusealpha,0);
     GainFocusCommand=cmd(diffusealpha,0;y,0;smooth,0.2;y,-94;diffusealpha,1);
     LoseFocusCommand=cmd(queuecommand,"Off");
@@ -36,7 +64,14 @@ t[#t+1] = Def.ActorFrame{
   };
   LoadActor(THEME:GetPathG("","_sharedX3/SelectStyle/infobottom"))..{
     InitCommand=cmd(y,72);
-    OnCommand=cmd(diffusealpha,0;y,0;sleep,0.5;smooth,0.2;y,72;diffusealpha,1);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 1 then
+        self:queuecommand("On1");
+      else
+        self:diffusealpha(0);
+      end;
+    end;
+    On1Command=cmd(diffusealpha,0;y,0;sleep,0.5;smooth,0.2;y,72;diffusealpha,1);
     OffCommand=cmd(smooth,0.1;y,0;diffusealpha,0);
     GainFocusCommand=cmd(diffusealpha,0;y,0;smooth,0.2;y,72;diffusealpha,1);
     LoseFocusCommand=cmd(queuecommand,"Off");
@@ -79,8 +114,12 @@ t[#t+1] = Def.ActorFrame{
     MenuDownP2MessageCommand=cmd(playcommand,"Change1");
     OnCommand=function(self)
       if GAMESTATE:GetNumPlayersEnabled() == 2 then
-        self:diffusealpha(0):linear(0.3):zoomy(1.75):queuecommand("Animate")
-      else return end
+        local env = GAMESTATE:Env()
+        env.SINGLESELECT = false
+        self:playcommand("Change1")
+      else
+        self:queuecommand("GainFocus")
+      end;
     end;
     Change1Command=function(self)
       local env = GAMESTATE:Env()

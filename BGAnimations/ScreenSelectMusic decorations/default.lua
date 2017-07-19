@@ -26,6 +26,7 @@ t[#t+1] = Def.ActorFrame {
 	};
 };
 
+
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(y,SCREEN_CENTER_Y+170;x,SCREEN_CENTER_X+154;diffuse,color("0,0,0,1"));
 	LoadActor("diffbg")..{

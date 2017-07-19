@@ -80,7 +80,14 @@ t[#t+1] = Def.ActorFrame {
 t[#t+1] = Def.ActorFrame{
   Def.Sprite{
     Name="P1 Messages";
-    InitCommand=cmd(visible,false;x,SCREEN_LEFT+280;y,SCREEN_BOTTOM-80;queuecommand,"Set");
+    InitCommand=cmd(visible,false;x,SCREEN_LEFT+280;y,SCREEN_BOTTOM-80);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 2 then
+        self:visible(false)
+      else
+        self:queuecommand("Set")
+      end;
+    end;
     SetCommand=function(self)
       local GetP1 = GAMESTATE:IsPlayerEnabled(PLAYER_1);
       if GetP1 == true and GAMESTATE:GetMasterPlayerNumber() == PLAYER_1 then
@@ -100,7 +107,14 @@ t[#t+1] = Def.ActorFrame{
   };
   Def.Sprite{
     Name="P2 Messages";
-    InitCommand=cmd(visible,false;x,SCREEN_RIGHT-280;y,SCREEN_BOTTOM-80;queuecommand,"Set");
+    InitCommand=cmd(visible,false;x,SCREEN_RIGHT-280;y,SCREEN_BOTTOM-80);
+    OnCommand=function(self)
+      if GAMESTATE:GetNumPlayersEnabled() == 2 then
+        self:visible(false)
+      else
+        self:queuecommand("Set")
+      end;
+    end;
     SetCommand=function(self)
       local GetP2 = GAMESTATE:IsPlayerEnabled(PLAYER_2);
       if GetP2 == true and GAMESTATE:GetMasterPlayerNumber() == PLAYER_2 then

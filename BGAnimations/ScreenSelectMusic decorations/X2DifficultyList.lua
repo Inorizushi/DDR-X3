@@ -339,6 +339,8 @@ for idx, diff in pairs(difficultiesToDraw) do
 								self:visible(true)
 							elseif topgrade=="Grade_Tier07" or topgrade=="Grade_Failed" then
 								self:visible(false)
+							elseif topgrade >= "Grade_Tier08" then
+								self:visible(false)
 							else
 								self:Load(THEME:GetPathG("myMusicWheel/myMusicWheel",ToEnumShortString(topgrade)));
 								self:visible(true)

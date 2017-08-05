@@ -18,3 +18,10 @@ function ScreenGameplay_P2X()
 		return WideScale(SCREEN_CENTER_X+175,SCREEN_CENTER_X+240);
 	end
 end
+function ScreenGameplayLifeY()
+	if not Is2ndMIX() then
+		return SCREEN_TOP+35
+	else
+		return SCREEN_TOP-999
+	end
+end

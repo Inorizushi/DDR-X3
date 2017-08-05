@@ -4,9 +4,9 @@ t[#t+1] = Def.ActorFrame{
   LoadActor("../2nd doors.png")..{
     InitCommand=cmd(Center);
   };
-  --[[LoadActor("base")..{
+LoadActor("base")..{
     InitCommand=cmd(Center);
-  };]]--
+  };
 };
 
 t[#t+1] = Def.ActorFrame{

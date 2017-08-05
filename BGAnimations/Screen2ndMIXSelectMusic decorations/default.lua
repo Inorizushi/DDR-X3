@@ -7,7 +7,7 @@ t[#t+1] = Def.ActorFrame{
 };
 
 t[#t+1] = Def.ActorFrame{
-  InitCommand=cmd(draworder,99;CenterX;y,SCREEN_CENTER_Y+130);
+  InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+130);
   OffCommand=cmd(sleep,0.15;linear,0.15;diffusealpha,0);
 	Def.Sprite{
     Texture="arrow";
@@ -15,7 +15,19 @@ t[#t+1] = Def.ActorFrame{
 	};
   Def.Sprite{
     Texture="arrow";
+		InitCommand=cmd(x,224;rotationy,180;pause;diffusealpha,0;SetAllStateDelays,0.1);
+    NextSongMessageCommand=cmd(diffusealpha,1;play;sleep,0.4;diffusealpha,0;queuecommand,"end");
+    EndCommand=cmd(pause;setstate,0);
+	};
+  Def.Sprite{
+    Texture="arrow";
 		InitCommand=cmd(x,-224;pause;setstate,0);
+	};
+  Def.Sprite{
+    Texture="arrow";
+		InitCommand=cmd(x,-224;pause;diffusealpha,0;SetAllStateDelays,0.1);
+    PreviousSongMessageCommand=cmd(diffusealpha,1;play;sleep,0.4;diffusealpha,0;queuecommand,"end");
+    EndCommand=cmd(pause;setstate,0);
 	};
 };
 

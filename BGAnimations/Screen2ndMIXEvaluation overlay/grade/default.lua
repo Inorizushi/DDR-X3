@@ -7,7 +7,7 @@ local t = Def.ActorFrame {};
 if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("Grade_SSS_Tier")..{
-			InitCommand=cmd(x,SCREEN_CENTER_X-228;y,SCREEN_CENTER_Y-152;zoom,0);
+			InitCommand=cmd(x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+108;zoom,0);
 			OnCommand=function(self)
 				if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier01") then
 					(cmd(sleep,0.2;linear,0.2;zoom,1))(self);
@@ -17,7 +17,7 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 		};
 
 		LoadActor("Grade_SS_Tier")..{
-			InitCommand=cmd(x,SCREEN_CENTER_X-228;y,SCREEN_CENTER_Y-152;zoom,0);
+			InitCommand=cmd(x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+108;zoom,0);
 			OnCommand=function(self)
 				if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier02") then
 					(cmd(sleep,0.2;linear,0.2;zoom,1))(self);
@@ -27,7 +27,7 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 		};
 
 		LoadActor("Grade_S_Tier")..{
-			InitCommand=cmd(x,SCREEN_CENTER_X-228;y,SCREEN_CENTER_Y-152;zoom,0);
+			InitCommand=cmd(x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+108;zoom,0);
 			OnCommand=function(self)
 				if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier03") then
 					(cmd(sleep,0.2;linear,0.2;zoom,1))(self);
@@ -47,7 +47,7 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 		};
 
 		LoadActor("Grade_B_Tier")..{
-			InitCommand=cmd(x,SCREEN_CENTER_X-228;y,SCREEN_CENTER_Y-152;zoom,0);
+			InitCommand=cmd(x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+108;zoom,0);
 			OnCommand=function(self)
 				if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier05") then
 					(cmd(sleep,0.2;linear,0.2;zoom,1))(self);
@@ -57,7 +57,7 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 		};
 
 		LoadActor("Grade_C_Tier")..{
-			InitCommand=cmd(x,SCREEN_CENTER_X-228;y,SCREEN_CENTER_Y-152;zoom,0);
+			InitCommand=cmd(x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+108;zoom,0);
 			OnCommand=function(self)
 				if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier06") then
 					(cmd(sleep,0.2;linear,0.2;zoom,1))(self);
@@ -67,7 +67,7 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 		};
 
 		LoadActor("Grade_D_Tier")..{
-			InitCommand=cmd(x,SCREEN_CENTER_X-228;y,SCREEN_CENTER_Y-152;zoom,0);
+			InitCommand=cmd(x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+108;zoom,0);
 			OnCommand=function(self)
 				if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier07") then
 					(cmd(sleep,0.2;linear,0.2;zoom,1))(self);
@@ -77,7 +77,7 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 		};
 
 		LoadActor("Grade_E_Tier")..{
-			InitCommand=cmd(x,SCREEN_CENTER_X-228;y,SCREEN_CENTER_Y-152;zoom,0);
+			InitCommand=cmd(x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+108;zoom,0);
 			OnCommand=function(self)
 				if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Failed") then
 					(cmd(sleep,0.2;linear,0.2;zoom,1))(self);

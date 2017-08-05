@@ -1,7 +1,7 @@
 local t = Def.ActorFrame {}
 local st = GAMESTATE:GetCurrentStyle():GetStepsType();
 
-if GAMESTATE:GetPlayMode() == 'PlayMode_Regular' then
+if GAMESTATE:GetPlayMode() == 'PlayMode_Regular' and not Is2ndMIX() then
 	-- TargetScore Bar
 	local function Update(self, _)
 		if GAMESTATE then

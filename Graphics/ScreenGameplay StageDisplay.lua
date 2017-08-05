@@ -36,6 +36,7 @@ else
 	sStage = sStage;
 end;
 
+if not Is2ndMIX() then
 for s in ivalues(Stage) do
 	stages[#stages+1] = MakeBitmapText() .. {
 		SetCommand=function(self, params)
@@ -79,5 +80,6 @@ for s in ivalues(Stage) do
 
 	}
 end
+end;
 
 return stages;

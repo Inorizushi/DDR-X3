@@ -444,7 +444,7 @@ if GAMESTATE:GetPlayMode() == 'PlayMode_Regular' and not Is2ndMIX() then
 							local scores = scorelist:GetHighScores();
 							local topscore=0;
 							if scores[1] then
-								topscore = scores[1]:GetScore();
+								topscore = 10*math.round(SN2Scoring.GetSN2ScoreFromHighScore(StepsOrTrail, scores[1])/10)
 							end;
 							assert(topscore);
 							if topscore ~= 0 then

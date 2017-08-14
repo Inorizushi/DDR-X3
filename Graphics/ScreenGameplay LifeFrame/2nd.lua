@@ -31,10 +31,11 @@ for pn in ivalues(GAMESTATE:GetEnabledPlayers()) do
 				if (params.Player == pn) then
 					local life = string.format("%.1f",params.LifeMeter:GetLife() * 10)
 					local pills = (string.format("%.1f",life * 20.5 / 41)) * 10
-          
+
           self:setstate(-1 + i)
 					if pills >= i then self:visible(true) else self:visible(false) end
 					if pills >= 41 then self:glowshift():effectperiod(0.1):effectcolor1(1,1,1,0.4):effectcolor2(1,1,1,0) else self:stopeffect() end
+        else return end
 			end;
     };
   end

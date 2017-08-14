@@ -279,7 +279,7 @@ for idx, diff in pairs(difficultiesToDraw) do
 					assert(scorelist)
 					local scores = scorelist:GetHighScores();
 					if scores[1] then
-						topscore = scores[1]:GetScore()
+						topscore = 10*math.round(SN2Scoring.GetSN2ScoreFromHighScore(steps, scores[1])/10)
 					else
 						topscore = 0;
 					end;

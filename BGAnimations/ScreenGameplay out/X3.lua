@@ -27,7 +27,7 @@ t[#t+1] = Def.ActorFrame{
 	 OnCommand=cmd(rotationz,-180;zoom,0;sleep,2.180;zoom,1.2;rotationz,-90;linear,0.1;zoom,1;rotationz,0);
 	};
   LoadActor(THEME:GetPathB("","Common doors/door 1.png"))..{
-	 OnCommand=cmd(rotationz,0;zoom,2;sleep,1;linear,1;zoom,1.2;rotationz,0;linear,0.085;zoom,1;rotationz,0);
+	 OnCommand=cmd(rotationz,0;zoom,2;sleep,1;linear,1;zoom,2;rotationz,0;linear,0.085;zoom,1;rotationz,0);
 	};
 };
 	--------CLEARED-----------

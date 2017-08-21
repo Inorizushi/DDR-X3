@@ -51,7 +51,7 @@ t[#t+1] = LoadActor("P09.png")..{
 		OnCommand=cmd(sleep,2;diffusealpha,0;sleep,0.30;linear,0.05;x,420;diffusealpha,1;sleep,3.70);
 	--L	
 	};	
-t[#t+1] = LoadActor("P09.png")..{
+t[#t+1] = LoadActor("P10.png")..{
 		InitCommand=cmd(diffusealpha,0;x,0;y,0;zoom,1);
 		OnCommand=cmd(sleep,2;diffusealpha,0;sleep,0.30;linear,0.05;x,465;diffusealpha,1;sleep,3.70);
 	};		
@@ -92,7 +92,7 @@ t[#t+1] = LoadActor("P09.png")..{
 		InitCommand=cmd(diffusealpha,0;x,0;y,0;zoom,1);
 		OnCommand=cmd(sleep,2;blend,'BlendMode_Add';diffusealpha,0;sleep,0.40;linear,0.05;x,420;diffusealpha,0;sleep,0.2;linear,0.01;diffusealpha,1;linear,0.1;diffusealpha,0);
 	};
-t[#t+1] = LoadActor("P09.png")..{
+t[#t+1] = LoadActor("P10.png")..{
 		InitCommand=cmd(diffusealpha,0;x,0;y,0;zoom,1);
 		OnCommand=cmd(sleep,2;blend,'BlendMode_Add';diffusealpha,0;sleep,0.45;linear,0.05;x,465;diffusealpha,0;sleep,0.2;linear,0.01;diffusealpha,1;linear,0.1;diffusealpha,0);
 	};	

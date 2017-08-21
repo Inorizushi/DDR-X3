@@ -24,7 +24,7 @@ t[#t+1] = Def.ActorFrame {
 	---- DOOR OPEN > CLOSE  CLOSE > OPEN
 	LoadActor(THEME:GetPathB("","doors close"));
 	LoadActor(("DONK"))..{
-		OnCommand=cmd(queuecommand,("Play"));
+		OnCommand=cmd(sleep,0.5;queuecommand,("Play"));
 		PlayCommand=cmd(play;);
 	};
 	--- Flash SONG BANNER  sound------

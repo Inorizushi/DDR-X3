@@ -119,7 +119,7 @@ local function Update(self, _)
 end
 
 local ret = Def.ActorFrame{InitCommand=function(self) self:xy(SCREEN_CENTER_X+154,SCREEN_CENTER_Y+170):queuecommand("On"):SetUpdateFunction(Update) end,
-    OffCommand=function(self) self:sleep(0.5):visible(false) end}
+    OffCommand=function(self) self:sleep(0.5):linear(0.2):diffusealpha(0) end}
 
 local function IndicatorUpdate(self, pn)
     if not GAMESTATE:IsPlayerEnabled(pn) then return end
@@ -165,6 +165,7 @@ do
             Name='PlayerLabel',
             InitCommand=function(self) SetXFromPlayerNumber(self:visible(false), pn) self:zoom(0) end,
 						OnCommand=function(self) self:zoom(0):sleep(0.4):linear(0.2):zoom(1):queuecommand("Animate") end,
+						OffCommand=cmd(sleep,0.8;linear,0.2;zoom,0);
 						AnimateCommand=function(self) self:bounce():effectmagnitude(pn=='PlayerNumber_P2' and -4 or 4,0,0):effectclock('beatnooffset') end,
             SNDLUpdateMessageCommand=function(self) return IndicatorUpdate(self, pn) end,
             PlayerJoinedMessageCommand=function(self,p)
@@ -183,54 +184,59 @@ for idx, diff in pairs(difficultiesToDraw) do
 		Name = "Row"..diff,
 		SNDLUpdateMessageCommand = function(self) for _, item in pairs(self:GetChildren()) do item:playcommand("Update") end end,
 		InitCommand=function(self) self:y(DiffToYPos(diff) ) end,
-		LoadFont("_helveticaneuelt pro 65 md Bold 24px")..{
+		Def.Sprite{
 			Name = "Label",
-			Text=THEME:GetString("CustomDifficulty",ToEnumShortString(diff));
-			InitCommand = function(self) self:setstate(idx-1):x(labelPos):wrapwidthpixels(5):strokecolor(color("0,0,0,1")):diffuse{0.5,0.5,0.5,1}:zoom(0.85) end,
+			Texture = "Steps Dark 1x5.png",
+			InitCommand = function(self) self:setstate(idx-1):SetAllStateDelays(math.huge):x(labelPos) end,
 			SNDLUpdateMessageCommand=function(self)
 				local song = GAMESTATE:GetCurrentSong()
 				if song then
 					if AnyPlayerThisDiff(diff) then
-						self:diffuse(DiffToColor(diff))
-						self:zoom(0.9)
+						self:Load(THEME:GetPathB("","ScreenSelectMusic decorations/Steps Colored 1x5.png"))
+						self:setstate(idx-1):SetAllStateDelays(math.huge)
+						self:diffusealpha(1)
 					elseif song:HasStepsTypeAndDifficulty(GAMESTATE:GetCurrentStyle():GetStepsType(), diff) then
-						self:diffuse{0.5,0.5,0.5,1}
-						self:zoom(0.86)
+						self:Load(THEME:GetPathB("","ScreenSelectMusic decorations/Steps Dark 1x5.png"))
+						self:setstate(idx-1):SetAllStateDelays(math.huge)
+						self:diffusealpha(1)
 					else
-						self:diffuse{0.5,0.5,0.5,0.5}
-						self:zoom(0.86)
+						self:Load(THEME:GetPathB("","ScreenSelectMusic decorations/Steps Dark 1x5.png"))
+						self:setstate(idx-1):SetAllStateDelays(math.huge)
+						self:diffusealpha(0.5)
 					end
 				else
-					self:diffuse{0.5,0.5,0.5,0.5}
-					self:zoom(0.86)
+					self:diffusealpha(0.5)
 				end
 			end
 		},
-		LoadActor("StepsDisplay ticks")..{
+		Def.Sprite{
 			Name = "Foot";
-			InitCommand = function(self) self:x(tickPos-25):diffuse{0.5,0.5,0.5,1} end,
+			Texture = "StepTicks Dark 1x5.png",
+			InitCommand = function(self) self:x(tickPos-25):setstate(idx-1):SetAllStateDelays(math.huge) end,
 			SNDLUpdateMessageCommand=function(self)
 				local song = GAMESTATE:GetCurrentSong()
 				if song then
 					if AnyPlayerThisDiff(diff) then
-						self:diffuse(DiffToColor(diff))
-						self:zoom(1.1)
+						self:Load(THEME:GetPathB("","ScreenSelectMusic decorations/StepTicks Colored 1x5.png"))
+						self:setstate(idx-1):SetAllStateDelays(math.huge)
+						self:diffusealpha(1)
 					elseif song:HasStepsTypeAndDifficulty(GAMESTATE:GetCurrentStyle():GetStepsType(), diff) then
-						self:diffuse{0.5,0.5,0.5,1}
-						self:zoom(1)
+						self:Load(THEME:GetPathB("","ScreenSelectMusic decorations/StepTicks Dark 1x5.png"))
+						self:setstate(idx-1):SetAllStateDelays(math.huge)
+						self:diffusealpha(1)
 					else
-						self:diffuse{0.5,0.5,0.5,0.5}
-						self:zoom(1)
+						self:Load(THEME:GetPathB("","ScreenSelectMusic decorations/StepTicks Dark 1x5.png"))
+						self:setstate(idx-1):SetAllStateDelays(math.huge)
+						self:diffusealpha(0.5)
 					end
 				else
-					self:diffuse{0.5,0.5,0.5,0.5}
-					self:zoom(1)
+					self:diffusealpha(0.5)
 				end
 			end
 		},
 		Def.RollingNumbers {
-			Font="_helveticaneuelt pro 65 md 20px";
-			InitCommand=function(self) self:x(tickPos):Load("RollingNumbersMeter"):strokecolor(color("0,0,0,1")):diffuse{0.5,0.5,0.5,1}:zoom(1.1) end,
+			Font="ScreenSelectMusic difficulty.ini";
+			InitCommand=function(self) self:x(tickPos+2):Load("RollingNumbersMeter"):diffuse{0.5,0.5,0.5,1} end,
 			SNDLUpdateMessageCommand=function(self, params)
 				local song = GAMESTATE:GetCurrentSong()
 				if song then
@@ -263,7 +269,7 @@ for idx, diff in pairs(difficultiesToDraw) do
 			InitCommand=function(self)
 				SetXFromPlayerNumberScore(self:visible(false), pn) self:Load("RollingNumbersSongData"):visible(false):strokecolor(color("0,0,0,1"))
 			end;
-			OffCommand=cmd(decelerate,0.05;zoom,0;);
+			OffCommand=cmd(sleep,0.5;linear,0.2;diffusealpha,0);
 			SNDLUpdateMessageCommand=function(self, params)
 				local song = GAMESTATE:GetCurrentSong()
 				local st=GAMESTATE:GetCurrentStyle():GetStepsType()

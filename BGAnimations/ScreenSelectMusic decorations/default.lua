@@ -20,38 +20,37 @@ t[#t+1] = StandardDecorationFromFileOptional("SortOrder","SortOrderText") .. {
 t[#t+1] = Def.ActorFrame {
 	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+170;zoom,1);
 	OnCommand=cmd(diffusealpha,0;sleep,0.25;linear,0.1;diffusealpha,1);
-	OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
-	LoadActor("pane base")..{
-		InitCommand=cmd(diffusealpha,1;);
-	};
+	OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
+	LoadActor("pane base");
 };
 
 
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(y,SCREEN_CENTER_Y+170;x,SCREEN_CENTER_X+154;diffuse,color("0,0,0,1"));
 	LoadActor("diffbg")..{
-		InitCommand=cmd(y,-80);
+		InitCommand=cmd(y,-78);
 		OnCommand=cmd(diffusealpha,0;cropright,0.7;sleep,0.576;decelerate,1.55;cropright,0;diffusealpha,0.3);
-		OffCommand=cmd(stoptweening;sleep,0.533;linear,0.15;cropright,0.5;cropleft,0.5;diffusealpha,0);
+		OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	};
 	LoadActor("diffbg")..{
-		InitCommand=cmd(y,-40);
+		InitCommand=cmd(y,-38);
 		OnCommand=cmd(diffusealpha,0;cropright,0.7;sleep,0.486;decelerate,1.55;cropright,0;diffusealpha,0.3);
-		OffCommand=cmd(stoptweening;sleep,0.433;linear,0.15;cropright,0.5;cropleft,0.5;diffusealpha,0);
+		OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	};
 	LoadActor("diffbg")..{
+		InitCommand=cmd(y,2);
 		OnCommand=cmd(diffusealpha,0;cropright,0.7;sleep,0.446;decelerate,1.52;cropright,0;diffusealpha,0.3);
-		OffCommand=cmd(stoptweening;sleep,0.333;linear,0.15;cropright,0.5;cropleft,0.5;diffusealpha,0);
+		OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	};
 	LoadActor("diffbg")..{
-		InitCommand=cmd(y,40);
+		InitCommand=cmd(y,42);
 		OnCommand=cmd(diffusealpha,0;cropright,0.7;sleep,0.466;decelerate,1.5;cropright,0;diffusealpha,0.3);
-		OffCommand=cmd(stoptweening;sleep,0.233;linear,0.15;cropright,0.5;cropleft,0.5;diffusealpha,0);
+		OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	};
 	LoadActor("diffbg")..{
-		InitCommand=cmd(y,80);
+		InitCommand=cmd(y,82);
 		OnCommand=cmd(diffusealpha,0;cropright,0.7;sleep,0.576;decelerate,1.55;cropright,0;diffusealpha,0.3);
-		OffCommand=cmd(stoptweening;sleep,0.133;linear,0.15;cropright,0.5;cropleft,0.5;diffusealpha,0);
+		OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	};
 
 };
@@ -59,17 +58,17 @@ t[#t+1] = Def.ActorFrame{
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(x,SCREEN_CENTER_X-314;y,SCREEN_CENTER_Y+184);
 	OnCommand=cmd(zoom,0;sleep,0.25;accelerate,0.2;zoom,1);
-	OffCommand=cmd(stoptweening;sleep,0.233;linear,0.05;diffusealpha,0);
+	OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	LoadActor("radar base");
 	LoadActor( "radar_scan" )..{
 		InitCommand=cmd(halign,0;valign,0;xy,-1,-1);
 		OnCommand=cmd(spin;effectmagnitude,0,0,120);
-		OffCommand=cmd(linear,0.2;zoom,0);
+		OffCommand=cmd(stopeffect);
 	};
 };
 
 t[#t+1] = Def.ActorFrame{
-	OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+	OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	LoadActor("line")..{
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+170;zoom,1);
 		OnCommand=cmd(croptop,1;cropbottom,1;sleep,0.2;linear,0.6;croptop,0;cropbottom,0);
@@ -106,7 +105,7 @@ t[#t+1] = LoadActor("X2DifficultyList.lua");
 -------------------------------------------------------------------------------------------------------------------
 t[#t+1] = Def.ActorFrame{
 	Name = "Player 1";
-	OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+	OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	CurrentSongChangedMessageCommand=function(self)
 		local Song=GAMESTATE:GetCurrentSong()
 			if not Song then
@@ -122,7 +121,7 @@ t[#t+1] = Def.ActorFrame{
 };
 t[#t+1] = Def.ActorFrame{
 	Name = "Player 2";
-	OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+	OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	CurrentSongChangedMessageCommand=function(self)
 		local Song=GAMESTATE:GetCurrentSong()
 			if not Song then
@@ -153,31 +152,31 @@ t[#t+1] = Def.ActorFrame{
 	Def.ActorFrame{
 		NextSongMessageCommand=cmd(finishtweening;linear,0;x,SCREEN_CENTER_X+154+20;decelerate,0.5;x,SCREEN_CENTER_X+154);
 		InitCommand=cmd(draworder,99;x,SCREEN_CENTER_X+154;y,SCREEN_CENTER_Y-20;zoom,1);
-		OffCommand=cmd(sleep,0.15;linear,0.15;diffusealpha,0);
+		OffCommand=cmd(sleep,0.5;linear,0.4;diffusealpha,0;addx,SCREEN_WIDTH);
 		LoadActor("_selectarrowRightG");
 		LoadActor("_selectarrowRightR") .. {
 			InitCommand=cmd(diffusealpha,0;draworder,100);
-			NextSongMessageCommand=cmd(diffusealpha,1;sleep,0.4;diffusealpha,0);
+			NextSongMessageCommand=cmd(finishtweening;diffusealpha,1;sleep,0.4;diffusealpha,0);
 		};
 	};
 	Def.ActorFrame{
 		InitCommand=cmd(draworder,99;x,SCREEN_CENTER_X-154;y,SCREEN_CENTER_Y-20;rotationy,180;zoom,1);
-		OffCommand=cmd(sleep,0.15;linear,0.15;diffusealpha,0);
+		OffCommand=cmd(sleep,0.5;linear,0.4;diffusealpha,0;addx,-SCREEN_WIDTH);
 		PreviousSongMessageCommand=cmd(finishtweening;linear,0;x,SCREEN_CENTER_X-154-20;decelerate,0.5;x,SCREEN_CENTER_X-154);
 		LoadActor("_selectarrowRightG");
 		LoadActor("_selectarrowRightR") .. {
 			InitCommand=cmd(diffusealpha,0;draworder,100);
-			PreviousSongMessageCommand=cmd(diffusealpha,1;sleep,0.4;diffusealpha,0);
+			PreviousSongMessageCommand=cmd(finishtweening;diffusealpha,1;sleep,0.4;diffusealpha,0);
 		};
 	};
 };
 end
 
-t[#t+1] = LoadActor( "_ShockArrow_mark 1P 8x1" ) .. {
-	InitCommand=cmd(draworder,100;x,SCREEN_CENTER_X-112;y,SCREEN_CENTER_Y-14;zoom,1;diffuseshift;effectcolor1,1,1,1,1;effectcolor2,0.85,0.85,0.85,1;effectperiod,0.25;playcommand,"Set");
+t[#t+1] = LoadActor( "_ShockArrow_mark 1P" ) .. {
+	InitCommand=cmd(draworder,100;x,SCREEN_CENTER_X-104;y,SCREEN_CENTER_Y-20;zoom,1;diffuseshift;effectcolor1,1,1,1,1;effectcolor2,0.85,0.85,0.85,1;effectperiod,0.25;playcommand,"Set");
 	SetCommand=function(self)
 		local song = GAMESTATE:GetCurrentSong();
-		local yZoom = 0
+		local diffuse = 0
 		if song then
 			local steps = GAMESTATE:GetCurrentSteps(PLAYER_1)
 			if steps then
@@ -193,17 +192,16 @@ t[#t+1] = LoadActor( "_ShockArrow_mark 1P 8x1" ) .. {
 			yZoom = 0
 		end
 		self:finishtweening()
-		self:decelerate(0.15)
 		self:zoomy(yZoom)
 	end;
 	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
 	CurrentStepsP1ChangedMessageCommand=cmd(playcommand,"Set");
-	OffCommand=cmd(decelerate,0.25;zoomy,0);
+	OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 };
 
 -- ShockArrow mark 2P
-t[#t+1] = LoadActor( "_ShockArrow_mark 2P 8x1" ) .. {
-	InitCommand=cmd(draworder,100;x,SCREEN_CENTER_X+112;y,SCREEN_CENTER_Y-14;zoom,1;diffuseshift;effectcolor1,1,1,1,1;effectcolor2,0.85,0.85,0.85,1;effectperiod,0.25;playcommand,"Set");
+t[#t+1] = LoadActor( "_ShockArrow_mark 2P" ) .. {
+	InitCommand=cmd(draworder,100;x,SCREEN_CENTER_X+104;y,SCREEN_CENTER_Y-20;zoom,1;diffuseshift;effectcolor1,1,1,1,1;effectcolor2,0.85,0.85,0.85,1;effectperiod,0.25;playcommand,"Set");
 	SetCommand=function(self)
 		local yZoom = 0
 		if GAMESTATE:GetCurrentSong() then
@@ -221,7 +219,6 @@ t[#t+1] = LoadActor( "_ShockArrow_mark 2P 8x1" ) .. {
 			yZoom = 0
 		end
 		self:finishtweening()
-		self:decelerate(0.1)
 		self:zoomy(yZoom)
 	end;
 	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
@@ -238,7 +235,7 @@ t[#t+1] = LoadActor( "ST.png" )..{
 			end
 
 		end;
-		OffCommand=cmd(decelerate,0.05;diffusealpha,0;);
+		OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	};
 
 
@@ -247,7 +244,7 @@ local ut = Def.ActorFrame{
 		Name="songTitle";
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+20;zoomy,0.8;zoomx,0.9;diffuse,color("0,0,0,1");strokecolor,color("#ffffff"));
 		OnCommand=cmd(diffusealpha,0;sleep,0.4;diffusealpha,1);
-		OffCommand=cmd(decelerate,0.05;addy,900);
+		OffCommand=cmd(sleep,0.5;addy,900);
 		SetCommand=function(self)
 			local song;
 			local tit="";
@@ -267,7 +264,7 @@ local ut = Def.ActorFrame{
 		Name="songArtist";
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+30;zoom,0.75;diffuse,color("#000000");strokecolor,color("#ffffff");draworder,2);
 		OnCommand=cmd(diffusealpha,0;sleep,0.4;diffusealpha,1);
-		OffCommand=cmd(decelerate,0.05;addy,900);
+		OffCommand=cmd(sleep,0.5;addy,900);
 		SetCommand=function(self)
 			local song;
 			local sub="";

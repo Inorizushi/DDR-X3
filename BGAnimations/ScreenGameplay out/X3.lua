@@ -6,29 +6,29 @@ local t = Def.ActorFrame{
 
 	-- Cleared song --
     LoadActor("../ClearedSong.mp3") .. {
-		StartTransitioningCommand=cmd(play);
+		StartTransitioningCommand=cmd(sleep,0.2;queuecommand,"Play");
+    PlayCommand=cmd(play);
 	};
 };
 
 t[#t+1] = Def.ActorFrame{
   InitCommand=cmd(Center);
-  OnCommand=cmd(vibrate;effectmagnitude,2,4,0;sleep,0.3;queuecommand,"StopThat");
+  OnCommand=cmd(sleep,2.6;queuecommand,"Vib");
+  VibCommand=cmd(vibrate;effectmagnitude,2,4,0;sleep,0.3;queuecommand,"StopThat");
   StopThatCommand=cmd(stopeffect);
-  LoadActor(THEME:GetPathB("","Common doors/door 3.png"))..{
-    OnCommand=cmd(zoom,0;rotationz,180;sleep,2.178;zoom,0.0;rotationz,90;sleep,0.098;zoom,1;rotationz,0);
-  };
-  LoadActor(THEME:GetPathB("","Common doors/door 4.png"))..{
-	   OnCommand=cmd(zoom,0;rotationz,180;sleep,2.180;zoom,0.0;rotationz,90;sleep,0.1;zoom,1;rotationz,0);
-	};
   LoadActor(THEME:GetPathB("","Common doors/door 5.png"))..{
-	   OnCommand=cmd(zoom,0;rotationz,-180;sleep,2.185;zoom,0.0;rotationz,-90;sleep,0.1;zoom,1;rotationz,0);
-	};
+     OnCommand=cmd(rotationz,0;zoom,0;linear,0.5;zoom,0.0;rotationz,-20;sleep,2.05;zoom,1;linear,0.04;rotationz,0);
+  };
+  LoadActor(THEME:GetPathB("","Common doors/door 3.png"))..{
+    OnCommand=cmd(zoom,0;rotationz,080;linear,0.5;zoom,0.0;rotationz,90;sleep,2.05;zoom,1;linear,0.04;rotationz,0);
+  };
   LoadActor(THEME:GetPathB("","Common doors/door 2.png"))..{
-	 OnCommand=cmd(rotationz,-180;zoom,0;sleep,2.180;zoom,1.2;rotationz,-90;linear,0.1;zoom,1;rotationz,0);
-	};
+   OnCommand=cmd(diffusealpha,0;rotationz,-110;zoom,2;sleep,2.25;diffusealpha,1;linear,0.3;zoom,1.2;rotationz,-050;linear,0.039;zoom,1;rotationz,0);
+  };
   LoadActor(THEME:GetPathB("","Common doors/door 1.png"))..{
-	 OnCommand=cmd(rotationz,0;zoom,2;sleep,1;linear,1;zoom,2;rotationz,0;linear,0.085;zoom,1;rotationz,0);
-	};
+   OnCommand=cmd(zoom,5;sleep,2;linear,0.2;zoom,1.8;linear,0.2;zoom,1;rotationz,0);
+  };
+
 };
 	--------CLEARED-----------
 t[#t+1] = Def.ActorFrame{

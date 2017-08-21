@@ -14,18 +14,17 @@ local Score = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2):GetScore
 --Max Combo--
 
 t[#t+1] = Def.RollingNumbers {
-			File = THEME:GetPathF("_helveticaneuelt pro 65 md", "20px");
-			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,0.8;draworder,5;y,SCREEN_CENTER_Y+70;horizalign,center);
+			File = THEME:GetPathF("","ScreenEvaluation judge");
+			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,1;draworder,5;y,SCREEN_CENTER_Y+178;halign,1);
 			OnCommand = function(self)
 				self:Load("RollingNumbersJudgment");
 				self:targetnumber(Combo);
 			end;
-			OffCommand=cmd(sleep,0.067;zoom,0);
 		};
 --Marvelous--
 t[#t+1] = Def.RollingNumbers {
-			File = THEME:GetPathF("_helveticaneuelt pro 65 md", "20px");
-			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,0.8;draworder,6;y,SCREEN_CENTER_Y-88;horizalign,center);
+			File = THEME:GetPathF("","ScreenEvaluation judge");
+			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,1;draworder,6;y,SCREEN_CENTER_Y-14;halign,1);
 			OnCommand = function(self)
 				self:Load("RollingNumbersJudgment");
 				self:targetnumber(Marvelous);
@@ -33,8 +32,8 @@ t[#t+1] = Def.RollingNumbers {
 		};
 --Perfect--
 t[#t+1] = Def.RollingNumbers {
-			File = THEME:GetPathF("_helveticaneuelt pro 65 md", "20px");
-			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,0.8;draworder,6;y,SCREEN_CENTER_Y-62;horizalign,center);
+			File = THEME:GetPathF("","ScreenEvaluation judge");
+			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,1;draworder,6;y,SCREEN_CENTER_Y+18;halign,1);
 			OnCommand = function(self)
 				self:Load("RollingNumbersJudgment");
 				self:targetnumber(Perfect);
@@ -42,8 +41,8 @@ t[#t+1] = Def.RollingNumbers {
 		};
 --Great--
 t[#t+1] = Def.RollingNumbers {
-			File = THEME:GetPathF("_helveticaneuelt pro 65 md", "20px");
-			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,0.8;draworder,6;y,SCREEN_CENTER_Y-35;horizalign,center);
+			File = THEME:GetPathF("","ScreenEvaluation judge");
+			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,1;draworder,6;y,SCREEN_CENTER_Y+50;halign,1);
 			OnCommand = function(self)
 				self:Load("RollingNumbersJudgment");
 				self:targetnumber(Great);
@@ -51,8 +50,8 @@ t[#t+1] = Def.RollingNumbers {
 		};
 --Good--
 t[#t+1] = Def.RollingNumbers {
-			File = THEME:GetPathF("_helveticaneuelt pro 65 md", "20px");
-			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,0.8;draworder,6;y,SCREEN_CENTER_Y-8;horizalign,center);
+			File = THEME:GetPathF("","ScreenEvaluation judge");
+			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,1;draworder,6;y,SCREEN_CENTER_Y+82;halign,1);
 			OnCommand = function(self)
 				self:Load("RollingNumbersJudgment");
 				self:targetnumber(Good);
@@ -60,17 +59,18 @@ t[#t+1] = Def.RollingNumbers {
 		};
 --Ok--
 t[#t+1] = Def.RollingNumbers {
-			File = THEME:GetPathF("_helveticaneuelt pro 65 md", "20px");
-			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,0.8;draworder,6;y,SCREEN_CENTER_Y+18;horizalign,center);
+			File = THEME:GetPathF("","ScreenEvaluation judge");
+			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,1;draworder,6;y,SCREEN_CENTER_Y+114;halign,1);
 			OnCommand = function(self)
 				self:Load("RollingNumbersJudgment");
 				self:targetnumber(Ok);
 			end;
 		};
+
 --Miss--(Miss)
 t[#t+1] = Def.RollingNumbers {
-			File = THEME:GetPathF("_helveticaneuelt pro 65 md", "20px");
-			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,0.8;draworder,6;y,SCREEN_CENTER_Y+44;horizalign,center);
+			File = THEME:GetPathF("","ScreenEvaluation judge");
+			InitCommand=cmd(player,PLAYER_2;diffuse,color("#ffffff");strokecolor,color("#000000");zoom,1;draworder,6;y,SCREEN_CENTER_Y+146;halign,1);
 			OnCommand = function(self)
 				self:Load("RollingNumbersJudgment");
 				self:targetnumber(Miss);

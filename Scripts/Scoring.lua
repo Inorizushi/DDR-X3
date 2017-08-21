@@ -64,6 +64,25 @@ local maxQuasiMultipliers =
     TapNoteScore_Miss = 1
 }
 
+
+function GetEvaScore(maxsteps,pss,pn)
+    local score;
+    local w1=pss:GetTapNoteScores('TapNoteScore_W1');
+    local w2=pss:GetTapNoteScores('TapNoteScore_W2');
+    local w3=pss:GetTapNoteScores('TapNoteScore_W3');
+    local hd=pss:GetHoldNoteScores('HoldNoteScore_Held');
+    if EXScore(pn) == "On" then
+        score = w1*3 + w2*2 + w3 + hd*3;
+    else
+        if PREFSMAN:GetPreference("AllowW1")~="AllowW1_Everywhere" then
+            w1=w1+w2;
+            w2=0;
+        end;
+        score = (math.round( (w1 + w2 + w3/2+hd)*100000/maxsteps-(w2 + w3))*10);
+    end;
+    return score;
+end;
+
 --Given a thing which has functions hnsFuncName and tnsFuncName that take one
 --argument and return the number of TNSes or HNSes there are in that thing,
 --pack that information into something useful.

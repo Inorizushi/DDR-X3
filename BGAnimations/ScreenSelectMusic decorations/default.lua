@@ -151,7 +151,7 @@ t[#t+1] = Def.ActorFrame {
 if GAMESTATE:IsCourseMode() == false then
 t[#t+1] = Def.ActorFrame{
 	Def.ActorFrame{
-		NextSongMessageCommand=cmd(stoptweening;linear,0;x,SCREEN_CENTER_X+154+20;decelerate,0.5;x,SCREEN_CENTER_X+154);
+		NextSongMessageCommand=cmd(finishtweening;linear,0;x,SCREEN_CENTER_X+154+20;decelerate,0.5;x,SCREEN_CENTER_X+154);
 		InitCommand=cmd(draworder,99;x,SCREEN_CENTER_X+154;y,SCREEN_CENTER_Y-20;zoom,1);
 		OffCommand=cmd(sleep,0.15;linear,0.15;diffusealpha,0);
 		LoadActor("_selectarrowRightG");
@@ -163,7 +163,7 @@ t[#t+1] = Def.ActorFrame{
 	Def.ActorFrame{
 		InitCommand=cmd(draworder,99;x,SCREEN_CENTER_X-154;y,SCREEN_CENTER_Y-20;rotationy,180;zoom,1);
 		OffCommand=cmd(sleep,0.15;linear,0.15;diffusealpha,0);
-		PreviousSongMessageCommand=cmd(stoptweening;linear,0;x,SCREEN_CENTER_X-154-20;decelerate,0.5;x,SCREEN_CENTER_X-154);
+		PreviousSongMessageCommand=cmd(finishtweening;linear,0;x,SCREEN_CENTER_X-154-20;decelerate,0.5;x,SCREEN_CENTER_X-154);
 		LoadActor("_selectarrowRightG");
 		LoadActor("_selectarrowRightR") .. {
 			InitCommand=cmd(diffusealpha,0;draworder,100);

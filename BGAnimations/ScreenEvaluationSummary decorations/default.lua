@@ -82,33 +82,6 @@ t[#t+1] = Def.ActorFrame {
 		end;
 	end;
 
-	LoadActor("Grade_Back") .. {
-		BeginCommand=function(self)
-		--	self:vertalign(center);
-		    self:y(30);
-			self:zoomtoheight(0);
-			self:linear(0.25);
-			if mStages == 1 then
-				self:zoomtoheight(256);
-			elseif mStages == 2 then
-				self:zoomtoheight(256);
-			elseif mStages == 3 then
-				self:zoomtoheight(256);
-			elseif mStages == 4 then
-				self:zoomtoheight(500);
-			elseif mStages == 5 then
-				self:zoomtoheight(500);
-			elseif mStages == 6 then
-				self:zoomtoheight(500);
-			elseif mStages == 7 then
-				self:zoomtoheight(500);
-			else
-				self:zoomtoheight(500);
-			end;
-		end;
-		OffCommand=cmd(sleep,0.25;linear,0.25;zoomy,0);
-	};
-
 
 	-- 1P Text
 	LoadActor("1P") .. {
@@ -161,7 +134,7 @@ for i = 1, mStages do
 				local sssong = ssStats:GetPlayedSongs()[1];
 				self:x(-179);
 				self:y(10);
-				self:Load(GetJacketBanner(sssong))
+				self:LoadBackground(sssong:GetJacketPath());
 				self:zoom_to_banner_Summary_line();
 				self:diffuse(color("#000000"));
 			end;
@@ -180,7 +153,7 @@ for i = 1, mStages do
 				local sssong = ssStats:GetPlayedSongs()[1];
 				self:x(-180);
 				self:y(10);
-				self:Load(GetJacketBanner(sssong))
+				self:LoadBackground(sssong:GetJacketPath());
 				self:zoom_to_banner_Summary();
 			end;
 			OnCommand=function(self)

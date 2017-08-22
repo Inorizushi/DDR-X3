@@ -256,6 +256,11 @@ t[#t+1] = Def.ActorFrame{
 };
 
 t[#t+1] = Def.Actor{
+	OnCommand=function(self)
+		if GAMESTATE:GetNumPlayersEnabled() == 2 then
+			self:queuecommand("Delay1")
+		end
+	end;
   PlayerJoinedMessageCommand=function(self)
     self:queuecommand("Delay1")
   end;
@@ -265,7 +270,7 @@ t[#t+1] = Def.Actor{
   end;
   SetScreenCommand=function(self)
     GAMESTATE:SetCurrentStyle("versus")
-    SCREENMAN:GetTopScreen():SetNextScreenName("ScreenSelectMusic"):StartTransitioningScreen("SM_GoToNextScreen")
+    SCREENMAN:GetTopScreen():SetNextScreenName("ScreenSelectMusicHappy"):StartTransitioningScreen("SM_GoToNextScreen")
   end;
 };
 

@@ -11,17 +11,23 @@ local ScoringPlayers = {}
 
 local SecondInfo = {}
 
+local tns_reverse = Enum.Reverse(TapNoteScore)
+
 t[#t+1] = Def.Actor{
     Name="ScoringController",
     JudgmentMessageCommand = function(_,params)
-        if not (( ScoringInfo[params.Player]) and
-            (ScoringInfo.seed == GAMESTATE:GetStageSeed())) then
-            SN2Scoring.PrepareScoringInfo(IsStarterMode())
-            ScoringInfo.seed = GAMESTATE:GetStageSeed()
-        end
+		SN2Scoring.PrepareScoringInfo(IsStarterMode())
         if not ScoringPlayers[params.Player] then
             ScoringPlayers[params.Player] = true
         end
+		--worstJudge is used by the combo code
+		if not ScoringInfo.worstJudge then
+			ScoringInfo.worstJudge = {}
+		end
+		local wj = ScoringInfo.worstJudge[params.Player]
+		if (not wj) or tns_reverse[params.TapNoteScore] < tns_reverse[wj] then
+			ScoringInfo.worstJudge[params.Player] = params.TapNoteScore
+		end
         local es = (GAMESTATE:Env()).EndlessState
         if es then
             local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(params.Player)

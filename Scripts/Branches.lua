@@ -10,7 +10,7 @@ end
 function CorrectSSM()
 	Trace "Yes, we get called"
 	if IsStarterMode() then
-		return "ScreenSelectMusicHappyr"
+		return "ScreenSelectMusicHappy"
 	else
 		local stage = GAMESTATE:GetCurrentStage()
 		Trace(stage)

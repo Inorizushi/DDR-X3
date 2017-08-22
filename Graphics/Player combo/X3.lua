@@ -14,7 +14,9 @@ local LabelMinZoom = THEME:GetMetric("Combo", "LabelMinZoom");
 local LabelMaxZoom = THEME:GetMetric("Combo", "LabelMaxZoom");
 
 local env = GAMESTATE:Env();
-local OLDMIX = env.OLDMIX == true;
+local starterMode = env.StarterMode == true;
+
+local arcadeColoring = ThemePrefs.Get("ArcadeColorMode");
 
 --you can pass nil to this function, it acts the same as passing nothing
 --however, i think that passing nil makes the intent clearer -tertu
@@ -34,17 +36,52 @@ local function cfShowOnly(...)
 	end
 end
 
---this function causes any W1/W2/W3 combo to look like a W2 in starter
-local function remapStarter(params)
-	if OLDMIX then
-		if params.FullComboW1 or params.FullComboW2 or params.FullComboW3 then
-			params.FullComboW2 = true
-			params.FullComboW1 = false
-			params.FullComboW3 = false
+local tns_reverse = Enum.Reverse(TapNoteScore)
+local function worstJudgeClear()
+	if (ScoringInfo and ScoringInfo.worstJudge) then
+		local wj = ScoringInfo.worstJudge[player]
+		if not wj then return end --don't need to do anything
+		if (ScoringInfo.seed ~= GAMESTATE:GetStageSeed()) or
+			(tns_reverse[wj] < tns_reverse['TapNoteScore_W3'])
+		then
+			ScoringInfo.worstJudge[player] = nil
+			wj = nil
 		end
+		return wj
 	end
 end
 
+local decideColor
+do
+	local tnsToParam = {
+		TapNoteScore_W1 = "FullComboW1",
+		TapNoteScore_W2 = "FullComboW2",
+		TapNoteScore_W3 = "FullComboW3"
+	}
+
+	decideColor = function(tns, params)
+		if starterMode then
+			if tns == "FullComboW2" then
+				if arcadeColoring then
+					return ScoringInfo ~= nil
+						and ScoringInfo.worstJudge ~= nil
+						and ScoringInfo.worstJudge[player] ~= nil
+				end
+				--not arcade coloring
+				return params.FullComboW1
+					or params.FullComboW2
+					or params.FullComboW3
+			end
+		elseif not arcadeColoring then
+			return params[tnsToParam[tns]] or false
+		elseif ScoringInfo and ScoringInfo.worstJudge then
+			return tns == ScoringInfo.worstJudge[player]
+		end
+		--failsafe
+		return false
+	end
+
+end
 
 local t = Def.ActorFrame {
 	Def.ActorFrame {
@@ -99,6 +136,7 @@ local t = Def.ActorFrame {
 		cfShowOnly(nil);
 	end;
 	ComboCommand=function(self, param)
+		worstJudgeClear()
 		if param.Misses then
 			cfShowOnly(nil);
 			return;
@@ -119,13 +157,13 @@ local t = Def.ActorFrame {
 		cf.NumberW2:settext( string.format("%i", iCombo) );
 		cf.NumberW3:settext( string.format("%i", iCombo) );
 		cf.NumberNormal:settext( string.format("%i", iCombo) );
-		remapStarter(param);
+
 		-- FullCombo Rewards
-		if param.FullComboW1 then
+		if decideColor('TapNoteScore_W1', param) then
 			cfShowOnly('NumberW1', 'LabelW1');
-		elseif param.FullComboW2 then
+		elseif decideColor('TapNoteScore_W2', param) then
 			cfShowOnly('NumberW2', 'LabelW2');
-		elseif param.FullComboW3 then
+		elseif decideColor('TapNoteScore_W3', param) then
 			cfShowOnly('NumberW3', 'LabelW3');
 		elseif param.Combo then
 			cfShowOnly('NumberNormal', 'LabelNormal');
@@ -144,4 +182,5 @@ local t = Def.ActorFrame {
 		-- Milestone Logic
 	end;
 };
+
 return t;

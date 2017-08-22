@@ -1,5 +1,12 @@
 local Prefs =
-{}
+{
+	ArcadeColorMode =
+	{
+		Default = true,
+		Choices = {"Arcade Style", "Wii Style"},
+		Values = {true, false}
+	},
+};
 
 ThemePrefs.InitAll(Prefs)
 

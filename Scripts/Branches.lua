@@ -10,7 +10,7 @@ end
 function CorrectSSM()
 	Trace "Yes, we get called"
 	if IsStarterMode() then
-		return "ScreenSelectMusicStarter"
+		return "ScreenSelectMusicHappyr"
 	else
 		local stage = GAMESTATE:GetCurrentStage()
 		Trace(stage)
@@ -81,15 +81,7 @@ Branch.AfterSMOLogin = SMOnlineScreen()
 
 Branch.BackOutOfPlayerOptions = function()
 	return SelectMusicOrCourse()
-end
-
-Branch.InstructionsNormal = function()
-	return PREFSMAN:GetPreference("ShowInstructions") and "ScreenInstructions" or CorrectSSM()
-end
-
-Branch.AfterInstructions = function()
-	return GAMESTATE:IsCourseMode() and "ScreenSelectCourse" or CorrectSSM()
-end
+end;
 
 Branch.AfterGameMode = function()
 	if Is2ndMIX() then

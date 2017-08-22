@@ -531,9 +531,9 @@ function LoadPlayerStuff(Player)
   	OffCommand=cmd(linear,0.25;zoomy,0;zoomx,0.5);
   };
 
-  t[#t+1] = LoadActor("EAmuse/Load 4x1")..{
+  t[#t+1] = LoadActor("EAmuse/Load 2x2")..{
     Name = "EAmuseLoad";
-    InitCommand=cmd(addx,-60;addy,-20;zoom,0.4);
+    InitCommand=cmd(addx,-60;addy,-20;zoom,0.75);
   	OnCommand=cmd(diffusealpha,0;sleep,0.65;diffusealpha,1;animate,true;sleep,2.5;playcommand,"Off");
   	OffCommand=cmd(linear,0.15;diffusealpha,0);
   };

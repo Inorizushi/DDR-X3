@@ -8,7 +8,7 @@ elseif string.find(screenName, "Options") then
     headerTextImage = "Options.png"
 elseif screenName == "ScreenMapControllers" then
 	headerTextImage = "Options.png"
-elseif screenName == "ScreenSelectStyle" then
+elseif screenName == "ScreenSelectStyle" or screenName == "ScreenSelectStyleHappy" then
     headerTextImage = "Style.png"
 elseif screenName == "ScreenSelectPlayMode"
 	or screenName == "ScreenSelectPlayCourseMode" then

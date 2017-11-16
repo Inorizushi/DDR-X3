@@ -66,8 +66,17 @@ local xPosPlayer = {
 
 if Is2ndMIX() then
   for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
+    t[#t+1] = LoadFont("2ndMIXScoreGameplay")..{
+      InitCommand=function(self)
+        local short = ToEnumShortString(pn)
+        self:y(SCREEN_BOTTOM-40);
+        self:x(xPosPlayer[short])
+        self:draworder(199)
+        self:settext("ooooooooo");
+      end;
+    };
     t[#t+1] = Def.RollingNumbers {
-      Font="2ndMIXScore";
+      Font="2ndMIXScoreGameplay";
       InitCommand=function(self)
         local short = ToEnumShortString(pn)
         self:y(SCREEN_BOTTOM-40);

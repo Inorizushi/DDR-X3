@@ -166,7 +166,7 @@ do
             InitCommand=function(self) SetXFromPlayerNumber(self:visible(false), pn) self:zoom(0) end,
 						OnCommand=function(self) self:zoom(0):sleep(0.4):linear(0.2):zoom(1):queuecommand("Animate") end,
 						OffCommand=cmd(sleep,0.8;linear,0.2;zoom,0);
-						AnimateCommand=function(self) self:bounce():effectmagnitude(pn=='PlayerNumber_P2' and -4 or 4,0,0):effectclock('beatnooffset') end,
+						AnimateCommand=function(self) self:bounce():effectmagnitude(pn=='PlayerNumber_P2' and -4 or 4,0,0):effectperiod(0.5) end,
             SNDLUpdateMessageCommand=function(self) return IndicatorUpdate(self, pn) end,
             PlayerJoinedMessageCommand=function(self,p)
                 if p.Player==pn then self:Load(ResolveRelativePath(PlayerLabelName(pn),1)) end
@@ -205,6 +205,8 @@ for idx, diff in pairs(difficultiesToDraw) do
 						self:diffusealpha(0.5)
 					end
 				else
+					self:Load(THEME:GetPathB("","ScreenSelectMusic decorations/Steps Dark 1x5.png"))
+					self:setstate(idx-1):SetAllStateDelays(math.huge)
 					self:diffusealpha(0.5)
 				end
 			end
@@ -230,6 +232,8 @@ for idx, diff in pairs(difficultiesToDraw) do
 						self:diffusealpha(0.5)
 					end
 				else
+					self:Load(THEME:GetPathB("","ScreenSelectMusic decorations/StepTicks Dark 1x5.png"))
+					self:setstate(idx-1):SetAllStateDelays(math.huge)
 					self:diffusealpha(0.5)
 				end
 			end

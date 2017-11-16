@@ -1,6 +1,6 @@
 local function CreditsText()
-	local text = LoadFont("_sys1") .. {
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-16;zoom,1.2;playcommand,"Refresh");
+	local text = LoadFont("_helvetica lt std Bold 20px") .. {
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-16;strokecolor,color("0,0,0,1");playcommand,"Refresh");
 		RefreshCommand=function(self)
 		--Other coin modes
 			if GAMESTATE:IsEventMode() then self:settext('EVENT MODE') return end
@@ -41,8 +41,8 @@ local function CreditsText()
 end;
 
 local function CoinsText()
-	local text = LoadFont("_sys1") .. {
-		InitCommand=cmd(x,SCREEN_CENTER_X+281;y,SCREEN_BOTTOM-16;zoom,1.2;horizalign,center;playcommand,"Refresh");
+	local text = LoadFont("_helvetica lt std Bold 20px") .. {
+		InitCommand=cmd(x,SCREEN_CENTER_X+281;y,SCREEN_BOTTOM-16;strokecolor,color("0,0,0,1");horizalign,center;playcommand,"Refresh");
 		RefreshCommand=function(self)
 			local coins=GAMESTATE:GetCoins()
 			local coinsPerCredit=PREFSMAN:GetPreference('CoinsPerCredit')
@@ -81,14 +81,14 @@ local function CoinsText()
 end;
 
 local function NetworkText()
-	local text = LoadFont("_sys1") .. {
+	local text = LoadFont("_helvetica lt std Bold 20px") .. {
 		InitCommand=function (self)
 			self:name("NetworkStatus");
 			self:settext("-----");
 			self:x(SCREEN_CENTER_X-103);
 			self:y(SCREEN_BOTTOM-16);
-			self:zoom(1.2);
 			self:horizalign(right);
+			self:strokecolor(color("0,0,0,1"));
 		end;
 		RefreshCommand=function (self)
 		local netConnected = IsNetConnected();

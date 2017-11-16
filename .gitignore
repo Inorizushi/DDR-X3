@@ -2,3 +2,7 @@ debug.txt
 PSDs/*.psd
 PSDs/
 */Thumbs.db
+
+BGAnimations/Common Doors/Thumbs\.db
+
+*.db

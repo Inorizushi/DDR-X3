@@ -15,8 +15,8 @@ t[#t+1] = Def.ActorFrame{
 	};
   Def.Sprite{
     Texture="arrow";
-		InitCommand=cmd(x,224;rotationy,180;pause;diffusealpha,0;SetAllStateDelays,0.1);
-    NextSongMessageCommand=cmd(diffusealpha,1;play;sleep,0.4;diffusealpha,0;queuecommand,"end");
+		InitCommand=cmd(x,224;rotationy,180;pause;diffusealpha,0;SetAllStateDelays,0.025);
+    NextSongMessageCommand=cmd(stoptweening;pause;setstate,0;diffusealpha,1;play;sleep,0.4;diffusealpha,0;queuecommand,"end");
     EndCommand=cmd(pause;setstate,0);
 	};
   Def.Sprite{
@@ -25,8 +25,8 @@ t[#t+1] = Def.ActorFrame{
 	};
   Def.Sprite{
     Texture="arrow";
-		InitCommand=cmd(x,-224;pause;diffusealpha,0;SetAllStateDelays,0.1);
-    PreviousSongMessageCommand=cmd(diffusealpha,1;play;sleep,0.4;diffusealpha,0;queuecommand,"end");
+		InitCommand=cmd(x,-224;pause;diffusealpha,0;SetAllStateDelays,0.025);
+    PreviousSongMessageCommand=cmd(stoptweening;pause;setstate,0;diffusealpha,1;play;sleep,0.4;diffusealpha,0;queuecommand,"end");
     EndCommand=cmd(pause;setstate,0);
 	};
 };
@@ -55,6 +55,22 @@ t[#t+1] = Def.Sprite{
       self:setstate(7);
     elseif GetStage == 'Stage_Event' then
       self:setstate(8);
+    else
+      self:visible(false)
+    end;
+  end;
+};
+
+t[#t+1] = Def.Sprite{
+  InitCommand=cmd(pause;y,SCREEN_CENTER_Y-244;x,SCREEN_CENTER_X-296;halign,0;queuecommand,"Set");
+  SetCommand=function(self)
+  self:Load(THEME:GetPathG("","_shared2ndMIX/Difficulty 1x3.png"));
+    if getenv("TWOMIXEASY") then
+      self:setstate(0);
+    elseif getenv("TWOMIXNORM") then
+      self:setstate(1);
+    elseif getenv("TWOMIXHARD") then
+      self:setstate(2);
     else
       self:visible(false)
     end;
@@ -119,6 +135,50 @@ t[#t+1] = Def.Sprite{
   end;
 };
 
+t[#t+1] = Def.Sprite{
+  Texture = "Basic";
+  InitCommand=cmd(pause;visible,false;CenterX;y,SCREEN_BOTTOM-120;queuecommand,"Set");
+  CurrentSongChangedMessageCommand=cmd(queuecommand,"Set");
+  CurrentCourseChangedMessageCommand=cmd(queuecommand,"Set");
+  CurrentStepsP1ChangedMessageCommand=cmd(queuecommand,"Set");
+  CurrentStepsP2ChangedMessageCommand=cmd(queuecommand,"Set");
+  SetCommand=function(self,params)
+    local song = GAMESTATE:GetCurrentSong();
+    local st = GAMESTATE:GetCurrentStyle():GetStepsType();
+    local diff = GAMESTATE:GetCurrentSteps(PLAYER):GetDifficulty();
+    if song then
+      if diff == 'Difficulty_Beginner' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffBasic 1x10"));
+      elseif diff == 'Difficulty_Easy' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffBasic 1x10"));
+      elseif diff == 'Difficulty_Medium' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffAnother 1x10"));
+      elseif diff == 'Difficulty_Hard' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffManiac 1x10"));
+      elseif diff == 'Difficulty_Challenge' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffManiac 1x10"));
+      else
+        self:visible(false)
+      end;
+      local songtit = song:GetDisplayMainTitle();
+      if SongDiffTitleManiac[songtit] ~= nil then
+        self:setstate(SongDiffTitleManiac[songtit])
+        self:visible(true)
+      else
+        self:setstate(0)
+        self:visible(false)
+      end;
+    else
+      self:visible(false)
+    end;
+  end;
+};
+
 t[#t+1] = LoadActor("bottom")..{
   InitCommand=cmd(CenterX;y,SCREEN_BOTTOM-64);
 };
@@ -132,15 +192,7 @@ t[#t+1] = LoadActor("bottom")..{
 		end;
 		-- SetCommand base from DDR 5th MIX by AJ 187
 		SetCommand=function(self)
-			local song = GAMESTATE:GetCurrentSong()
-			if song then
-				local dispBpms = song:GetDisplayBpms()
-				local bpmLimited = clamp(math.abs(dispBpms[2]),1,9999)
-				local bps = (1/bpmLimited)*10;
-				self:SetAllStateDelays(bps);
-			else
-				self:SetAllStateDelays(0.042);
-			end;
+			self:SetAllStateDelays(0.05);
 		end;
 		CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
 		PlayerJoinedMessageCommand=function(self, params)
@@ -194,9 +246,40 @@ t[#t+1] = LoadActor("bottom")..{
 	};
 
   t[#t+1] = Def.ActorFrame{
-  	LoadActor("../Screen2ndMIXSelectGameMode decorations/1P")..{
+  	LoadActor(THEME:GetPathG("","_shared2ndMIX/1P.png"))..{
   		InitCommand=cmd(xy,SCREEN_CENTER_X-415,SCREEN_CENTER_Y+176;visible,false);
   		OnCommand=function(s) if GAMESTATE:IsPlayerEnabled(PLAYER_1) then s:visible(true) else s:visible(false) end; end;
   	};
   };
+  t[#t+1] = Def.ActorFrame{
+  	LoadActor(THEME:GetPathG("","_shared2ndMIX/2P.png"))..{
+  		InitCommand=cmd(xy,SCREEN_CENTER_X+415,SCREEN_CENTER_Y+176;visible,false);
+  		OnCommand=function(s) if GAMESTATE:IsPlayerEnabled(PLAYER_2) then s:visible(true) else s:visible(false) end; end;
+  	};
+  };
+
+t[#t+1] = Def.Sprite{
+  InitCommand=function(self)
+    self:Load(THEME:GetPathG("","_shared2ndMIX/CDTitles 4x3"));
+    self:pause()
+    self:xy(SCREEN_CENTER_X+220,SCREEN_CENTER_Y+30)
+  end;
+  SetCommand=function(self)
+    local song = GAMESTATE:GetCurrentSong()
+    if song then
+      local songtit = song:GetDisplayMainTitle();
+      if CDTitles[songtit] ~= nil then
+        self:setstate(CDTitles[songtit])
+        self:visible(true)
+      else
+        self:setstate(0)
+        self:visible(false)
+      end;
+    else
+      self:setstate(0)
+      self:visible(false)
+    end;
+  end;
+  CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
+};
 return t

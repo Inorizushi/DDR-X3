@@ -32,10 +32,6 @@ t[#t+1] = Def.ActorFrame {
 	LoadActor(THEME:GetPathB("","2nd doors"))..{
 		InitCommand=cmd(Center);
 	};
-	LoadActor(("DONK"))..{
-		OnCommand=cmd(queuecommand,("Play"));
-		PlayCommand=cmd(play;);
-	};
 	--- Flash SONG BANNER  sound------
 	LoadActor("SoundStage") .. {
 	};
@@ -96,6 +92,23 @@ t[#t+1] = Def.ActorFrame {
 else
 t[#t+1] = LoadActor("CourseDisplay");
 end;
+
+t[#t+1] = Def.Sprite{
+  InitCommand=cmd(pause;y,SCREEN_CENTER_Y-244;x,SCREEN_CENTER_X-296;halign,0);
+	OnCommand=cmd(playcommand,"Set";diffusealpha,0;sleep,0.099;sleep,0.396;diffusealpha,1);
+  SetCommand=function(self)
+  self:Load(THEME:GetPathG("","_shared2ndMIX/Difficulty 1x3.png"));
+    if getenv("TWOMIXEASY") then
+      self:setstate(0);
+    elseif getenv("TWOMIXNORM") then
+      self:setstate(1);
+    elseif getenv("TWOMIXHARD") then
+      self:setstate(2);
+    else
+      self:visible(false)
+    end;
+  end;
+};
 
 t[#t+1] = Def.Sprite{
   InitCommand=cmd(pause;y,SCREEN_CENTER_Y-244;x,SCREEN_CENTER_X+296;halign,1);

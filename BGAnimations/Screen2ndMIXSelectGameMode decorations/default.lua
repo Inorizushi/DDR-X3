@@ -26,6 +26,13 @@ t[#t+1] = Def.Actor{
 			NewDiffIdx = CurDiffIdx - 1
 		elseif codeName == "Harder" then
 			NewDiffIdx = CurDiffIdx + 1
+		elseif codeName == "Maniac" then
+			if CurDiffIdx == 2 then
+			 	GAMESTATE:ApplyGameCommand("difficulty,hard");
+			 	NewDiffIdx = CurDiffIdx + 1
+			else
+				return
+			end;
 		else
 			return
 		end

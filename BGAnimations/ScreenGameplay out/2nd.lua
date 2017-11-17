@@ -3,11 +3,11 @@ local t = Def.ActorFrame{};
 t[#t+1] = Def.ActorFrame{
   LoadActor("../2nd doors")..{
     InitCommand=cmd(setsize,1280,720;CenterY;cropright,0.5;CenterX);
-    OnCommand=cmd(addx,-SCREEN_WIDTH;sleep,4;smooth,1.5;addx,SCREEN_WIDTH);
+    OnCommand=cmd(addx,-SCREEN_WIDTH;sleep,4;linear,1.5;addx,SCREEN_WIDTH);
   };
   LoadActor("../2nd doors")..{
     InitCommand=cmd(setsize,1280,720;CenterY;cropleft,0.5;CenterX);
-    OnCommand=cmd(addx,SCREEN_WIDTH;sleep,4;smooth,1.5;addx,-SCREEN_WIDTH);
+    OnCommand=cmd(addx,SCREEN_WIDTH;sleep,4;linear,1.5;addx,-SCREEN_WIDTH);
   };
   LoadActor("../failed")..{
     OnCommand=cmd(sleep,4;queuecommand,"Play");

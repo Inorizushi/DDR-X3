@@ -61,24 +61,45 @@ t[#t+1] = Def.ActorFrame{
 		SetCommand=function(self)
 		local song = GAMESTATE:GetCurrentSong();
 			if song then
-				if song:HasJacket() then
-					self:Load(song:GetJacketPath());
-					self:setsize(256,256);
-					self:diffusealpha(1);
-				elseif song:HasBackground() then
-					--Verify BG
-					self:Load(song:GetBackgroundPath());
-					self:setsize(256,256);
-					self:diffusealpha(1);
+				local songtit = song:GetDisplayMainTitle();
+				if CDImage[songtit] ~= nil then
+					local diskImage = CDImage[songtit];
+					self:Load(THEME:GetPathG("","MusicWheelItem Song NormalPart/cd/"..diskImage));
 				else
-					--Fallback CD
-					self:Load(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/fallback"));
+					if song:HasJacket() then
+						self:Load(song:GetJacketPath());
+						self:setsize(256,256);
+						self:diffusealpha(1);
+					elseif song:HasBackground() then
+						--Verify BG
+						self:Load(song:GetBackgroundPath());
+						self:setsize(256,256);
+						self:diffusealpha(1);
+					else
+						--Fallback CD
+						self:Load(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/fallback"));
+					end;
 				end;
 			end;
 		end;
 	};
-	LoadActor(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/overlay"));
-};	
+	LoadActor(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/overlay"))..{
+		OnCommand=cmd(playcommand,"Set");
+		SetCommand=function(self,params)
+			local song = GAMESTATE:GetCurrentSong();
+			if song then
+				local songtit = song:GetDisplayMainTitle();
+				if CDImage[songtit] ~= nil then
+					self:visible(false)
+				else
+					self:visible(true)
+				end;
+			else
+				self:visible(false)
+			end;
+		end;
+	};
+};
 else
 --song jacket--
 t[#t+1] = Def.ActorFrame {

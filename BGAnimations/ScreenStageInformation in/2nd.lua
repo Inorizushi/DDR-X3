@@ -49,23 +49,44 @@ t[#t+1] = Def.ActorFrame{
 		SetCommand=function(self)
 		local song = GAMESTATE:GetCurrentSong();
 			if song then
-				if song:HasJacket() then
-					self:Load(song:GetJacketPath());
-					self:setsize(256,256);
-					self:diffusealpha(1);
-				elseif song:HasBackground() then
-					--Verify BG
-					self:Load(song:GetBackgroundPath());
-					self:setsize(256,256);
-					self:diffusealpha(1);
+				local songtit = song:GetDisplayMainTitle();
+				if CDImage[songtit] ~= nil then
+					local diskImage = CDImage[songtit];
+					self:Load(THEME:GetPathG("","MusicWheelItem Song NormalPart/cd/"..diskImage));
 				else
-					--Fallback CD
-					self:Load(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/fallback"));
+					if song:HasJacket() then
+						self:Load(song:GetJacketPath());
+						self:setsize(256,256);
+						self:diffusealpha(1);
+					elseif song:HasBackground() then
+						--Verify BG
+						self:Load(song:GetBackgroundPath());
+						self:setsize(256,256);
+						self:diffusealpha(1);
+					else
+						--Fallback CD
+						self:Load(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/fallback"));
+					end;
 				end;
 			end;
 		end;
 	};
-	LoadActor(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/overlay"));
+	LoadActor(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/overlay"))..{
+		OnCommand=cmd(playcommand,"Set");
+		SetCommand=function(self,params)
+			local song = GAMESTATE:GetCurrentSong();
+			if song then
+				local songtit = song:GetDisplayMainTitle();
+				if CDImage[songtit] ~= nil then
+					self:visible(false)
+				else
+					self:visible(true)
+				end;
+			else
+				self:visible(false)
+			end;
+		end;
+	};
 };
 
 t[#t+1] = LoadActor(THEME:GetPathB("","Screen2ndMIXSelectMusic decorations/bnrframe.png"))..{
@@ -206,6 +227,79 @@ t[#t+1] = Def.Sprite{
         self:setstate(8)
       elseif meter >= 10 then
         self:setstate(9)
+      end;
+    else
+      self:visible(false)
+    end;
+  end;
+};
+
+t[#t+1] = Def.Sprite{
+  InitCommand=cmd(pause;visible,false;CenterX;y,SCREEN_BOTTOM-120;playcommand,"Set");
+  OnCommand=cmd(diffusealpha,0;sleep,0.099;sleep,0.396;diffusealpha,1);
+  SetCommand=function(self,params)
+    local song = GAMESTATE:GetCurrentSong();
+    local st = GAMESTATE:GetCurrentStyle():GetStepsType();
+    local diff = GAMESTATE:GetCurrentSteps(PLAYER):GetDifficulty();
+    if song then
+      local songtit = song:GetDisplayMainTitle();
+      if diff == 'Difficulty_Beginner' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffBasic 1x10"));
+        if SongDiffTitleBasic[songtit] ~= nil then
+          self:setstate(SongDiffTitleBasic[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
+      elseif diff == 'Difficulty_Easy' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffBasic 1x10"));
+        if SongDiffTitleBasic[songtit] ~= nil then
+          self:setstate(SongDiffTitleBasic[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
+      elseif diff == 'Difficulty_Medium' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffAnother 1x10"));
+        if SongDiffTitleAnother[songtit] ~= nil then
+          self:setstate(SongDiffTitleAnother[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
+      elseif diff == 'Difficulty_Hard' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffManiac 1x10"));
+        if SongDiffTitleManiac[songtit] ~= nil then
+          self:setstate(SongDiffTitleManiac[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
+      elseif diff == 'Difficulty_Challenge' then
+        self:visible(true);
+        self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffManiac 1x10"));
+        if SongDiffTitleManiac[songtit] ~= nil then
+          self:setstate(SongDiffTitleManiac[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
+      else
+        self:visible(false)
       end;
     else
       self:visible(false)

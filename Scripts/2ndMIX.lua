@@ -129,6 +129,102 @@ CDTitles = {
 	["TRIP MACHINE EVOLUTION"]= "3",
 	["PARANOiA Revolution"]= "3",
 };
+--[[
+Simple = 0
+Moderate= 1
+Ordinary= 2
+Superior= 3
+Marvelous= 4
+Genuine= 5
+Paramount= 6
+Exorbitant= 7
+Evolutionary= 8
+Revolutionary= 9
+]]
+
+SongDiffTitleBasic = {
+	["PARANOiA"]= "5",
+	["TRIP MACHINE"]= "5",
+	["Butterfly"]= "4",
+	["Little Bitch"]= "5",
+	["BAD GIRLS"]= "1",
+	["Boom Boom Dollar (Red Monster Mix)"]= "1",
+	["Boys"]= "2",
+	["DUB-I-DUB"]= "3",
+	["EL RITMO TROPICAL"]= "4",
+	["GET UP'N MOVE"]= "4",
+	["HERO"]= "3",
+	["I Believe In Miracles (The Lisa Marie Experience Radio Edit)"]= "4",
+	["IF YOU WERE HERE"]= "4",
+	["LOVE"]= "2",
+	["Smoke"]= "2",
+	["stomp to my beat"]= "4",
+	["TUBTHUMPING"]= "3",
+	["think ya better D"]= "4",
+	["TRIP MACHINE~luv mix~"]= "7",
+	["AM-3P"]= "4",
+	["BRILLIANT 2U"]= "3",
+	["BRILLIANT 2U(Orchestra Groove)"]= "4",
+	["MAKE IT BETTER"]= "3",
+	["MAKE IT BETTER (So-REAL Mix)"]= "4",
+	["PARANOiA KCET ～clean mix～"]="5",
+	["PARANOiA MAX~DIRTY MIX~"]= "5",
+	["PARANOiA MAX~DIRTY MIX~ (in roulette)"]= "5",
+	["PUT YOUR FAITH IN ME"]= "2",
+	["PUT YOUR FAITH IN ME (Jazzy Groove)"]= "3",
+	["SP-TRIP MACHINE~JUNGLE MIX~"]= "5",
+	["KEEP ON MOVIN'"]= "5",
+	["MAKE A JAM!"]= "2",
+	["20,NOVEMBER (D.D.R. version)"]= "6",
+	["LET THEM MOVE"]= "0",
+	["LOVE THIS FEELIN'"]= "7",
+	["THE RACE"]= "39",
+	["IN THE NAVY '99 (XXL Disaster Remix)"]= "7",
+	["TRIP MACHINE EVOLUTION"]= "8",
+	["PARANOiA Revolution"]= "9",
+};
+
+SongDiffTitleAnother = {
+	["PARANOiA"]= "6",
+	["TRIP MACHINE"]= "6",
+	["Butterfly"]= "4",
+	["Little Bitch"]= "5",
+	["BAD GIRLS"]= "3",
+	["Boom Boom Dollar (Red Monster Mix)"]= "4",
+	["Boys"]= "3",
+	["DUB-I-DUB"]= "5",
+	["EL RITMO TROPICAL"]= "5",
+	["GET UP'N MOVE"]= "6",
+	["HERO"]= "4",
+	["I Believe In Miracles (The Lisa Marie Experience Radio Edit)"]= "5",
+	["IF YOU WERE HERE"]= "5",
+	["LOVE"]= "4",
+	["Smoke"]= "3",
+	["stomp to my beat"]= "5",
+	["TUBTHUMPING"]= "4",
+	["think ya better D"]= "4",
+	["TRIP MACHINE~luv mix~"]= "7",
+	["AM-3P"]= "5",
+	["BRILLIANT 2U"]= "4",
+	["BRILLIANT 2U(Orchestra Groove)"]= "5",
+	["MAKE IT BETTER"]= "4",
+	["MAKE IT BETTER (So-REAL Mix)"]= "5",
+	["PARANOiA KCET ～clean mix～"]="6",
+	["PARANOiA MAX~DIRTY MIX~"]= "7",
+	["PARANOiA MAX~DIRTY MIX~ (in roulette)"]= "6",
+	["PUT YOUR FAITH IN ME"]= "3",
+	["PUT YOUR FAITH IN ME (Jazzy Groove)"]= "5",
+	["SP-TRIP MACHINE~JUNGLE MIX~"]= "6",
+	["KEEP ON MOVIN'"]= "5",
+	["MAKE A JAM!"]= "4",
+	["20,NOVEMBER (D.D.R. version)"]= "6",
+	["LET THEM MOVE"]= "1",
+	["LOVE THIS FEELIN'"]= "7",
+	["THE RACE"]= "39",
+	["IN THE NAVY '99 (XXL Disaster Remix)"]= "7",
+	["TRIP MACHINE EVOLUTION"]= "8",
+	["PARANOiA Revolution"]= "9",
+};
 
 SongDiffTitleManiac = {
 	["PARANOiA"]= "7",
@@ -171,7 +267,6 @@ SongDiffTitleManiac = {
 	["TRIP MACHINE EVOLUTION"]= "8",
 	["PARANOiA Revolution"]= "9",
 };
-
 
 function Is2ndMIX()
 	if GAMESTATE then

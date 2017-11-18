@@ -136,7 +136,6 @@ t[#t+1] = Def.Sprite{
 };
 
 t[#t+1] = Def.Sprite{
-  Texture = "Basic";
   InitCommand=cmd(pause;visible,false;CenterX;y,SCREEN_BOTTOM-120;queuecommand,"Set");
   CurrentSongChangedMessageCommand=cmd(queuecommand,"Set");
   CurrentCourseChangedMessageCommand=cmd(queuecommand,"Set");
@@ -147,30 +146,63 @@ t[#t+1] = Def.Sprite{
     local st = GAMESTATE:GetCurrentStyle():GetStepsType();
     local diff = GAMESTATE:GetCurrentSteps(PLAYER):GetDifficulty();
     if song then
+      local songtit = song:GetDisplayMainTitle();
       if diff == 'Difficulty_Beginner' then
         self:visible(true);
         self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffBasic 1x10"));
+        if SongDiffTitleBasic[songtit] ~= nil then
+          self:setstate(SongDiffTitleBasic[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
       elseif diff == 'Difficulty_Easy' then
         self:visible(true);
         self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffBasic 1x10"));
+        if SongDiffTitleBasic[songtit] ~= nil then
+          self:setstate(SongDiffTitleBasic[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
       elseif diff == 'Difficulty_Medium' then
         self:visible(true);
         self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffAnother 1x10"));
+        if SongDiffTitleAnother[songtit] ~= nil then
+          self:setstate(SongDiffTitleAnother[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
       elseif diff == 'Difficulty_Hard' then
         self:visible(true);
         self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffManiac 1x10"));
+        if SongDiffTitleManiac[songtit] ~= nil then
+          self:setstate(SongDiffTitleManiac[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
       elseif diff == 'Difficulty_Challenge' then
         self:visible(true);
         self:Load(THEME:GetPathG("","_shared2ndMIX/FootDiffManiac 1x10"));
+        if SongDiffTitleManiac[songtit] ~= nil then
+          self:setstate(SongDiffTitleManiac[songtit])
+          self:visible(true)
+        else
+          local randomnum = math.random(0,9);
+          self:setstate(randomnum)
+          self:visible(true)
+        end;
       else
-        self:visible(false)
-      end;
-      local songtit = song:GetDisplayMainTitle();
-      if SongDiffTitleManiac[songtit] ~= nil then
-        self:setstate(SongDiffTitleManiac[songtit])
-        self:visible(true)
-      else
-        self:setstate(0)
         self:visible(false)
       end;
     else
@@ -272,8 +304,8 @@ t[#t+1] = Def.Sprite{
         self:setstate(CDTitles[songtit])
         self:visible(true)
       else
-        self:setstate(0)
-        self:visible(false)
+        self:setstate(3)
+        self:visible(true)
       end;
     else
       self:setstate(0)

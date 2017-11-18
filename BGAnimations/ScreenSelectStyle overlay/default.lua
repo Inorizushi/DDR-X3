@@ -1,4 +1,19 @@
 local t = Def.ActorFrame {};
+
+local muswheelchange_path = THEME:GetCurrentThemeDirectory().."/Sounds/MusicWheel change.redir"
+if FILEMAN:DoesFileExist(muswheelchange_path) then
+  local f = RageFileUtil.CreateRageFile()
+  local worked = f:Open(muswheelchange_path, 10)
+  if worked then
+    f:Write("_X3MusicWheelChange.ogg")
+    f:Close()
+  elseif SN3Debug then
+    SCREENMAN:SystemMessage("Couldn't open MusicWheel change redir")
+  end
+  f:destroy()
+  THEME:ReloadMetrics()
+end;
+
 t[#t+1] = Def.ActorFrame {
   Name="Frames";
   LoadActor("Frame")..{

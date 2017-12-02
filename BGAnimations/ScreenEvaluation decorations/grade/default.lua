@@ -1,14 +1,31 @@
-local gradeToGraphic = {
-	Grade_Tier01 = "Grade_3A",
-	Grade_Tier02 = "Grade_2A",
-	Grade_Tier03 = "Grade_A",
-	Grade_Tier04 = "Grade_B",
-	Grade_Tier05 = "Grade_C",
-	Grade_Tier06 = "Grade_D",
-	Grade_Failed = "Grade_E",
-}
-setmetatable(gradeToGraphic, {__index = function(t, k) error("unknown grade "..k, 2) end})
+local args = {...}
+-- the only arg is arg 1, the player number
+
+local function m(metric)
+	metric = metric:gsub("PN", ToEnumShortString(args[1]))
+	return THEME:GetMetric(Var "LoadingScreen",metric)
+end
+
+local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(args[1])
+
+local tier
+if ThemePrefs.Get "FakeGrades" then
+	tier = SN2Grading.ScoreToGrade(pss:GetScore(), pss:GetPlayedSteps()[1]:GetDifficulty())
+else
+	tier = pss:GetGrade()
+end
+
+if SN3Debug then
+	SCREENMAN:SystemMessage(("pn: %s fake grades: %s tier: %s"):format(args[1],tostring(ThemePrefs.Get "FakeGrades"), tier))
+end
+
 local t = Def.ActorFrame {
+	Def.Sprite{
+		Texture = THEME:GetPathG("GradeDisplayEval", ToEnumShortString(tier)),
+		InitCommand = function(s) s:x(m "GradePNX"):y(m "GradePNY") end,
+		OnCommand = m "GradePNOnCommand",
+		OffCommand = m "GradePNOffCommand"
+	};
 --P1--
 --FCRingP1--
 	LoadActor("GoodFullcombo_ring")..{
@@ -93,86 +110,6 @@ local t = Def.ActorFrame {
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
 
---GRADEP1---
-
-	LoadActor("Grade_3A.png")..{
-		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier01") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-	LoadActor("Grade_2A.png")..{
-		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier02") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-	LoadActor("Grade_A.png")..{
-		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier03") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-	LoadActor("Grade_B.png")..{
-		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier04") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-	LoadActor("Grade_C.png")..{
-		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier05") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-	LoadActor("Grade_D.png")..{
-		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier06") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-	LoadActor("Grade_E.png")..{
-		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Tier07") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-	LoadActor("Grade_E.png")..{
-		InitCommand=cmd(player,PLAYER_1;x,SCREEN_CENTER_X-400+20-5;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P1"):GetGrade()=="Grade_Failed") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-
 --P2--
 --FCRingP2--
 	LoadActor("GoodFullcombo_ring")..{
@@ -256,86 +193,5 @@ local t = Def.ActorFrame {
 		end;
 		OffCommand=cmd(linear,0.2;zoom,0);
 	};
-
-
---GradeP2--
-
-	LoadActor("Grade_3A.png")..{
-		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P2"):GetGrade()=="Grade_Tier01") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-	LoadActor("Grade_2A.png")..{
-		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P2"):GetGrade()=="Grade_Tier02") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-	LoadActor("Grade_A.png")..{
-		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P2"):GetGrade()=="Grade_Tier03") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-	LoadActor("Grade_B.png")..{
-		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P2"):GetGrade()=="Grade_Tier04") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-	LoadActor("Grade_C.png")..{
-		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P2"):GetGrade()=="Grade_Tier05") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-	LoadActor("Grade_D.png")..{
-		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P2"):GetGrade()=="Grade_Tier06") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-	LoadActor("Grade_E.png")..{
-		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P2"):GetGrade()=="Grade_Tier07") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
-	LoadActor("Grade_E.png")..{
-		InitCommand=cmd(player,PLAYER_2;x,SCREEN_CENTER_X+400-90-10-10;y,SCREEN_CENTER_Y-90;zoom,0);
-		OnCommand=function(self)
-			if(STATSMAN:GetCurStageStats():GetPlayerStageStats("PlayerNumber_P2"):GetGrade()=="Grade_Failed") then
-				(cmd(sleep,0.2;linear,0.2;zoom,0.675))(self);
-			end;
-		end;
-		OffCommand=cmd(linear,0.2;zoom,0);
-	};
-
 };
 return t;

@@ -323,22 +323,23 @@ SN2Grading = {}
 --Edit is technically the "highest difficulty"
 local grade_table = {
     Difficulty_Edit = {
-        Grade_Tier01 = 990000, --AAA
-        Grade_Tier02 = 950000, --AA
-        Grade_Tier03 = 900000, --A
-        Grade_Tier04 = 800000, --B
-        Grade_Tier05 = 700000, --C
-        Grade_Tier06 = 0, --D
+        Grade_Tier01 = 1000000, --AAA+
+        Grade_Tier02 = 990000, --AAA
+        Grade_Tier03 = 950000, --AA
+        Grade_Tier04 = 900000, --A
+        Grade_Tier05 = 800000, --B
+        Grade_Tier06 = 700000, --C
+        Grade_Tier07 = 0 --D
     },
     Difficulty_Medium = {
-        Grade_Tier03 = 850000,
-        Grade_Tier04 = 750000,
-        Grade_Tier05 = 600000
+        Grade_Tier04 = 850000,
+        Grade_Tier05 = 750000,
+        Grade_Tier06 = 600000
     },
     Difficulty_Easy = {
-        Grade_Tier03 = 800000,
-        Grade_Tier04 = 700000,
-        Grade_Tier05 = 500000
+        Grade_Tier04 = 800000,
+        Grade_Tier05 = 700000,
+        Grade_Tier06 = 500000
     }
 }
 --i'm too lazy to fill this out in full, so this does it for me
@@ -366,6 +367,7 @@ function SN2Grading.ScoreToGrade(score, difficulty)
     for grade, min_score in pairs(tiers) do
         if score >= min_score and min_score >= best then
             output = grade
+            best = min_score
         end
     end
     return output

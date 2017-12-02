@@ -230,10 +230,12 @@ t[#t+1] = Def.ActorFrame {
 		OnCommand=cmd(play);
 	};
 };
-t[#t+1] = LoadActor("grade")..{
+for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
+t[#t+1] = LoadActor("grade", pn)..{
 	InitCommand=cmd(diffusealpha,1;addy,-80;draworder,0;);
 	OffCommand=cmd(sleep,0.2;linear,0.2;diffusealpha,0);
 };
+end
 
 --StatsP1--
 t[#t+1] = LoadActor("statsP1")..{

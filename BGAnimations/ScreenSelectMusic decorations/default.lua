@@ -61,7 +61,7 @@ t[#t+1] = Def.ActorFrame{
 	OffCommand=cmd(stoptweening;sleep,0.5;linear,0.2;diffusealpha,0);
 	LoadActor("radar base");
 	LoadActor( "radar_scan" )..{
-		InitCommand=cmd(halign,0;valign,0;xy,-1,-1);
+		InitCommand=cmd(halign,0;valign,0;xy,0,0;zoom,1.05;blend,Blend.Add;diffusealpha,0.5);
 		OnCommand=cmd(spin;effectmagnitude,0,0,120);
 		OffCommand=cmd(stopeffect);
 	};
@@ -240,9 +240,9 @@ t[#t+1] = LoadActor( "ST.png" )..{
 
 
 local ut = Def.ActorFrame{
-	LoadFont("_helvetica Bold 24px")..{
+	LoadFont("_helveticaneuelt std med ext 20px")..{
 		Name="songTitle";
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+20;zoomy,0.8;zoomx,0.9;diffuse,color("0,0,0,1");strokecolor,color("#ffffff"));
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+18;diffuse,color("1,1,1,1"));
 		OnCommand=cmd(diffusealpha,0;sleep,0.4;diffusealpha,1);
 		OffCommand=cmd(sleep,0.5;addy,900);
 		SetCommand=function(self)
@@ -260,9 +260,9 @@ local ut = Def.ActorFrame{
 			self:settextf("%s",tit);
 		end;
 	};
-	LoadFont("_helvetica Bold 24px")..{
+	LoadFont("_helveticaneuelt std med 18px")..{
 		Name="songArtist";
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+30;zoom,0.75;diffuse,color("#000000");strokecolor,color("#ffffff");draworder,2);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+32;draworder,2);
 		OnCommand=cmd(diffusealpha,0;sleep,0.4;diffusealpha,1);
 		OffCommand=cmd(sleep,0.5;addy,900);
 		SetCommand=function(self)

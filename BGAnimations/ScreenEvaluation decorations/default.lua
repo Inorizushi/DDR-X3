@@ -115,7 +115,7 @@ for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
 				self:x(xPosPlayer[short]):y(SCREEN_CENTER_Y-30)
 			end,
 			OnCommand=cmd(zoomy,0;sleep,0.7;linear,0.2;zoomy,1);
-			OffCommand=cmd(sleep,0.7;linear,0.2;zoomy,0);
+			OffCommand=cmd(sleep,0.2;linear,0.2;zoomy,0);
 		}
 	}
 	t[#t+1] = LoadActor("P1 label")..{
@@ -128,7 +128,7 @@ for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
 			self:x(SCREEN_CENTER_X-334):y(SCREEN_CENTER_Y-40)
 		end;
 		OnCommand=cmd(zoomy,0;sleep,1;linear,0.2;zoomy,1);
-		OffCommand=cmd(sleep,1;linear,0.2;zoomy,0);
+		OffCommand=cmd(sleep,0.2;linear,0.2;zoomy,0);
 	};
 	t[#t+1] = LoadActor("P2 label")..{
 		InitCommand=function(self)
@@ -140,35 +140,41 @@ for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
 			self:x(SCREEN_CENTER_X+334):y(SCREEN_CENTER_Y-40)
 		end;
 		OnCommand=cmd(zoomy,0;sleep,1;linear,0.2;zoomy,1);
-		OffCommand=cmd(sleep,1;linear,0.2;zoomy,0);
+		OffCommand=cmd(sleep,0.2;linear,0.2;zoomy,0);
 	};
 	t[#t+1] = LoadActor(THEME:GetPathG("","_sharedX3/P1 BADGE"))..{
 		InitCommand=function(self)
+			self:x(SCREEN_CENTER_X-432):y(SCREEN_CENTER_Y-32)
+		end;
+		OnCommand=function(self)
 			if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
-				self:diffusealpha(1)
+				self:diffusealpha(0):rotationz(-90):sleep(1):linear(0.2):rotationz(0):diffusealpha(1)
 			else
 				self:diffusealpha(0)
 			end;
-			self:x(SCREEN_CENTER_X-432):y(SCREEN_CENTER_Y-32)
 		end;
-		OnCommand=cmd(diffusealpha,0;rotationz,90;sleep,1;linear,0.2;rotationz,0;diffusealpha,1);
-		OffCommand=cmd(sleep,1;linear,0.2;rotationz,90;diffusealpha,0);
+		OffCommand=cmd(sleep,0.2;linear,0.2;rotationz,90;diffusealpha,0);
 	};
 	t[#t+1] = LoadActor(THEME:GetPathG("","_sharedX3/P2 BADGE"))..{
 		InitCommand=function(self)
+			self:x(SCREEN_CENTER_X+432):y(SCREEN_CENTER_Y-32)
+		end;
+		OnCommand=function(self)
 			if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
-				self:diffusealpha(1)
+				self:diffusealpha(0):rotationz(-90):sleep(1):linear(0.2):rotationz(0):diffusealpha(1)
 			else
 				self:diffusealpha(0)
 			end;
-			self:x(SCREEN_CENTER_X+432):y(SCREEN_CENTER_Y-32)
 		end;
+		OffCommand=cmd(sleep,0.2;linear,0.2;rotationz,-90;diffusealpha,0);
 	};
 end
 
 t[#t+1] = Def.ActorFrame{
 	LoadActor("score")..{
 		InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+228);
+		OnCommand=cmd(zoomy,0;sleep,1;linear,0.2;zoomy,1);
+		OffCommand=cmd(sleep,0.2;linear,0.2;zoomy,0);
 	};
 };
 
@@ -250,23 +256,25 @@ t[#t+1] = LoadActor("statsP2")..{
 
 	--Score
 	t[#t+1] = Def.RollingNumbers {
-				File = THEME:GetPathF("_sveningsson Bold", "60px");
-				InitCommand=cmd(diffuse,Color("Yellow");strokecolor,color("#463e00");x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+228;zoomx,0.55;zoomy,0.4;player,PLAYER_1;playcommand,"Set");
+				File = THEME:GetPathF("ScreenEvaluation", "score");
+				InitCommand=cmd(x,SCREEN_CENTER_X-340;y,SCREEN_CENTER_Y+228;player,PLAYER_1;playcommand,"Set");
 				SetCommand = function(self)
 					local score = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetScore();
 					self:Load("RollingNumbersEvaluation");
 					self:targetnumber(score);
 				end;
+				OnCommand=cmd(diffusealpha,0;sleep,1.2;diffusealpha,1);
 				OffCommand=cmd(sleep,0.067;zoom,0);
 			};
 	t[#t+1] = Def.RollingNumbers {
-				File = THEME:GetPathF("_sveningsson Bold", "60px");
-				InitCommand=cmd(diffuse,Color("Yellow");strokecolor,color("#463e00");x,SCREEN_CENTER_X+340;y,SCREEN_CENTER_Y+228;zoomx,0.55;zoomy,0.4;player,PLAYER_2;playcommand,"Set");
+				File = THEME:GetPathF("ScreenEvaluation", "score");
+				InitCommand=cmd(x,SCREEN_CENTER_X+340;y,SCREEN_CENTER_Y+228;player,PLAYER_2;playcommand,"Set");
 				SetCommand = function(self)
 					local score = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2):GetScore();
 					self:Load("RollingNumbersEvaluation");
 					self:targetnumber(score);
 				end;
+				OnCommand=cmd(diffusealpha,0;sleep,1.2;diffusealpha,1);
 				OffCommand=cmd(sleep,0.067;zoom,0);
 			};
 

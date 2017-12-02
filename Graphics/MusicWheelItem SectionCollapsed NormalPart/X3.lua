@@ -17,6 +17,33 @@ local t = Def.ActorFrame{
 						self:Load( THEME:GetPathG("","_No banner") );
 						self:diffusealpha(0);
 					end;
+				elseif so == "SortOrder_Title" then
+					if group_name[group] ~= nil then
+						local filePath = THEME:GetPathG("","_jackets/sort/title/group title "..group_name[group]..".png");
+						self:Load(filePath)
+						self:diffusealpha(1);
+					else
+						self:Load( THEME:GetPathG("","_No banner") );
+						self:diffusealpha(0);
+					end;
+				elseif so == "SortOrder_BPM" then
+					if group_name[group] ~= nil then
+						local filePath = THEME:GetPathG("","_jackets/sort/BPM/group bpm "..group_name[group]..".png");
+						self:Load(filePath)
+						self:diffusealpha(1);
+					else
+						self:Load( THEME:GetPathG("","_No banner") );
+						self:diffusealpha(0);
+					end;
+				--[[elseif string.find(so,"Meter") then
+					if group_name[group] ~= nil then
+						local filePath = THEME:GetPathG("","_jackets/sort/diff/group diff "..group_name[group]..".png");
+						self:Load(filePath)
+						self:diffusealpha(1);
+					else
+						self:Load( THEME:GetPathG("","_No banner") );
+						self:diffusealpha(0);
+					end;]]--
 				end;
 			end;
 		end;
@@ -55,13 +82,9 @@ local t = Def.ActorFrame{
 			if group_name[group] ~= nil then
 				self:settext("");
 			else
-				if so == "SortOrder_Group" then
-					self:settext(group);
-					self:strokecolor(color("#000000"))
-					self:diffuse(color("#FFFFFF"));
-				else
-					self:settext("");
-				end;
+				self:settext(group);
+				self:strokecolor(color("#000000"))
+				self:diffuse(color("#FFFFFF"));
 			end;
 		end;
 	};

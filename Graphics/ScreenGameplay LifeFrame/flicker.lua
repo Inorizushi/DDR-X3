@@ -47,8 +47,8 @@ local host = Def.ActorFrame{
 }
 
 local xPosPlayer = {
-    P1 = (WideScale(-165,-230)),
-    P2 = (WideScale(175,230))
+    P1 = (SCREEN_CENTER_X-357),
+    P2 = (SCREEN_CENTER_X+357)
 }
 
 for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
@@ -56,8 +56,8 @@ for _, pn in pairs(GAMESTATE:GetEnabledPlayers()) do
         Name = pn,
         InitCommand=function(self)
             local short = ToEnumShortString(pn)
-            self:visible(false):setsize((SCREEN_WIDTH/2.88),30)
-            :diffuse(color "0.75,0.75,0.75,0.8"):x(xPosPlayer[short])
+            self:visible(false):setsize((SCREEN_WIDTH/2.88),27)
+            :diffuse(color "0.25,0.25,0.25,0.5"):x(xPosPlayer[short])
         end,
         OnCommand=function(s) s:draworder(3):zoomx(pn=='PlayerNumber_P2' and -1 or 1) end,
         OffCommand=function(s) s:sleep(0.792):addy(999) end

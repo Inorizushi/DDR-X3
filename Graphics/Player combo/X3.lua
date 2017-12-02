@@ -10,6 +10,12 @@ local NumberMinZoom = THEME:GetMetric("Combo", "NumberMinZoom");
 local NumberMaxZoom = THEME:GetMetric("Combo", "NumberMaxZoom");
 local NumberMaxZoomAt = THEME:GetMetric("Combo", "NumberMaxZoomAt");
 
+local NumberMinX = THEME:GetMetric("Combo", "NumberMinX");
+local NumberMaxX = THEME:GetMetric("Combo", "NumberMaxX");
+
+local LabelMinX = THEME:GetMetric("Combo", "LabelMinX");
+local LabelMaxX = THEME:GetMetric("Combo", "LabelMaxX");
+
 local LabelMinZoom = THEME:GetMetric("Combo", "LabelMinZoom");
 local LabelMaxZoom = THEME:GetMetric("Combo", "LabelMaxZoom");
 
@@ -150,8 +156,14 @@ local t = Def.ActorFrame {
 		param.Zoom = scale( iCombo, 0, NumberMaxZoomAt, NumberMinZoom, NumberMaxZoom );
 		param.Zoom = clamp( param.Zoom, NumberMinZoom, NumberMaxZoom );
 
+		param.NumberX = scale( iCombo, 0, NumberMaxZoomAt, NumberMinX, NumberMaxX );
+		param.NumberX = clamp( param.NumberX, NumberMinX, NumberMaxX );
+
 		param.LabelZoom = scale( iCombo, 0, NumberMaxZoomAt, LabelMinZoom, LabelMaxZoom );
 		param.LabelZoom = clamp( param.LabelZoom, LabelMinZoom, LabelMaxZoom );
+
+		param.LabelX = scale( iCombo, 0, NumberMaxZoomAt, LabelMinX, LabelMaxX );
+		param.LabelX = clamp( param.LabelX, LabelMinX, LabelMaxX );
 
 		cf.NumberW1:settext( string.format("%i", iCombo) );
 		cf.NumberW2:settext( string.format("%i", iCombo) );

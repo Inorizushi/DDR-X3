@@ -14,7 +14,7 @@ local t = Def.ActorFrame{
 t[#t+1] = Def.ActorFrame{
   InitCommand=cmd(Center);
   OnCommand=cmd(sleep,2.6;queuecommand,"Vib");
-  VibCommand=cmd(vibrate;effectmagnitude,2,4,0;sleep,0.3;queuecommand,"StopThat");
+  VibCommand=cmd(linear,0.05;addy,10;linear,0.05;addy,-20;linear,0.05;addy,20;linear,0.05;addy,-10;sleep,0.3;);
   StopThatCommand=cmd(stopeffect);
   LoadActor(THEME:GetPathB("","Common doors/door 5.png"))..{
      OnCommand=cmd(rotationz,0;zoom,0;linear,0.5;zoom,0.0;rotationz,-20;sleep,2.05;zoom,1;linear,0.04;rotationz,0);

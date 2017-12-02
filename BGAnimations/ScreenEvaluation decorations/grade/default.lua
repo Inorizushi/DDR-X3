@@ -8,16 +8,7 @@ end
 
 local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(args[1])
 
-local tier
-if ThemePrefs.Get "FakeGrades" then
-	tier = SN2Grading.ScoreToGrade(pss:GetScore(), pss:GetPlayedSteps()[1]:GetDifficulty())
-else
-	tier = pss:GetGrade()
-end
-
-if SN3Debug then
-	SCREENMAN:SystemMessage(("pn: %s fake grades: %s tier: %s"):format(args[1],tostring(ThemePrefs.Get "FakeGrades"), tier))
-end
+local tier = SN2Grading.ScoreToGrade(pss:GetScore(), pss:GetPlayedSteps()[1]:GetDifficulty())
 
 local t = Def.ActorFrame {
 	Def.Sprite{

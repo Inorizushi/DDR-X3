@@ -1,5 +1,6 @@
 ---00 - BOSS ON PARADE
 00 - BOSS ON PARADE/FUNKY SUMMER BEACH
+00 - BOSS ON PARADE/FUNKY SUMMER BEACH - Copy
 ---01 - DDR 1st
 01 - DDR 1st/Butterfly
 01 - DDR 1st/Have You Never Been Mellow
@@ -453,41 +454,87 @@
 11 - DDR X/puzzle
 11 - DDR X/will
 ---12 - DDR X2
+12 - DDR X2/888
+12 - DDR X2/A Brighter Day
 12 - DDR X2/All My Love
 12 - DDR X2/BALLAD THE FEATHERS
 12 - DDR X2/BALLAD THE FEATHERS (Chinese)
 12 - DDR X2/Be your wings
+12 - DDR X2/Bonafied Lovin'
+12 - DDR X2/CAPTAIN JACK (GRANDALE REMIX)
+12 - DDR X2/CG Project
+12 - DDR X2/Crazy Control
+12 - DDR X2/DAFT PUNK IS PLAYING AT MY HOUSE
+12 - DDR X2/DAM DARIRAM
 12 - DDR X2/DROP
 12 - DDR X2/Dazzlin' Darlin
+12 - DDR X2/Dazzlin' Darlin-AKBKmix-
 12 - DDR X2/Decade
+12 - DDR X2/Dummy
+12 - DDR X2/ETERNITY
 12 - DDR X2/EZ DO DANCE
 12 - DDR X2/Everytime We Touch
 12 - DDR X2/FIRE FIRE
 12 - DDR X2/Feel Good Inc
+12 - DDR X2/Freeze
 12 - DDR X2/GOLD RUSH
 12 - DDR X2/GOLD RUSH (AC)
 12 - DDR X2/GOLD RUSH (CS)
+12 - DDR X2/Gotta Dance
+12 - DDR X2/HERO
+12 - DDR X2/Heatstroke
 12 - DDR X2/Hide-away
+12 - DDR X2/I'm so Happy
+12 - DDR X2/ICE ICE BABY
+12 - DDR X2/IF YOU WERE HERE
+12 - DDR X2/IF YOU WERE HERE (L.E.D.-G STYLE REMIX)
 12 - DDR X2/KISS KISS KISS AKBK MIX
+12 - DDR X2/La libertad
+12 - DDR X2/La receta
 12 - DDR X2/Leaving
 12 - DDR X2/Leaving... (Chinese)
-12 - DDR X2/MEI
+12 - DDR X2/Love Again
+12 - DDR X2/MAX LOVE
+12 - DDR X2/MAX LOVE (Chinese)
+12 - DDR X2/Mei
+12 - DDR X2/Melody Life
+12 - DDR X2/Melody Life (Chinese)
+12 - DDR X2/NIJIIRO (Chinese)
 12 - DDR X2/Pierce The Sky
 12 - DDR X2/Poseidon (kors k mix)
+12 - DDR X2/SUPER EUROBEAT (GOLD MIX)
+12 - DDR X2/Sacred Oath
 12 - DDR X2/Sakura Sunrise
 12 - DDR X2/Second Heaven
 12 - DDR X2/She is my wife
+12 - DDR X2/Shine
 12 - DDR X2/Shiny World
 12 - DDR X2/Sky Is The Limit
 12 - DDR X2/Super Driver
 12 - DDR X2/TENSHI
+12 - DDR X2/THIS NIGHT
+12 - DDR X2/Taking It To The Sky
+12 - DDR X2/Theory of Eternity
 12 - DDR X2/Time After Time
 12 - DDR X2/WH1TE RO5E
+12 - DDR X2/What Will Come of Me
 12 - DDR X2/YELLOW CANDY
-12 - DDR X2/ZETA
+12 - DDR X2/You are a Star
+12 - DDR X2/Your Angel
+12 - DDR X2/ZETA ~The World of Prime Numbers and the Transcendental Being~
+12 - DDR X2/aftershock!!
+12 - DDR X2/deltaMAX
+12 - DDR X2/dirty digital
 12 - DDR X2/going up
 12 - DDR X2/going up (Chinese)
+12 - DDR X2/iFUTURELIST (Chinese)
+12 - DDR X2/in love wit you
+12 - DDR X2/more more more
+12 - DDR X2/oarfish
 12 - DDR X2/only my railgun
+12 - DDR X2/real-high-SPEED
+12 - DDR X2/resonance
+12 - DDR X2/sakura storm
 12 - DDR X2/shining
 12 - DDR X2/smooooch
 12 - DDR X2/someday

@@ -1,6 +1,6 @@
 local t = Def.ActorFrame {};
 
-local Space = 'ooooooooo';
+local Space = '000000000';
 
 t[#t+1] = Def.ActorFrame{
   LoadActor("../2nd doors")..{

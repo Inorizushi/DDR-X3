@@ -14,11 +14,11 @@ local LabelMaxZoom = THEME:GetMetric("Combo", "LabelMaxZoom");
 local t = Def.ActorFrame {
 	LoadFont( "combo", "2ndMIX" ) .. {
 		Name="Number";
-		OnCommand=THEME:GetMetric("Combo", "NumberOnCommand");
+		OnCommand=THEME:GetMetric("Combo", "Number2ndOnCommand");
 	};
 	LoadActor("_2ndMIX") .. {
 		Name="Label";
-		OnCommand=THEME:GetMetric("Combo", "LabelOnCommand");
+		OnCommand=THEME:GetMetric("Combo", "Label2ndOnCommand");
 	};
 
 	InitCommand = function(self)

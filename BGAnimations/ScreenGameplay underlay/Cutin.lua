@@ -12,8 +12,8 @@ local maskfile =
 maskfile = maskfile[short_pn]
 
 local versus_y = {
-	P1 = -50,
-	P2 = 50
+	P1 = -240,
+	P2 = 240
 }
 versus_y = versus_y[short_pn]
 

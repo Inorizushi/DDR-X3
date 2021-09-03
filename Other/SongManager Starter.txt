@@ -1,6 +1,3 @@
----00 - BOSS ON PARADE
-00 - BOSS ON PARADE/FUNKY SUMMER BEACH
-00 - BOSS ON PARADE/FUNKY SUMMER BEACH - Copy
 ---01 - DDR 1st
 01 - DDR 1st/Butterfly
 01 - DDR 1st/Have You Never Been Mellow
@@ -767,69 +764,166 @@
 15 - DDR 2014/starmine
 ---16 - DDR A
 16 - DDR A/ALL MY HEART -kono koi ni, watashi no subete wo kakeru-
+16 - DDR A/Ai kotoba
+16 - DDR A/Alien Alien
 16 - DDR A/Ama no jyaku
+16 - DDR A/Arifureta sekai seifuku
 16 - DDR A/Astrogazer
 16 - DDR A/Bad Apple!! feat. nomico
 16 - DDR A/Bassdrop Freaks
 16 - DDR A/Believe
 16 - DDR A/Break Free
+16 - DDR A/Buraikku jikorizer
+16 - DDR A/CHOCOLATE PHILOSOPHY
+16 - DDR A/Chronos (walk with you remix)
+16 - DDR A/Cirno's Perfect Math Class
 16 - DDR A/Cirno's Perfect Math Class (EDM REMIX)
-16 - DDR A/DADADADADADADADADADA
 16 - DDR A/DANCE ALL NIGHT (DDR EDITION)
+16 - DDR A/DREAMING-ING!!
+16 - DDR A/Dadadadadadadadadada
 16 - DDR A/Dancer in the flare
 16 - DDR A/Determination
 16 - DDR A/EDM jumpers
 16 - DDR A/Electric Dance System Music
 16 - DDR A/Emera
+16 - DDR A/Eternal Summer
 16 - DDR A/Far east nightbird kors k Remix -DDR edit ver-
 16 - DDR A/Fly far bounce
+16 - DDR A/Fuurin hanabi
 16 - DDR A/Grand Chariot
 16 - DDR A/Grip & Break down !!
 16 - DDR A/HANDS UP IN THE AIR
 16 - DDR A/Ha-lle-lu-jah
 16 - DDR A/Happy
-16 - DDR A/Happy koi Lovely Time!!
+16 - DDR A/Happy koi lovely time!!
 16 - DDR A/Happy synthesizer
 16 - DDR A/Hatsune Miku no shoushitsu
+16 - DDR A/Hello, planet
+16 - DDR A/High School Love
 16 - DDR A/Hillbilly Shoes
+16 - DDR A/Himawari sunset
 16 - DDR A/Hopeful
 16 - DDR A/Houkago stride
 16 - DDR A/I Want You To Know
 16 - DDR A/Into the blue
 16 - DDR A/Iro wa nio e do chirinuru wo
 16 - DDR A/Ishtar
+16 - DDR A/Jewelry days
 16 - DDR A/Juuniseiza no seiiki
+16 - DDR A/Koi no puzzle magic
+16 - DDR A/Koishigure
+16 - DDR A/Kunshi ayauku mo chikou yore
 16 - DDR A/Kuranogawa ondo
 16 - DDR A/Kurokami midareshi shura to narite ~Rin edition~
 16 - DDR A/Kyun kyun bakkyun LOVE
 16 - DDR A/Lesson by DJ
-16 - DDR A/Lost One no Goukoku
+16 - DDR A/Lost one no goukoku
+16 - DDR A/Love Shine wonderful mix
+16 - DDR A/Love You More
+16 - DDR A/Luminous days
 16 - DDR A/Mahou no tamago ~Cocona ELECTRO POP edition~
-16 - DDR A/Marisa wa Taihen na Mono o Nusunde Ikimashita
+16 - DDR A/Marisa wa taihen na mono wo nusunde ikimashita
+16 - DDR A/More One Night
+16 - DDR A/Mousou zei
 16 - DDR A/Night of Knights
 16 - DDR A/Nou shou sakuretsu girl
 16 - DDR A/Oboro
+16 - DDR A/Oboro (dj TAKA Remix)
+16 - DDR A/Onegai darling
+16 - DDR A/OurMemories
+16 - DDR A/Pursuer
 16 - DDR A/RISING FIRE HAWK
+16 - DDR A/Rejoin
 16 - DDR A/Renai kansoku
+16 - DDR A/Rinnetensei
+16 - DDR A/Role-playing game
 16 - DDR A/Ronron e rairairai!
+16 - DDR A/Roshin yuukai
+16 - DDR A/SLoWMoTIoN
+16 - DDR A/SUN2 SUMMER STEP!
+16 - DDR A/SUPER SUMMER SALE
 16 - DDR A/Sayonara trip ~Natsuhi EDM edition~
+16 - DDR A/Seiza ga koishita shunkan wo
+16 - DDR A/Sennen no kotowari
 16 - DDR A/Sephirot
+16 - DDR A/Shakariki relation
 16 - DDR A/Shiawase ni nareru kakushi command ga arurashii
+16 - DDR A/Show me your moves
+16 - DDR A/Shunpuu blowing wind
 16 - DDR A/Shut Up and Dance
+16 - DDR A/Smiling Passion
 16 - DDR A/Sora e no katamichi kippu
 16 - DDR A/Special One
 16 - DDR A/Star Trail
 16 - DDR A/Start a New Day
+16 - DDR A/Strawberry Chu Chu
 16 - DDR A/TECH-NOID
+16 - DDR A/Tatakae! Dadandarn V
 16 - DDR A/The Night Away (MK Remix)
 16 - DDR A/Time Of Our Lives
 16 - DDR A/Towards the TOWER
+16 - DDR A/Twin memories W
+16 - DDR A/Vanquish The Ghost
 16 - DDR A/Wake Me Up
 16 - DDR A/Yeah! Yeah!
+16 - DDR A/Yi-er fanclub
+16 - DDR A/Youkoso Japari Park e
 16 - DDR A/ZEPHYRANTHES
 16 - DDR A/bass 2 bass
+16 - DDR A/invisible rain
 16 - DDR A/out of focus
 16 - DDR A/siberite
+---17 - DDR A20
+17 - DDR A20/50th Memorial Songs -Beginning Story-
+17 - DDR A20/50th Memorial Songs -Flagship medley-
+17 - DDR A20/50th Memorial Songs -The BEMANI History-
+17 - DDR A20/50th Memorial Songs -futari no toki ~under the cherry blossoms~-
+17 - DDR A20/Ace out
+17 - DDR A20/Alone
+17 - DDR A20/BLACK JACKAL
+17 - DDR A20/BLSTR
+17 - DDR A20/BUTTERFLY (20th Anniversary Mix)
+17 - DDR A20/CROSS
+17 - DDR A20/Clarity
+17 - DDR A20/Crazy Shuffle
+17 - DDR A20/DOWNER & UPPER
+17 - DDR A20/District of the Shadows
+17 - DDR A20/Dokusenyoku
+17 - DDR A20/Drop The Bounce
+17 - DDR A20/F4SH10N
+17 - DDR A20/Get On Da Floor
+17 - DDR A20/Give Me
+17 - DDR A20/HAVE YOU NEVER BEEN MELLOW (20th Anniversary Mix)
+17 - DDR A20/Hikari eureka
+17 - DDR A20/I'm an Albatraoz
+17 - DDR A20/Kakumei passionate
+17 - DDR A20/Kusare gedou to chocolate
+17 - DDR A20/LONG TRAIN RUNNIN' (20th Anniversary Mix)
+17 - DDR A20/Midnight WAR
+17 - DDR A20/Mirai (da) FUTURE
+17 - DDR A20/Mousou kanshou daishou renmei
+17 - DDR A20/Netsujou no zapadeado
+17 - DDR A20/New Rules
+17 - DDR A20/No Tears Left to Cry
+17 - DDR A20/Oh my! lovely! sweety! darling!
+17 - DDR A20/Our Soul
+17 - DDR A20/Party Rock Anthem
+17 - DDR A20/Play Hard
+17 - DDR A20/Procyon
+17 - DDR A20/SKY HIGH (20th Anniversary Mix)
+17 - DDR A20/SODA GALAXY
+17 - DDR A20/Seta Para Cima
+17 - DDR A20/Six String Proof
+17 - DDR A20/Small Steps
+17 - DDR A20/Something Just Like This (Alesso Remix)
+17 - DDR A20/Starry Sky
+17 - DDR A20/Sukina koto dakede ii desu
+17 - DDR A20/Sweets wa tomaranai
+17 - DDR A20/The Light
+17 - DDR A20/This Beat Is
+17 - DDR A20/Tiger rampage
+17 - DDR A20/Toy Box Factory
+17 - DDR A20/Waiting
 ---18 - DDR SuperNOVA3
 18 - DDR SuperNOVA3/4F73R M3
 18 - DDR SuperNOVA3/5.8.8_
@@ -906,3 +1000,557 @@
 18 - DDR SuperNOVA3/europa(DDR edit)
 18 - DDR SuperNOVA3/glacia
 18 - DDR SuperNOVA3/memento mori -intro-
+---19 - DDR XX
+19 - DDR XX/7 Colors
+19 - DDR XX/ALFARSHEAR Futatsukamui ni mawaru yume
+19 - DDR XX/Air Guardian '17
+19 - DDR XX/Animal
+19 - DDR XX/Apocalypse ~dirge of swans~
+19 - DDR XX/BACK COVER
+19 - DDR XX/BBoom BBoom
+19 - DDR XX/BEYOND THE EARTH (STARDOM Remix)
+19 - DDR XX/Best Day of My Life
+19 - DDR XX/Better When I'm Dancin'
+19 - DDR XX/Brain Power (Ver. Shufflin')
+19 - DDR XX/C'mon baby
+19 - DDR XX/Chronoxia
+19 - DDR XX/Closer to my Heart (jun remix)
+19 - DDR XX/Come Home
+19 - DDR XX/Crash
+19 - DDR XX/Crazy Crazy
+19 - DDR XX/DAWN OF FALCON
+19 - DDR XX/DOUBLE TORNARD
+19 - DDR XX/December Breeze
+19 - DDR XX/Despacito (feat. Justin Bieber)
+19 - DDR XX/Disconnected
+19 - DDR XX/Doki Doki
+19 - DDR XX/Dream Girls
+19 - DDR XX/Endless Summer
+19 - DDR XX/Feel It Still
+19 - DDR XX/Frame of Mind
+19 - DDR XX/Funky Drivin
+19 - DDR XX/Funky Life
+19 - DDR XX/G
+19 - DDR XX/GET UP'N MOVE (20th Anniversary Mix)
+19 - DDR XX/Gayatri
+19 - DDR XX/Healing Vision (GRIDLOK Mix)
+19 - DDR XX/How Long
+19 - DDR XX/I Need You (Insideout Door Mix)
+19 - DDR XX/I'm Flying Away
+19 - DDR XX/I'm Something Else
+19 - DDR XX/Ikitekoso ~tokubetsuban~
+19 - DDR XX/Joy to the World
+19 - DDR XX/KALACAKLA
+19 - DDR XX/Kimi to watashi no ongaku
+19 - DDR XX/Koi Oto to Amazora
+19 - DDR XX/LA LA LA LA YO-DEL
+19 - DDR XX/LEAD Gravity (M)
+19 - DDR XX/LOVE. (feat. Zacari)
+19 - DDR XX/Lighting Shower
+19 - DDR XX/Look To The Sky (cyber True Color)
+19 - DDR XX/Lost In Japan (Remix)
+19 - DDR XX/Lost wing at.0
+19 - DDR XX/Love Is Dreaminess
+19 - DDR XX/MAX 300 takamatt MIN REMIX
+19 - DDR XX/MONOLITH
+19 - DDR XX/Maple Storm
+19 - DDR XX/Maximum Beatissimo!!!!
+19 - DDR XX/Mermaid girl -Akiba Koubou MIX-
+19 - DDR XX/Multiplex
+19 - DDR XX/NEMESIS
+19 - DDR XX/New Rules
+19 - DDR XX/No Money
+19 - DDR XX/Onigami
+19 - DDR XX/Pacify
+19 - DDR XX/Passion
+19 - DDR XX/Pollinosis
+19 - DDR XX/Pop The Track
+19 - DDR XX/Quad Strike -fz ver-
+19 - DDR XX/RAIN
+19 - DDR XX/REBIRTH OF THE JAZZ
+19 - DDR XX/Rather Be (feat. Jess Glynne)
+19 - DDR XX/STARLiGHT DRIVE
+19 - DDR XX/Sakura Luminance
+19 - DDR XX/Saturday Night Love -Phunk Disco Mix-
+19 - DDR XX/Sayonara Heaven
+19 - DDR XX/Sea Side City
+19 - DDR XX/Settin' the Scene
+19 - DDR XX/Shape of You
+19 - DDR XX/Shelter
+19 - DDR XX/Shining Atmos -XX Edit-
+19 - DDR XX/Silent Hill -'19 gift mix-
+19 - DDR XX/Silhouette
+19 - DDR XX/Sincuvate
+19 - DDR XX/Small Steps
+19 - DDR XX/Sounds Of Summer
+19 - DDR XX/Sunshine Dance (Latino YOKAN-Mix)
+19 - DDR XX/Super Rush
+19 - DDR XX/THE SAFARI
+19 - DDR XX/TRICKERY (Hyper Mystic Mix)
+19 - DDR XX/TRIP MACHINE Rezonance
+19 - DDR XX/Take Me Away (2015 Remix)
+19 - DDR XX/Tesseract
+19 - DDR XX/Tokimoriuta
+19 - DDR XX/Tooi sekai no toki to sora
+19 - DDR XX/W-B-X ~W-Boiled Extreme~
+19 - DDR XX/WONDERLAND (20th Anniversary Mix)
+19 - DDR XX/Walking on the Moon
+19 - DDR XX/When You Are Away
+19 - DDR XX/White Eve
+19 - DDR XX/Wicked
+19 - DDR XX/Yum Yum Sweetie
+19 - DDR XX/Zettai ni Chocomint wo tabetai Aoi-chan
+19 - DDR XX/aleatrik
+19 - DDR XX/automne
+19 - DDR XX/extinguisher
+19 - DDR XX/fancy cake!!
+19 - DDR XX/forget me now
+19 - DDR XX/moon_child
+19 - DDR XX/neogenesis
+19 - DDR XX/not eternity
+19 - DDR XX/route 80s
+19 - DDR XX/symbolic
+19 - DDR XX/thunder
+19 - DDR XX/trendset
+---Dance Dance Revolution GB 1
+Dance Dance Revolution GB 1/BAD GIRLS
+Dance Dance Revolution GB 1/BOOM BOOM DOLLAR
+Dance Dance Revolution GB 1/EL RITMO TROPICAL
+Dance Dance Revolution GB 1/HAVE YOU NEVER BEEN MELLOW
+Dance Dance Revolution GB 1/LOVE
+Dance Dance Revolution GB 1/butterfly
+Dance Dance Revolution GB 1/butterfly (HARD )
+---MGD3
+MGD3/1995
+MGD3/A Little Piece of Heaven
+MGD3/All That You Are
+MGD3/All or Something
+MGD3/Angels
+MGD3/Another Truth
+MGD3/April
+MGD3/Artificial Intelligence Bomb
+MGD3/Atmosphere
+MGD3/Back On Track
+MGD3/Be With You
+MGD3/Beautiful World
+MGD3/Billowy Pillow
+MGD3/Black Flag
+MGD3/Blame the Moon (Remix)
+MGD3/Bowser
+MGD3/Brainstorm
+MGD3/Breakneck Bombing Run (3mix)
+MGD3/Brother Goes Away
+MGD3/Brother Madonna
+MGD3/Calculate
+MGD3/Calcutta
+MGD3/Caleb
+MGD3/Catstep (Vatstep DSP Remix)
+MGD3/Cenotaph
+MGD3/Chaos Theory
+MGD3/Check the Penis
+MGD3/Chik Habit
+MGD3/Chimpanzee Tank
+MGD3/Chromia Rain
+MGD3/Complecks Baby
+MGD3/Concept of Love (Concept of Passion Mix)
+MGD3/Crank That Slam
+MGD3/D.A.N.C.E
+MGD3/DJ Ludwig NES Supercorn
+MGD3/DVNO
+MGD3/Dawn
+MGD3/Deadbeat
+MGD3/Definition of a BadBoy (Renmix)
+MGD3/Destination Unknown
+MGD3/Detonated 2005
+MGD3/Do You Like Bass (Tha Playah Remix)
+MGD3/Don't Want This Night to End
+MGD3/Dreams (MGD3 Remix)
+MGD3/Dreamweaver
+MGD3/Dresden
+MGD3/Eat This
+MGD3/Emergency
+MGD3/Endorphin Machine
+MGD3/Epileptic Crisis
+MGD3/Evergreen
+MGD3/Exodus
+MGD3/Fear
+MGD3/Feel the Soul
+MGD3/Firebird
+MGD3/Flatline
+MGD3/Florida
+MGD3/For You
+MGD3/Foul Play in Fun Land
+MGD3/Fox on the Run
+MGD3/Freak on a Leash
+MGD3/Free Your Mind
+MGD3/Funky Rhyhtm
+MGD3/Gabba-Bond (Remix)
+MGD3/Get Down to the Drive
+MGD3/Girlfriend
+MGD3/Granite
+MGD3/Grazing Gazelle Under the Moon
+MGD3/Happy
+MGD3/Hardcore Hooligans
+MGD3/Harder, Better, Axle Grinder
+MGD3/Hatred
+MGD3/Helena
+MGD3/Help Me, Erin!!
+MGD3/Hexadecimal Genome
+MGD3/Homosexual Love Scene (Remix)
+MGD3/Hot
+MGD3/Humanoid (Remix Version)
+MGD3/I Can Walk on Water, I Can Fly
+MGD3/I Love (Orange Things)
+MGD3/I Love You Baby
+MGD3/I Prefer the Sky
+MGD3/I Think in a Minute or So I'll Explode
+MGD3/I'm Alive
+MGD3/In Stereo (Renard Glitch Step Remix)
+MGD3/Infinite Blue
+MGD3/Innocent
+MGD3/Insanitarium
+MGD3/Isabel
+MGD3/It's Not Over
+MGD3/It's a Dream
+MGD3/Jaianizumu Shika
+MGD3/Jetpack Cutie
+MGD3/Jump
+MGD3/Kick Some Funk
+MGD3/Kick it Complex
+MGD3/Kiranger
+MGD3/Last Moment on Earth
+MGD3/Lawn Wake IV
+MGD3/Let There Be Light
+MGD3/Liebe
+MGD3/Light House
+MGD3/Love & Sunshine (Delaction Remix)
+MGD3/Love is More (Rob Mayth Remix)
+MGD3/Love to Rise in the Summer Morning
+MGD3/MIDI Surf
+MGD3/Machucando
+MGD3/Make Me Bad
+MGD3/Makin' a Machine
+MGD3/Manner Des Westens
+MGD3/Masochist
+MGD3/Masodik Galamb
+MGD3/Moonglow
+MGD3/More Like You
+MGD3/My Precious
+MGD3/Naturally Stoned
+MGD3/Never Fall Asleep
+MGD3/Nitro Mantra
+MGD3/Nobody Likes the Records (Single Edit)
+MGD3/Nocturne
+MGD3/Now It's My Turn
+MGD3/Off With Her Head
+MGD3/Osiris
+MGD3/Our Furry Past Life
+MGD3/Our Turn
+MGD3/Passage d
+MGD3/Pictures (Paul Van Dyk Remix)
+MGD3/Radioactive Rats (GLaDOS Edit)
+MGD3/Rapture
+MGD3/Report to the Bassline
+MGD3/Revolution
+MGD3/Riders on the Storm (Remix)
+MGD3/Rock Me Amadeus
+MGD3/Rock You
+MGD3/Rottel-Da-Star
+MGD3/Rotterdam Nation
+MGD3/Rotterdom 94.5
+MGD3/Run!
+MGD3/Russian Roulette
+MGD3/Save Me
+MGD3/Sayonara
+MGD3/Scatman's World
+MGD3/See You On the Other Side
+MGD3/Self Esteem (Skazi + Irritante Remix)
+MGD3/Sensory Vision Pt. 2
+MGD3/Shakawkaw
+MGD3/Shining Stars
+MGD3/Silver Chariot
+MGD3/Snowride
+MGD3/Somnambulist
+MGD3/Special Place
+MGD3/Start Rocking
+MGD3/Steel Tough
+MGD3/Still Alive
+MGD3/Sunrise (Jackal Queenston Mix)
+MGD3/Supadupafly
+MGD3/Sweet Dreams
+MGD3/Szamar Madar
+MGD3/Taito No Suika
+MGD3/Teardrop
+MGD3/The April Sunshine Shed
+MGD3/The Beast and the Harlot
+MGD3/The Big Orange Love
+MGD3/The Call
+MGD3/The Gay Priest
+MGD3/The Moon Lights My Way
+MGD3/The Original You
+MGD3/The Other Side (MGD Edit)
+MGD3/The Question is What is the Question
+MGD3/The Vice
+MGD3/The View From Above
+MGD3/Thrillseekers
+MGD3/Tonight, Tonight
+MGD3/Tower of Science
+MGD3/Twist
+MGD3/Ultramania
+MGD3/Unbalanced
+MGD3/Venus Return
+MGD3/Vi Sitter I Ventrilo Och Spelar DotA
+MGD3/Vicious Delicious
+MGD3/Vienna Calling
+MGD3/Vision Quest
+MGD3/Wake Me Up in Heaven
+MGD3/Warehouse (CubeHard Remix)
+MGD3/Warp Trooper
+MGD3/Warpdrive From Planet Celba
+MGD3/Waters of Nazareth
+MGD3/What Do You Really Want
+MGD3/White & Black (Doe Remix)
+MGD3/Wicked MC
+MGD3/Worker Bees
+MGD3/World in Union
+MGD3/Yellow Brick
+MGD3/You Know Me
+---ex01
+ex01/1998
+ex01/BURNIN' THE FLOOR (MOMO MIX)
+ex01/CARTOON HEROES (Speedy Mix)
+ex01/CRASH!
+ex01/Dance Dance Revolution
+ex01/GRADUATION~SOREZORE NO ASHITA~
+ex01/HYPER EUROBEAT
+ex01/I DO I DO I DO
+ex01/IRRESISTIBLEMENT
+ex01/LA COPA DE LA VIDA
+ex01/LOVE LOVE SHINE
+ex01/MEMORIES
+ex01/PARANOiA survivor
+ex01/PARANOiA survivor MAX
+ex01/SENORITA(Speedy Mix)
+ex01/SPEED OVER BEETHOVEN
+ex01/TEARS
+ex01/The legend of MAX
+ex01/VANITY ANGEL
+ex01/WE ARE THE CHAMPIONS (Factory Team Remix)
+ex01/WE WILL ROCK YOU
+ex01/bag
+---ex02
+ex02/CAN'T STOP FALLIN' IN LOVE
+ex02/CELEBRATE NITE
+ex02/DROP OUT
+ex02/HYSTERIA
+ex02/PARANOiA EVOLUTION
+ex02/SEXY PLANET
+ex02/SKY HIGH [solo]
+ex02/SUPER STAR
+ex02/WILD RUSH
+---ex03
+ex03/20,November
+ex03/5.1.1
+ex03/Be in my paradise
+ex03/Dr.LOVE
+ex03/GENOM SCREAMS
+ex03/LUV TO ME (disco mix)
+ex03/R3
+ex03/e-motion
+ex03/jam jam reggae [club]
+ex03/ska a go go
+---ex04
+ex04/AFTER THE GAME OF LOVE
+ex04/AM-3P (303 BASSMIX)
+ex04/CUTIE CHASER
+ex04/CUTIE CHASER (Morning Mix)
+ex04/DIVE (more deep & deeper style)
+ex04/DROP THE BOMB
+ex04/DROP THE BOMB (System S.F. Mix)
+ex04/DYNAMITE RAVE (Down Bird SOTA Mix)
+ex04/Do It Right
+ex04/Do It Right (Harmonized 2Step Mix)
+ex04/Groove
+ex04/Groove 2001
+ex04/Healing Vision (Angelic mix)
+ex04/Kind Lady
+ex04/LOVE THIS FEELIN'
+ex04/La Senorita Virtual
+ex04/Let the beat hit em! (CLASSIC R&B STYLE)
+ex04/Look To The Sky
+ex04/Look To The Sky (True Color Mix)
+ex04/Midnite Blaze
+ex04/ON THE JAZZ
+ex04/ORION.78 (civilization mix)
+ex04/PARANOiA KCET (clean mix)
+ex04/Share My Love
+ex04/So In Love
+ex04/TRIP MACHINE (luvmix)
+ex04/think ya better D
+---ex05
+ex05/321 STARS
+ex05/BE LOVIN
+ex05/Miracle Moon ~L.E.D.LIGHT STYLE MIX~
+ex05/SANA MOLLETE NE ENTE
+ex05/air
+---ex06
+ex06/.59
+ex06/A
+ex06/ABSOLUTE
+ex06/AOI SHOUDOU(for EXTREME)
+ex06/Abyss
+ex06/Burning Heat! (3 Option Mix)
+ex06/Colors(for EXTREME)
+ex06/DXY!
+ex06/Don't Stop! (AMD 2nd MIX)
+ex06/Electro Tuned (the SubS mix)
+ex06/Happy Wedding
+ex06/Holic
+ex06/I Was The One
+ex06/L'amour et la liberte (DDR ver.)
+ex06/LEADING CYBER
+ex06/Last Message
+ex06/Mr.T. (take me higher)
+ex06/Sakura
+ex06/Spin the Disc
+ex06/V(for EXTREME)
+ex06/Xenon
+ex06/era (nostalmix)
+ex06/i feel
+ex06/stoic(EXTREME version)
+ex06/sync(EXTREME version)
+---ex07
+ex07/TwinBee ~Generation X~
+ex07/feeling of love
+---ex08
+ex08/Daikenkai
+ex08/LOVE LOVE SUGAR
+ex08/MAHOU NO TOBIRA (SUPEESU MAKO NO TEEMU)
+ex08/White Lovers
+---ex09
+ex09/Across the nightmare
+ex09/Destiny lovers
+ex09/I'm gonna get you!
+ex09/JET WORLD
+ex09/Mikeneko Rock
+ex09/The Least 100sec
+---ex10
+ex10/AFRONOVA PRIMEVAL
+ex10/BROKEN MY HEART
+ex10/Heaven is a '57 metallic gray (gimmix)
+ex10/JANEJANA
+ex10/KISS KISS KISS
+ex10/KISS ME ALL NIGHT LONG
+ex10/MOBO MOGA
+ex10/Matsuri JAPAN
+ex10/STAY (Organic house Version)
+---ex11
+ex11/Frozen Ray (for EXTREME)
+ex11/Pink Rose
+---ex12
+ex12/HOLD ON ME
+---ex13
+ex13/Gamelan de Couple
+ex13/LA BAMBA
+---ex14
+ex14/BUTTERFLY
+ex14/LET'S GET DOWN
+ex14/LITTLE BITCH
+ex14/MAKE IT BETTER
+ex14/PARANOiA
+ex14/TRIP MACHINE
+---ex15
+ex15/AM-3P
+ex15/BRILLIANT 2U
+ex15/BRILLIANT 2U (Orchestra Groove)
+ex15/EL RITMO TROPICAL
+ex15/GET UP'N MOVE
+ex15/I believe in miracles
+ex15/IF YOU WERE HERE
+ex15/KEEP ON MOVIN'
+ex15/PARANOiA MAX (DIRTY MIX)
+ex15/PUT YOUR FAITH IN ME
+ex15/SP-TRIP MACHINE (JUNGLE MIX)
+---ex16
+ex16/AFRONOVA
+ex16/CAPTAIN JACK (GRANDALE REMIX)
+ex16/DAM DARIRAM
+ex16/DEAD END
+ex16/DYNAMITE RAVE
+ex16/END OF THE CENTURY
+ex16/GRADIUSIC CYBER (AMD G5 MIX)
+ex16/Jam Jam Reggae [3rd]
+ex16/LUV TO ME (AMD MIX)
+ex16/La Senorita
+ex16/PARANOiA Rebirth
+ex16/Silent Hill
+ex16/gentle stress (AMD SEXUAL MIX)
+---ex17
+ex17/B4U
+ex17/BABY BABY GIMME YOUR LOVE
+ex17/BURNIN' THE FLOOR
+ex17/Higher
+ex17/LOVE AGAIN TONIGHT (For Melissa MIX)
+ex17/MY SUMMER LOVE
+ex17/ORION.78 (AMeuro-MIX)
+ex17/RHYTHM AND POLICE (K.O.G G3 Mix)
+ex17/SAINT GOES MARCHING (REMIX)
+ex17/SYNCHRONIZED LOVE (Red Monster Hyper Mix)
+ex17/TRIP MACHINE CLIMAX
+---ex18
+ex18/CAN'T STOP FALLIN' IN LOVE (SPEED MIX)
+ex18/ECSTASY
+ex18/Healing Vision
+ex18/INSERTiON
+ex18/PARANOiA ETERNAL [ex]
+ex18/Remember You
+ex18/STILL IN MY HEART
+---ex19
+ex19/CANDY [max]
+ex19/COW GIRL
+ex19/DO YOU REMEMBER ME
+ex19/FANTASY [max]
+ex19/FRECKLES-SOBAKASU (KCP Re-Edit)
+ex19/Firefly
+ex19/HIGHS OFF U (Scorccio XY Mix)
+ex19/I'M IN THE MOOD FOR DANCING
+ex19/LET'S GROOVE
+ex19/LOVIN' YOU (ROB SEARLE CLUB MIX)
+ex19/MAX 300
+ex19/MIRACLE
+ex19/MY SWEET DARLIN'
+ex19/NORI NORI NORI
+ex19/ORDINARY WORLD
+ex19/SO DEEP (PERFECT SPHERE REMIX)
+ex19/SOMEWHERE OVER THE RAINBOW
+ex19/TELEPHONE OPERATOR (Club MIX)
+ex19/TWILIGHT ZONE (R-C Extended Club MIX)
+ex19/The Centre Of The Heart (STONEBRIDGE CLUB MIX)
+ex19/WITCH DOCTOR (GIANTS TOONS VERSION)
+ex19/WWW.BLONDE GIRL (MOMO MIX)
+ex19/YOZORA NO MUKO
+ex19/exotic ethnic
+ex19/true... (radio edit)
+ex19/true... (trance sunrise mix)
+---ex20
+ex20/BREAK DOWN!
+ex20/CANDY [max2]
+ex20/D2R
+ex20/DESTINY
+ex20/DIVE TO THE NIGHT
+ex20/FANTASY [max2]
+ex20/IT'S RAINING MEN (Almighty Mix)
+ex20/Kakumei
+ex20/LITTLE BOY (BOY ON BOY MIX)
+ex20/LIVING IN AMERICA
+ex20/LONG TRAIN RUNNIN'
+ex20/MAXIMUM OVERDRIVE (KC Club Mix)
+ex20/MAXX UNLIMITED
+ex20/Secret Rendez-vous
+ex20/Sweet Sweet Love Magic
+ex20/THE REFLEX
+ex20/THERE YOU'LL BE
+ex20/TSUGARU
+ex20/WAKA LAKA
+ex20/ever snow
+ex20/rain of sorrow

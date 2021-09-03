@@ -1,36 +1,33 @@
 local counter = 0;
-local t = Def.ActorFrame{};
 
-t[#t+1] = Def.ActorFrame {
-	Def.ActorFrame{
-		LoadActor("../ScreenWithMenuElements background/DDR X3.avi")..{
-			InitCommand=cmd(Center;setsize,1280,720);
-		};
-	};
-};
-
-t[#t+1] = Def.ActorFrame{
-  InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y-60);
-  LoadActor("logo back");
+return Def.ActorFrame{
+  loadfile(THEME:GetPathB("ScreenWithMenuElements","background"))();
   Def.ActorFrame{
-    LoadActor("X3")..{
-      InitCommand=cmd(x,-224;y,-10);
+    Name="Logo Area",
+    InitCommand=function(s) s:xy(_screen.cx,_screen.cy-60) end,
+    Def.Sprite{
+      Texture="logo back",
     };
-    LoadActor("2ndMIX")..{
-      InitCommand=cmd(x,310;y,102);
+    Def.Sprite{
+      Texture="X3",
+      InitCommand=function(s) s:xy(-224,-10) end,
     };
-    LoadActor("VS")..{
-      InitCommand=cmd(x,132;y,-28);
+    Def.Sprite{
+      Texture="2ndMIX",
+      InitCommand=function(s) s:xy(310,102) end,
     };
-    LoadActor("logo glow")..{
-      OnCommand=cmd(diffusealpha,0;playcommand,"Animate");
-      AnimateCommand=cmd(sleep,0.5;linear,1;blend,'BlendMode_Add';diffusealpha,0.25;linear,1;diffusealpha,0;queuecommand,"Animate");
+    Def.Sprite{
+      Texture="VS",
+      InitCommand=function(s) s:xy(132,-28) end,
+    };
+    Def.Sprite{
+      Texture="logo glow",
+      InitCommand=function(s) s:diffusealpha(0):playcommand("Animate") end,
+      AnimateCommand=function(s) s:sleep(0.5):linear(1):blend(Blend.Add):diffusealpha(0.25):linear(1):diffusealpha(0):queuecommand("Animate") end,
     };
   };
-};
-
-t[#t+1] = LoadActor("copyright")..{
-  InitCommand=cmd(x,SCREEN_CENTER_X+8;y,SCREEN_BOTTOM-48);
-};
-
-return t;
+  Def.Sprite{
+    Texture="copyright",
+    InitCommand=function(s) s:xy(_screen.cx+8,SCREEN_BOTTOM-48) end,
+  },
+}
